@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TTRPG_Organizer.iml" filepath="$PROJECT_DIR$/.idea/TTRPG_Organizer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ROLLapp.iml" filepath="$PROJECT_DIR$/.idea/modules/ROLLapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ROLLapp.app.unitTest.iml" />
     </modules>
   </component>
 </project>
