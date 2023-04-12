@@ -12,9 +12,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 
+import javax.crypto.spec.PBEKeySpec;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+
 
 public class rejestracja extends AppCompatActivity {
 
