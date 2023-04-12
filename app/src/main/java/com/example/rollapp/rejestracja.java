@@ -3,12 +3,19 @@ package com.example.rollapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Range;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class rejestracja extends AppCompatActivity {
 
@@ -20,6 +27,9 @@ public class rejestracja extends AppCompatActivity {
     private EditText email;
     Button rejestracja;
 
+    private String passworhash;
+
+    private baza myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +38,20 @@ public class rejestracja extends AppCompatActivity {
         Toast.makeText(rejestracja.this, "W formularzu należy uzupełnić wszystkie pola!!!",Toast.LENGTH_LONG).show();
         rejestracja=findViewById(R.id.rejestracja);
 
+        imie=findViewById(R.id.imie);
+        nazwisko=findViewById(R.id.nazwisko);
+        nick=findViewById(R.id.login);
+        haslo1=findViewById(R.id.haslo1);
+        haslo2=findViewById(R.id.haslo2);
+        email=findViewById(R.id.email);
+
+        baza myDB = new baza(rejestracja.this);
+
         rejestracja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imie=findViewById(R.id.imie);
-                nazwisko=findViewById(R.id.nazwisko);
-                nick=findViewById(R.id.login);
-                haslo1=findViewById(R.id.haslo1);
-                haslo2=findViewById(R.id.haslo2);
-                email=findViewById(R.id.email);
+
+
 
                 if(imie.getText().toString().equals("") || nazwisko.getText().toString().equals("") || nick.getText().toString().equals("") || haslo1.getText().toString().equals("") || haslo2.getText().toString().equals("") || email.getText().toString().equals("") )
                 {
@@ -44,30 +59,60 @@ public class rejestracja extends AppCompatActivity {
                 }
                 else
                 {
-                    if(haslo1.getText().toString().equals(haslo2.getText().toString()))
+                    if(5>nick.getText().toString().length() || 15<nick.getText().toString().length())
                     {
-                        if(imie.getText().toString().contains("0") || imie.getText().toString().contains("1") || imie.getText().toString().contains("2") || imie.getText().toString().contains("3") || imie.getText().toString().contains("4") || imie.getText().toString().contains("5") || imie.getText().toString().contains("6") || imie.getText().toString().contains("7") || imie.getText().toString().contains("8") || imie.getText().toString().contains("9"))
-                        {
-                            Toast.makeText(rejestracja.this, "Imię nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            if (nazwisko.getText().toString().contains("0") || nazwisko.getText().toString().contains("1") || nazwisko.getText().toString().contains("2") || nazwisko.getText().toString().contains("3") || nazwisko.getText().toString().contains("4") || nazwisko.getText().toString().contains("5") || nazwisko.getText().toString().contains("6") || nazwisko.getText().toString().contains("7") || nazwisko.getText().toString().contains("8") || nazwisko.getText().toString().contains("9") )
-                            {
-                                Toast.makeText(rejestracja.this, "Nazwisko nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
-                            }
-                            else
-                            {
-                                if(!email.getText().toString().contains("@") || !email.getText().toString().contains(".") || !email.getText().toString().contains(".") || !email.getText().toString().contains("."))
-                                {
-                                    Toast.makeText(rejestracja.this, "Podany e-mail jest niepoprawny !!!",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
+                        Toast.makeText(rejestracja.this, "Nick jest zbyt krótki bądź długi. Nick powinien składać się od 5 do 15 znaków !!!",Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        Toast.makeText(rejestracja.this, "Podane hasła są różne!!!",Toast.LENGTH_SHORT).show();
+                        if (myDB.login(nick.getText().toString()) == 0)
+                        {
+                            Toast.makeText(rejestracja.this, "Taki nick jest już w użyciu !!!",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            if(haslo1.getText().toString().equals(haslo2.getText().toString()))
+                            {
+                                if(5>haslo1.getText().toString().length() || 15<haslo1.getText().toString().length())
+                                {
+                                    Toast.makeText(rejestracja.this, "Hasło jest zbyt krótkie bądź długie. Hasło powinno składać się od 5 do 15 znaków !!!",Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    if(imie.getText().toString().contains("0") || imie.getText().toString().contains("1") || imie.getText().toString().contains("2") || imie.getText().toString().contains("3") || imie.getText().toString().contains("4") || imie.getText().toString().contains("5") || imie.getText().toString().contains("6") || imie.getText().toString().contains("7") || imie.getText().toString().contains("8") || imie.getText().toString().contains("9"))
+                                    {
+                                        Toast.makeText(rejestracja.this, "Imię nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        if (nazwisko.getText().toString().contains("0") || nazwisko.getText().toString().contains("1") || nazwisko.getText().toString().contains("2") || nazwisko.getText().toString().contains("3") || nazwisko.getText().toString().contains("4") || nazwisko.getText().toString().contains("5") || nazwisko.getText().toString().contains("6") || nazwisko.getText().toString().contains("7") || nazwisko.getText().toString().contains("8") || nazwisko.getText().toString().contains("9") )
+                                        {
+                                            Toast.makeText(rejestracja.this, "Nazwisko nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
+                                        }
+                                        else
+                                        {
+                                            if(!email.getText().toString().contains("@") || !email.getText().toString().contains(".") || !email.getText().toString().contains(".") || !email.getText().toString().contains("."))
+                                            {
+                                                Toast.makeText(rejestracja.this, "Podany e-mail jest niepoprawny !!!",Toast.LENGTH_SHORT).show();
+                                            }
+                                            else
+                                            {
+                                                passworhash = BCrypt.withDefaults().hashToString(12,haslo1.getText().toString().toCharArray());
+                                                myDB.addUser(imie.getText().toString().trim(),
+                                                        nazwisko.getText().toString().trim(),
+                                                        nick.getText().toString().trim(),
+                                                        passworhash.trim(),
+                                                        email.getText().toString().trim());
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Toast.makeText(rejestracja.this, "Podane hasła są różne!!!",Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
                 }
             }
