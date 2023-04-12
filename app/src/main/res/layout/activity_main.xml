@@ -52,7 +52,6 @@
         android:id="@+id/registerbutton"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:background="#7F0000"
         android:text="Zarejestruj"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
