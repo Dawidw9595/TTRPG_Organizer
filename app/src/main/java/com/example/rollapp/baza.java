@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -50,6 +51,8 @@ public class baza extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
+
     void addUser(String IMIE , String NAZWISKO , String NICK , String HASLO , String EMAIL)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -69,6 +72,8 @@ public class baza extends SQLiteOpenHelper {
         {
             Toast.makeText(context,"Urzytkownik został dodany poprawanie!!!",Toast.LENGTH_SHORT).show();
         }
+
+        db.close();
     }
     int login(String nick)
     {
@@ -82,15 +87,18 @@ public class baza extends SQLiteOpenHelper {
             c=db.rawQuery(query,null);
             if(c.moveToFirst())
             {
+                db.close();
                 return 1;
             }
             else
             {
+                db.close();
                 return 0;
             }
         }
         else
         {
+            db.close();
             return 0;
         }
     }
@@ -106,16 +114,33 @@ public class baza extends SQLiteOpenHelper {
             c=db.rawQuery(query,null);
             if(c.moveToFirst())
             {
+                db.close();
                 return 1;
             }
             else
             {
+                db.close();
                 return 0;
             }
         }
         else
         {
+            db.close();
             return 0;
         }
+    }
+
+    String haslo(String nick) {
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_USER + "='" + nick + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor mycursor=null;
+        if(db != null)
+        {
+            mycursor = db.rawQuery(query,null);
+            mycursor.moveToFirst();
+        }
+        db.close();
+        return String.valueOf(mycursor.getString(4));
     }
 }
