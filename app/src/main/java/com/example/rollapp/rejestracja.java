@@ -65,7 +65,7 @@ public class rejestracja extends AppCompatActivity {
                     }
                     else
                     {
-                        if (myDB.login(nick.getText().toString()) == 0)
+                        if (1 == myDB.login(nick.getText().toString().trim()))
                         {
                             Toast.makeText(rejestracja.this, "Taki nick jest już w użyciu !!!",Toast.LENGTH_SHORT).show();
                         }
@@ -97,12 +97,21 @@ public class rejestracja extends AppCompatActivity {
                                             }
                                             else
                                             {
-                                                passworhash = BCrypt.withDefaults().hashToString(12,haslo1.getText().toString().toCharArray());
-                                                myDB.addUser(imie.getText().toString().trim(),
-                                                        nazwisko.getText().toString().trim(),
-                                                        nick.getText().toString().trim(),
-                                                        passworhash.trim(),
-                                                        email.getText().toString().trim());
+                                                if(1 == myDB.mail(email.getText().toString().trim()))
+                                                {
+                                                    Toast.makeText(rejestracja.this, "Podany e-mail jest już w użyciu !!!",Toast.LENGTH_SHORT).show();
+                                                }
+                                                else
+                                                {
+                                                    passworhash = BCrypt.withDefaults().hashToString(12,haslo1.getText().toString().toCharArray());
+                                                    myDB.addUser(imie.getText().toString().trim(),
+                                                            nazwisko.getText().toString().trim(),
+                                                            nick.getText().toString().trim(),
+                                                            passworhash.trim(),
+                                                            email.getText().toString().trim());
+                                                    Intent intent=new Intent(rejestracja.this,MainActivity.class);
+                                                    startActivity(intent);
+                                                }
                                             }
                                         }
                                     }

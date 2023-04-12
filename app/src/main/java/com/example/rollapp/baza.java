@@ -70,20 +70,52 @@ public class baza extends SQLiteOpenHelper {
             Toast.makeText(context,"Urzytkownik został dodany poprawanie!!!",Toast.LENGTH_SHORT).show();
         }
     }
-    int login( String nick)
+    int login(String nick)
     {
-        String query = "SELECT COUNT(*) FROM " + TABLE_NAME +  " WHERE " + COLUMN_USER + "='" + nick + "'";
+        String query = "SELECT " + COLUMN_USER + " FROM " + TABLE_NAME +  " WHERE " + COLUMN_USER + "='" + nick + "'";
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
 
-        c=db.rawQuery(query,null);
-        if(c.moveToFirst())
+        Cursor c=null;
+
+        if(db != null)
         {
-            return 0;
+            c=db.rawQuery(query,null);
+            if(c.moveToFirst())
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         else
         {
-            return 1;
+            return 0;
+        }
+    }
+
+    int mail(String mail)
+    {
+        String query = "SELECT " + COLUMN_E_MAIL + " FROM " + TABLE_NAME +  " WHERE " + COLUMN_E_MAIL + "='" + mail + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c=null;
+        if(db != null)
+        {
+            c=db.rawQuery(query,null);
+            if(c.moveToFirst())
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
         }
     }
 }
