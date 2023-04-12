@@ -1,8 +1,10 @@
 package com.example.rollapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -32,7 +34,7 @@ public class baza extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query= "CREATE TABLE " + TABLE_NAME +
-                        " (" + COLUMN_ID + " INTIGER PRIMARY KEY AUTOINCREMENT, " +
+                        " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN_NAME + " TEXT, " +
                         COLUMN_SURNAME + " TEXT, " +
                         COLUMN_USER + " TEXT, " +
@@ -46,4 +48,24 @@ public class baza extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-}
+
+    void addUser(String IMIE , String NAZWISKO , String NICK , String HASLO , String EMAIL)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues co = new ContentValues();
+
+        co.put(COLUMN_NAME, IMIE);
+        co.put(COLUMN_SURNAME, NAZWISKO);
+        co.put(COLUMN_USER, NICK);
+        co.put(COLUMN_PASSWORD, HASLO);
+        co.put(COLUMN_E_MAIL, EMAIL);
+        long wynik=db.insert(TABLE_NAME,null,co);
+        if(wynik == -1)
+        {
+            Toast.makeText(context,"Wystąpił błąd!!!",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(context,"Urzytkownik został dodany poprawanie!!!",Toast.LENGTH_SHORT).show();
+        }
+    }}
