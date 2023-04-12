@@ -12,10 +12,16 @@
         android:theme="@style/Theme.ROLLapp"
         tools:targetApi="31">
         <activity
+            android:name=".nologin"
+            android:exported="false"
+            android:label="Bez Logowania"
+            />
+
+        <activity
             android:name=".rejestracja"
-            android:parentActivityName=".MainActivity"
+            android:exported="false"
             android:label="Rejestracja"
-            android:exported="false" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

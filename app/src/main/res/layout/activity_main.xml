@@ -61,7 +61,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/nologinbutton"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="Wejdź bez logowania"
