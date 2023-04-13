@@ -56,23 +56,29 @@ public class MainActivity extends AppCompatActivity {
                 String nazwa=login.getText().toString();
                 String haslohash=haslo.getText().toString();
 
-                if(nazwa.isEmpty() || haslohash.isEmpty())
+                if(nazwa.isEmpty())
                 {
-                    Toast.makeText(MainActivity.this, "Nick lub Hasło nie zostały uzupełnione!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Login nie został podany", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    if(0 == myDB.login(nazwa.trim()))
+                    if(haslohash.isEmpty())
                     {
-                        Toast.makeText(MainActivity.this, "Nie ma takiego użytkownika w bazie !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Hasło nie zostało podane", Toast.LENGTH_SHORT).show();
                     }
                     else
+                    if(0 == myDB.login(nazwa.trim()))
                     {
+                        Toast.makeText(MainActivity.this, "Użytkownik o podanym loginie nie istnieje", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                   {
 
                         BCrypt.Result wynik = BCrypt.verifyer().verify(haslohash.toCharArray(),String.valueOf(myDB.haslo(nazwa.trim())));
                         if(wynik.verified)
                         {
-                            Toast.makeText(MainActivity.this,"Zostałeś zalogowany !!!",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this,stronaglowna.class);
+                            startActivity(intent);
                         }
                         else
                         {
