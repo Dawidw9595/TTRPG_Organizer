@@ -73,19 +73,6 @@ public class baza extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addAdm(String ADM_EMAIL, String ADM_PASSWD)
-    {
-        ADM_EMAIL = "qwert@qwert.com";
-        ADM_PASSWD = "qwert";
-        SQLiteDatabase db = this.getReadableDatabase();
-        ContentValues adm = new ContentValues();
-
-        adm.put(ADMIN_E_MAIL, ADM_EMAIL );
-        adm.put(ADMIN_PASSWORD, ADM_PASSWD);
-
-        long dod=db.insert(TABLE_ADMIN, null, adm);
-
-    }
     void addUser(String IMIE , String NAZWISKO , String NICK , String HASLO , String EMAIL)
     {
         SQLiteDatabase db = this.getWritableDatabase();

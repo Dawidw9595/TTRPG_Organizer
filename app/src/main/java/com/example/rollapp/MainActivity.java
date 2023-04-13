@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button rejestracja;
     Button nologin;
 
+    Button button;
     Button loginbtn;
 
     private baza myDB;

@@ -55,51 +55,51 @@ public class rejestracja extends AppCompatActivity {
 
                 if(imie.getText().toString().equals("") || nazwisko.getText().toString().equals("") || nick.getText().toString().equals("") || haslo1.getText().toString().equals("") || haslo2.getText().toString().equals("") || email.getText().toString().equals("") )
                 {
-                    Toast.makeText(rejestracja.this, "Nie uzupełniono któregoś z pól !!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(rejestracja.this, "Nie uzupełniono któregoś z pól",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     if(5>nick.getText().toString().length() || 15<nick.getText().toString().length())
                     {
-                        Toast.makeText(rejestracja.this, "Nick jest zbyt krótki bądź długi. Nick powinien składać się od 5 do 15 znaków !!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(rejestracja.this, "Login powinien zawierać od 5 do 15 znaków ",Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
                         if (1 == myDB.login(nick.getText().toString().trim()))
                         {
-                            Toast.makeText(rejestracja.this, "Taki nick jest już w użyciu !!!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(rejestracja.this, "Podany Login jest już zajęty",Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
                             if(haslo1.getText().toString().equals(haslo2.getText().toString()))
                             {
-                                if(5>haslo1.getText().toString().length() || 15<haslo1.getText().toString().length())
+                                if(5>haslo1.getText().toString().length())
                                 {
-                                    Toast.makeText(rejestracja.this, "Hasło jest zbyt krótkie bądź długie. Hasło powinno składać się od 5 do 15 znaków !!!",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(rejestracja.this, "Hasło powinno zawierać przynajmniej 5 znaków",Toast.LENGTH_SHORT).show();
                                 }
                                 else
                                 {
                                     if(imie.getText().toString().contains("0") || imie.getText().toString().contains("1") || imie.getText().toString().contains("2") || imie.getText().toString().contains("3") || imie.getText().toString().contains("4") || imie.getText().toString().contains("5") || imie.getText().toString().contains("6") || imie.getText().toString().contains("7") || imie.getText().toString().contains("8") || imie.getText().toString().contains("9"))
                                     {
-                                        Toast.makeText(rejestracja.this, "Imię nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(rejestracja.this, "Imię nie może zawierać cyfr",Toast.LENGTH_SHORT).show();
                                     }
                                     else
                                     {
                                         if (nazwisko.getText().toString().contains("0") || nazwisko.getText().toString().contains("1") || nazwisko.getText().toString().contains("2") || nazwisko.getText().toString().contains("3") || nazwisko.getText().toString().contains("4") || nazwisko.getText().toString().contains("5") || nazwisko.getText().toString().contains("6") || nazwisko.getText().toString().contains("7") || nazwisko.getText().toString().contains("8") || nazwisko.getText().toString().contains("9") )
                                         {
-                                            Toast.makeText(rejestracja.this, "Nazwisko nie może zawierać cyfr !!!",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(rejestracja.this, "Nazwisko nie może zawierać cyfr",Toast.LENGTH_SHORT).show();
                                         }
                                         else
                                         {
                                             if(!email.getText().toString().contains("@") || !email.getText().toString().contains(".") || !email.getText().toString().contains(".") || !email.getText().toString().contains("."))
                                             {
-                                                Toast.makeText(rejestracja.this, "Podany e-mail jest niepoprawny !!!",Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(rejestracja.this, "Podany e-mail jest niepoprawny",Toast.LENGTH_SHORT).show();
                                             }
                                             else
                                             {
                                                 if(1 == myDB.mail(email.getText().toString().trim()))
                                                 {
-                                                    Toast.makeText(rejestracja.this, "Podany e-mail jest już w użyciu !!!",Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(rejestracja.this, "Użytkownik o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
                                                 }
                                                 else
                                                 {
@@ -119,7 +119,7 @@ public class rejestracja extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(rejestracja.this, "Podane hasła są różne!!!",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(rejestracja.this, "Podane hasła są różne",Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
