@@ -35,7 +35,7 @@ public class rejestracja extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rejestracja);
-        Toast.makeText(rejestracja.this, "W formularzu należy uzupełnić wszystkie pola!!!",Toast.LENGTH_LONG).show();
+        Toast.makeText(rejestracja.this, "Wszystkie pola są wymagane",Toast.LENGTH_LONG).show();
         rejestracja=findViewById(R.id.rejestracja);
 
         imie=findViewById(R.id.imie);

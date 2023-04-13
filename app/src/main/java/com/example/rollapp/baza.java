@@ -26,11 +26,23 @@ public class baza extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "haslo";
     private static final String COLUMN_E_MAIL = "email";
 
+    private static final String TABLE_ADMIN = "administrator";
+
+    private static final String ADMIN_ID = "_id";
+
+    private static final String ADMIN_E_MAIL = "email";
+
+    private static final String ADMIN_PASSWORD= "haslo";
+
+
+
+
 
 
     public baza(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context=context;
+
     }
 
     @Override
@@ -43,16 +55,37 @@ public class baza extends SQLiteOpenHelper {
                         COLUMN_PASSWORD + " TEXT, " +
                         COLUMN_E_MAIL + " TEXT );";
         db.execSQL(query);
+
+        String query2= "CREATE TABLE " + TABLE_ADMIN +
+                " (" + ADMIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ADMIN_E_MAIL+ " TEXT, " +
+                ADMIN_PASSWORD  + " TEXT );";
+        db.execSQL(query2);
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
+        onCreate(db);
     }
 
+    void addAdm(String ADM_EMAIL, String ADM_PASSWD)
+    {
+        ADM_EMAIL = "qwert@qwert.com";
+        ADM_PASSWD = "qwert";
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues adm = new ContentValues();
 
+        adm.put(ADMIN_E_MAIL, ADM_EMAIL );
+        adm.put(ADMIN_PASSWORD, ADM_PASSWD);
 
+        long dod=db.insert(TABLE_ADMIN, null, adm);
+
+    }
     void addUser(String IMIE , String NAZWISKO , String NICK , String HASLO , String EMAIL)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -66,11 +99,11 @@ public class baza extends SQLiteOpenHelper {
         long wynik=db.insert(TABLE_NAME,null,co);
         if(wynik == -1)
         {
-            Toast.makeText(context,"Wystąpił błąd!!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Wystąpił błąd",Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(context,"Urzytkownik został dodany poprawanie!!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Urzytkownik został dodany poprawanie",Toast.LENGTH_SHORT).show();
         }
 
         db.close();
