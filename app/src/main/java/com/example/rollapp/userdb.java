@@ -16,7 +16,7 @@ public class userdb extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_NAME = "uzytkownik";
-    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_ID = "id";
 
     private static final String COLUMN_NAME = "imie";
 

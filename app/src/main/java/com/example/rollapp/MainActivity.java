@@ -38,14 +38,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         test=findViewById(R.id.button);
-        admindb admDB = new admindb(MainActivity.this);
 
-        String eemail = "Admin@Admin.pl";
-        String haslllo = "admin";
+        postacdb pdb = new postacdb(MainActivity.this);
+
+        String nazwa = "Wiedzmin";
+        Integer gracz = 1;
+        Integer gra = 1;
+
+
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                admDB.addADM(eemail, haslllo);
+                pdb.addp(nazwa,gracz,gra);
             }
         });
 
