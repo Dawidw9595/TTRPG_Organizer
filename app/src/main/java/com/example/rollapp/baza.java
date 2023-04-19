@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -25,11 +26,23 @@ public class baza extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "haslo";
     private static final String COLUMN_E_MAIL = "email";
 
+    private static final String TABLE_ADMIN = "administrator";
+
+    private static final String ADMIN_ID = "_id";
+
+    private static final String ADMIN_E_MAIL = "email";
+
+    private static final String ADMIN_PASSWORD= "haslo";
+
+
+
+
 
 
     public baza(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context=context;
+
     }
 
     @Override
@@ -42,11 +55,21 @@ public class baza extends SQLiteOpenHelper {
                         COLUMN_PASSWORD + " TEXT, " +
                         COLUMN_E_MAIL + " TEXT );";
         db.execSQL(query);
+
+        String query2= "CREATE TABLE " + TABLE_ADMIN +
+                " (" + ADMIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ADMIN_E_MAIL+ " TEXT, " +
+                ADMIN_PASSWORD  + " TEXT );";
+        db.execSQL(query2);
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
         onCreate(db);
     }
 
@@ -63,27 +86,81 @@ public class baza extends SQLiteOpenHelper {
         long wynik=db.insert(TABLE_NAME,null,co);
         if(wynik == -1)
         {
-            Toast.makeText(context,"Wystąpił błąd!!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Wystąpił błąd",Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(context,"Urzytkownik został dodany poprawanie!!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Urzytkownik został dodany poprawanie",Toast.LENGTH_SHORT).show();
         }
-    }
-    int login( String nick)
-    {
-        String query = "SELECT COUNT(*) FROM " + TABLE_NAME +  " WHERE " + COLUMN_USER + "='" + nick + "'";
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
 
-        c=db.rawQuery(query,null);
-        if(c.moveToFirst())
+        db.close();
+    }
+    int login(String nick)
+    {
+        String query = "SELECT " + COLUMN_USER + " FROM " + TABLE_NAME +  " WHERE " + COLUMN_USER + "='" + nick + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c=null;
+
+        if(db != null)
         {
+            c=db.rawQuery(query,null);
+            if(c.moveToFirst())
+            {
+                db.close();
+                return 1;
+            }
+            else
+            {
+                db.close();
+                return 0;
+            }
+        }
+        else
+        {
+            db.close();
             return 0;
         }
+    }
+
+    int mail(String mail)
+    {
+        String query = "SELECT " + COLUMN_E_MAIL + " FROM " + TABLE_NAME +  " WHERE " + COLUMN_E_MAIL + "='" + mail + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c=null;
+        if(db != null)
+        {
+            c=db.rawQuery(query,null);
+            if(c.moveToFirst())
+            {
+                db.close();
+                return 1;
+            }
+            else
+            {
+                db.close();
+                return 0;
+            }
+        }
         else
         {
-            return 1;
+            db.close();
+            return 0;
         }
+    }
+
+    String haslo(String nick) {
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_USER + "='" + nick + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor mycursor=null;
+        if(db != null)
+        {
+            mycursor = db.rawQuery(query,null);
+            mycursor.moveToFirst();
+        }
+        db.close();
+        return String.valueOf(mycursor.getString(4));
     }
 }
