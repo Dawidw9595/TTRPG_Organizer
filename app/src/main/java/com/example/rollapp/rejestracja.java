@@ -1,5 +1,6 @@
 package com.example.rollapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class rejestracja extends AppCompatActivity {
 
     private String passworhash;
 
-    private baza myDB;
+    private userdb myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,8 @@ public class rejestracja extends AppCompatActivity {
         haslo2=findViewById(R.id.haslo2);
         email=findViewById(R.id.email);
 
-        baza myDB = new baza(rejestracja.this);
+        userdb myDB = new userdb(rejestracja.this);
+
 
         rejestracja.setOnClickListener(new View.OnClickListener() {
             @Override

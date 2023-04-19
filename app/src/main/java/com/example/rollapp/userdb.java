@@ -5,12 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class baza extends SQLiteOpenHelper {
+public class userdb extends SQLiteOpenHelper {
 
     private Context context;
     private static final String DATABASE_NAME = "TTRPG";
@@ -26,20 +25,14 @@ public class baza extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "haslo";
     private static final String COLUMN_E_MAIL = "email";
 
-    private static final String TABLE_ADMIN = "administrator";
-
-    private static final String ADMIN_ID = "_id";
-
-    private static final String ADMIN_E_MAIL = "email";
-
-    private static final String ADMIN_PASSWORD= "haslo";
 
 
 
 
 
 
-    public baza(@Nullable Context context) {
+
+    public userdb(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context=context;
 
@@ -47,31 +40,27 @@ public class baza extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query= "CREATE TABLE " + TABLE_NAME +
-                        " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        COLUMN_NAME + " TEXT, " +
-                        COLUMN_SURNAME + " TEXT, " +
-                        COLUMN_USER + " TEXT, " +
-                        COLUMN_PASSWORD + " TEXT, " +
-                        COLUMN_E_MAIL + " TEXT );";
+        String query = "CREATE TABLE " + TABLE_NAME +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NAME + " TEXT, " +
+                COLUMN_SURNAME + " TEXT, " +
+                COLUMN_USER + " TEXT, " +
+                COLUMN_PASSWORD + " TEXT, " +
+                COLUMN_E_MAIL + " TEXT );";
         db.execSQL(query);
-
-        String query2= "CREATE TABLE " + TABLE_ADMIN +
-                " (" + ADMIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                ADMIN_E_MAIL+ " TEXT, " +
-                ADMIN_PASSWORD  + " TEXT );";
-        db.execSQL(query2);
-
-
     }
+
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN);
-        onCreate(db);
+
     }
+
+
 
     void addUser(String IMIE , String NAZWISKO , String NICK , String HASLO , String EMAIL)
     {

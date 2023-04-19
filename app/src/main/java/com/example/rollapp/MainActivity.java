@@ -1,14 +1,13 @@
 package com.example.rollapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
@@ -16,11 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     Button rejestracja;
     Button nologin;
-
+    Button test;
     Button button;
     Button loginbtn;
 
-    private baza myDB;
+    private userdb myDB;
     private EditText login;
 
     private EditText haslo;
@@ -38,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        test=findViewById(R.id.button);
+        admindb admDB = new admindb(MainActivity.this);
+
+        String eemail = "Admin@Admin.pl";
+        String haslllo = "admin";
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                admDB.addADM(eemail, haslllo);
+            }
+        });
 
         nologin=findViewById(R.id.nologinbutton);
                 nologin.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                baza myDB = new baza(MainActivity.this);
+                userdb myDB = new userdb(MainActivity.this);
                 String nazwa=login.getText().toString();
                 String haslohash=haslo.getText().toString();
 
@@ -83,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this,"Hasło jest niepoprawne !!!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Hasło jest niepoprawne",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
