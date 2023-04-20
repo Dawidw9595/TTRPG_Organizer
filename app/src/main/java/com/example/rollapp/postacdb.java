@@ -21,6 +21,8 @@ public class postacdb extends SQLiteOpenHelper {
     private static final String COLUMN_PLAYER_ID = "id_gracz";
     private static final String COLUMN_GAME_ID = "id_gra";
 
+    private static final String COLUMN_CART_ID = "id_karta";
+
 
 
 
@@ -37,10 +39,15 @@ public class postacdb extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL UNIQUE, " +
-                COLUMN_CH_NAME + " TEXT  NOT NULL, " + " FK_" +
-                COLUMN_PLAYER_ID + "INTEGER, FOREIGN KEY('"+ COLUMN_PLAYER_ID +"') REFERENCES " + " uzytkownik('id'), " + " FK_" +
-                COLUMN_GAME_ID + " INTEGER, FOREIGN KEY('"+ COLUMN_GAME_ID +"') REFERENCES " + " gra('id') " +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_CH_NAME + " TEXT," +
+                COLUMN_PLAYER_ID + " INTEGER,"+
+                COLUMN_GAME_ID + " INTEGER,"+
+                COLUMN_CART_ID + " INTEGER,"+
+
+                " FOREIGN KEY('"+ COLUMN_PLAYER_ID +"') REFERENCES " + " uzytkownik('id'), " +
+                "FOREIGN KEY('"+ COLUMN_GAME_ID +"') REFERENCES " + " gra('id'), " +
+                "FOREIGN KEY('"+ COLUMN_CART_ID +"') REFERENCES " + " karta('id') " +
 
                 ");";
         db.execSQL(query);
