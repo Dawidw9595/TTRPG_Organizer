@@ -16,10 +16,10 @@ public class postacdb extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "postac";
     private static final String COLUMN_ID = "id";
 
-    private static final String COLUMN_CHNAME = "nazwapostaci";
 
-    private static final String COLUMN_PLAYERID = "id_gracz";
-    private static final String COLUMN_GAMEID = "id_gra";
+    private static final String COLUMN_CH_NAME = "nazwapostaci";
+    private static final String COLUMN_PLAYER_ID = "id_gracz";
+    private static final String COLUMN_GAME_ID = "id_gra";
 
 
 
@@ -37,10 +37,10 @@ public class postacdb extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
-                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_CHNAME + " TEXT, " +
-                COLUMN_PLAYERID + " INTEGER, FOREIGN KEY('"+ COLUMN_PLAYERID +"') REFERENCES " + " uzytkownik('id'), " +
-                COLUMN_GAMEID + " INTEGER, FOREIGN KEY('"+ COLUMN_GAMEID +"') REFERENCES " + " gra('id')" +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL UNIQUE, " +
+                COLUMN_CH_NAME + " TEXT  NOT NULL, " + " FK_" +
+                COLUMN_PLAYER_ID + "INTEGER, FOREIGN KEY('"+ COLUMN_PLAYER_ID +"') REFERENCES " + " uzytkownik('id'), " + " FK_" +
+                COLUMN_GAME_ID + " INTEGER, FOREIGN KEY('"+ COLUMN_GAME_ID +"') REFERENCES " + " gra('id') " +
 
                 ");";
         db.execSQL(query);
@@ -61,9 +61,9 @@ public class postacdb extends SQLiteOpenHelper {
         ContentValues co = new ContentValues();
 
 
-        co.put(COLUMN_CHNAME, NAZWA);
-        co.put(COLUMN_PLAYERID, POSTAC);
-        co.put(COLUMN_GAMEID, GRA);
+        co.put(COLUMN_CH_NAME, NAZWA);
+        co.put(COLUMN_PLAYER_ID, POSTAC);
+        co.put(COLUMN_GAME_ID, GRA);
 
         db.insert(TABLE_NAME,null, co);
         Toast.makeText(context,"Dodano POSTAC",Toast.LENGTH_SHORT).show();
