@@ -31,9 +31,7 @@ public class mgdb extends SQLiteOpenHelper {
 
     }
 
-    public mgdb(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {

@@ -52,9 +52,7 @@ public class wiedzmin_kartadb extends SQLiteOpenHelper {
 
     }
 
-    public wiedzmin_kartadb(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
