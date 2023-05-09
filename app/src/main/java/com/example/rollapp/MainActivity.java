@@ -24,20 +24,22 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText haslo;
 
+    private dbhelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rejestracja=findViewById(R.id.registerbutton);
+        rejestracja = findViewById(R.id.registerbutton);
         rejestracja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,rejestracja.class);
+                Intent intent = new Intent(MainActivity.this, rejestracjauzyt.class);
                 startActivity(intent);
             }
         });
-        test=findViewById(R.id.button);
+        test = findViewById(R.id.button);
 
         postacdb pdb = new postacdb(MainActivity.this);
 
@@ -45,59 +47,48 @@ public class MainActivity extends AppCompatActivity {
         Integer gracz = 1;
         Integer gra = 1;
 
+        db=new dbhelper(this);
 
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pdb.addp(nazwa,gracz,gra);
+
             }
         });
 
-        nologin=findViewById(R.id.nologinbutton);
-                nologin.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(MainActivity.this, nologin.class);
-                        startActivity(intent);
-                    }
-                });
-        login=findViewById(R.id.login);
-        haslo=findViewById(R.id.password);
-        loginbtn=findViewById(R.id.loginbutton);
+        nologin = findViewById(R.id.nologinbutton);
+        nologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, nologin.class);
+                startActivity(intent);
+            }
+        });
+        login = findViewById(R.id.login);
+        haslo = findViewById(R.id.password);
+        loginbtn = findViewById(R.id.loginbutton);
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userdb myDB = new userdb(MainActivity.this);
-                String nazwa=login.getText().toString();
-                String haslohash=haslo.getText().toString();
+                String nazwa = login.getText().toString();
+                String haslohash = haslo.getText().toString();
 
-                if(nazwa.isEmpty())
-                {
+                if (nazwa.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Login nie został podany", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    if(haslohash.isEmpty())
-                    {
+                } else {
+                    if (haslohash.isEmpty()) {
                         Toast.makeText(MainActivity.this, "Hasło nie zostało podane", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    if(0 == myDB.login(nazwa.trim()))
-                    {
+                    } else if (0 == myDB.login(nazwa.trim())) {
                         Toast.makeText(MainActivity.this, "Użytkownik o podanym loginie nie istnieje", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                   {
+                    } else {
 
-                        BCrypt.Result wynik = BCrypt.verifyer().verify(haslohash.toCharArray(),String.valueOf(myDB.haslo(nazwa.trim())));
-                        if(wynik.verified)
-                        {
-                            Intent intent = new Intent(MainActivity.this,stronaglowna.class);
+                        BCrypt.Result wynik = BCrypt.verifyer().verify(haslohash.toCharArray(), String.valueOf(myDB.haslo(nazwa.trim())));
+                        if (wynik.verified) {
+                            Intent intent = new Intent(MainActivity.this, stronaglowna.class);
                             startActivity(intent);
-                        }
-                        else
-                        {
-                            Toast.makeText(MainActivity.this,"Hasło jest niepoprawne",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Hasło jest niepoprawne", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
