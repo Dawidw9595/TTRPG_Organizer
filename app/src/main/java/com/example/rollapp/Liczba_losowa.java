@@ -30,25 +30,26 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
 
         // pobranie elementu, który będzie reprezentował aktualną liczbę ścianek na ekranie
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView numSidesDisplay = findViewById(R.id.Losuj);
+        TextView numSidesDisplay = findViewById(R.id.Liczba);
 
         // ustawienie przycisków do zmiany liczby ścianek na kości do gry
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button4 = findViewById(R.id.button4);
+        Button button4 = findViewById(R.id.button4);
         button4.setOnClickListener(view -> changeNumSides(4, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button6 = findViewById(R.id.button6);
+        Button button6 = findViewById(R.id.button6);
         button6.setOnClickListener(view -> changeNumSides(6, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button8 = findViewById(R.id.button8);
+        Button button8 = findViewById(R.id.button8);
         button8.setOnClickListener(view -> changeNumSides(8, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button10 = findViewById(R.id.button10);
+        Button button10 = findViewById(R.id.button10);
         button10.setOnClickListener(view -> changeNumSides(10, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button12 = findViewById(R.id.button12);
+        Button button12 = findViewById(R.id.button12);
         button12.setOnClickListener(view -> changeNumSides(12, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button20 = findViewById(R.id.button20);
+        Button button20 = findViewById(R.id.button20);
         button20.setOnClickListener(view -> changeNumSides(20, numSidesDisplay));
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button button100 = findViewById(R.id.button100);
+        Button button100 = findViewById(R.id.button100);
         button100.setOnClickListener(view -> changeNumSides(100, numSidesDisplay));
 
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
@@ -69,13 +70,15 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
                 if (speed > SHAKE_THRESHOLD) {
                     int randomNum;
                     if (numSides == 100) {
-                        randomNum = (int) (Math.random() * 10) + 1;
-                        double randomDecimal = Math.floor(Math.random() * 10) + 1;
-                        randomNum = randomNum + (int) (randomDecimal * 0.1);
+                        do {
+                            randomNum = (int) (Math.random() * 91) + 10;  // generowanie losowej liczby z zakresu 10-100
+                        } while (randomNum % 10 != 0);
                     } else {
                         randomNum = (int) (Math.random() * numSides) + 1;
                     }
                     Log.d("Shake", "Random number: " + randomNum);
+                    TextView textView = findViewById(R.id.Losuj);
+                    textView.setText(Integer.toString(randomNum)); // ustawienie wylosowanej liczby w widoku
                 }
 
                 lastX = x;
@@ -95,5 +98,5 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
         numSidesDisplay.setText(Integer.toString(numSides));
     }
 
-    private static final int SHAKE_THRESHOLD = 1000; // ustalenie prógu potrząsania
+    private static final int SHAKE_THRESHOLD = 100; // ustalenie prógu potrząsania
 }
