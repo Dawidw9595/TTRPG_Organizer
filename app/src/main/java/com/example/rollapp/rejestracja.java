@@ -9,7 +9,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.rollapp.model.user;
+import com.example.rollapp.retrofit.retrofitservice;
+import com.example.rollapp.retrofit.userApi;
+
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class rejestracja extends AppCompatActivity {
 
@@ -23,7 +34,89 @@ public class rejestracja extends AppCompatActivity {
 
     private String passworhash;
 
-    private userdb myDB;
+    private String zbazy;
+
+    private String emailzbazy;
+
+    private void dodajuser(user user)
+    {
+        retrofitservice rts = new retrofitservice();
+
+        userApi userApi = rts.getRetrofit().create(userApi.class);
+
+        userApi.save(user).enqueue(new Callback<user>() {
+            @Override
+            public void onResponse(Call<com.example.rollapp.model.user> call, Response<com.example.rollapp.model.user> response) {
+                Toast.makeText(rejestracja.this,"Dodano do użytkownika do bazy danych !!!!",Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<com.example.rollapp.model.user> call, Throwable t) {
+                Toast.makeText(rejestracja.this , "Nie udało się sprawdzić dodać użytkownika do bazy spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private String pobranieNick(user user)
+    {
+
+        retrofitservice rts = new retrofitservice();
+
+        userApi userApi = rts.getRetrofit().create(userApi.class);
+
+        userApi.nick(user).enqueue(new Callback<ArrayList<user>>() {
+            @Override
+            public void onResponse(Call<ArrayList<user>> call, Response<ArrayList<user>> response) {
+                if(!response.body().isEmpty())
+                {
+                    zbazy = response.body().get(0).getNick();
+                    Toast.makeText(rejestracja.this, "Podany Login jest już zajęty",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    zbazy = "";
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<user>> call, Throwable t) {
+                Toast.makeText(rejestracja.this , "Nie udało się sprawdzić czy dany nick istnieje spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+
+        return zbazy;
+    }
+
+    private String pobranieEmail(user user)
+    {
+
+        retrofitservice rts = new retrofitservice();
+
+        userApi userApi = rts.getRetrofit().create(userApi.class);
+
+        userApi.email(user).enqueue(new Callback<ArrayList<user>>() {
+            @Override
+            public void onResponse(Call<ArrayList<user>> call, Response<ArrayList<user>> response) {
+                if(!response.body().isEmpty())
+                {
+                    emailzbazy = response.body().get(0).getEmail();
+                    Toast.makeText(rejestracja.this, "Użytkownik o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    emailzbazy = "";
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<user>> call, Throwable t) {
+                Toast.makeText(rejestracja.this , "Nie udało się sprawdzić czy dany email istnieje spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+
+        return emailzbazy;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +132,17 @@ public class rejestracja extends AppCompatActivity {
         haslo2=findViewById(R.id.haslo2);
         email=findViewById(R.id.email);
 
-        userdb myDB = new userdb(rejestracja.this);
-
-
         rejestracja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                passworhash = BCrypt.withDefaults().hashToString(12,haslo1.getText().toString().toCharArray());
+                user user = new user();
+                user.setImie(imie.getText().toString());
+                user.setNazwisko((nazwisko.getText().toString()));
+                user.setEmail(email.getText().toString());
+                user.setHaslo(passworhash);
+                user.setNick(nick.getText().toString());
 
                 if(imie.getText().toString().equals("") || nazwisko.getText().toString().equals("") || nick.getText().toString().equals("") || haslo1.getText().toString().equals("") || haslo2.getText().toString().equals("") || email.getText().toString().equals("") )
                 {
@@ -60,9 +156,9 @@ public class rejestracja extends AppCompatActivity {
                     }
                     else
                     {
-                        if (1 == myDB.login(nick.getText().toString().trim()))
+                        if (pobranieNick(user) != "")
                         {
-                            Toast.makeText(rejestracja.this, "Podany Login jest już zajęty",Toast.LENGTH_SHORT).show();
+
                         }
                         else
                         {
@@ -92,18 +188,13 @@ public class rejestracja extends AppCompatActivity {
                                             }
                                             else
                                             {
-                                                if(1 == myDB.mail(email.getText().toString().trim()))
+                                                if(pobranieEmail(user) != "")
                                                 {
-                                                    Toast.makeText(rejestracja.this, "Użytkownik o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
+
                                                 }
                                                 else
                                                 {
-                                                    passworhash = BCrypt.withDefaults().hashToString(12,haslo1.getText().toString().toCharArray());
-                                                    myDB.addUser(imie.getText().toString().trim(),
-                                                            nazwisko.getText().toString().trim(),
-                                                            nick.getText().toString().trim(),
-                                                            passworhash.trim(),
-                                                            email.getText().toString().trim());
+                                                    dodajuser(user);
                                                     Intent intent=new Intent(rejestracja.this,MainActivity.class);
                                                     startActivity(intent);
                                                 }
