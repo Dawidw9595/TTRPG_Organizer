@@ -25,5 +25,5 @@ public interface userApi {
     Call<user> save(@Body user user);
 
     @POST("/user/password")
-    Call<String> haslo(@Body user user);
+    Call<ArrayList<String>> haslo(@Body user user);
 }

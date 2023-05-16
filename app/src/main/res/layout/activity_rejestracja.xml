@@ -89,8 +89,8 @@
         android:layout_marginTop="-150dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:hint="Podaj adres E-mail"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,14 +124,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <Switch
-        android:id="@+id/czymistrz"
+    <CheckBox
+        android:id="@+id/czymistrzgry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mistrz gry"
+        android:text="Mistrz Gry"
         app:layout_constraintBottom_toTopOf="@+id/rejestracja"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
