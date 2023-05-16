@@ -69,14 +69,11 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
                 // jeśli prędkość przekracza próg potrząsania, generuj losową liczbę
                 if (speed > SHAKE_THRESHOLD) {
                     int randomNum;
-                    if (numSides == 100) {
-                        do {
-                            randomNum = (int) (Math.random() * 91) + 10;  // generowanie losowej liczby z zakresu 10-100
-                        } while (randomNum % 10 != 0);
-                    } else {
-                        randomNum = (int) (Math.random() * numSides) + 1;
-                    }
-                    Log.d("Shake", "Random number: " + randomNum);
+
+
+                            randomNum = (int) (Math.random() * numSides) + 1;  // generowanie losowej liczby z zakresu 10-100
+
+
                     TextView textView = findViewById(R.id.Losuj);
                     textView.setText(Integer.toString(randomNum)); // ustawienie wylosowanej liczby w widoku
                 }

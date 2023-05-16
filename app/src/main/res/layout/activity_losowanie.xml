@@ -95,8 +95,8 @@
 
     <TextView
         android:id="@+id/Liczba"
-        android:layout_width="231dp"
-        android:layout_height="85dp"
+        android:layout_width="200dp"
+        android:layout_height="72dp"
         android:text="@string/Liczba"
         android:textAlignment="center"
         android:textSize="60sp"

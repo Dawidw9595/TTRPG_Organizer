@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button rejestracja;
     Button nologin;
-    Button test;
+
     Button button;
     Button loginbtn;
 
@@ -105,19 +105,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, rejestracja.class);
                 startActivity(intent);
-            }
-        });
-        test = findViewById(R.id.button);
-
-
-        String nazwa = "Wiedzmin";
-        Integer gracz = 1;
-        Integer gra = 1;
-
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 
