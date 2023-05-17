@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 public class stronaglowna extends AppCompatActivity {
 
     ImageButton losowanie;
+    ImageButton stworzPostac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +20,17 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(stronaglowna.this, Liczba_losowa.class);
+
+                startActivity(intent);
+            }
+
+        });
+
+        stworzPostac = findViewById(R.id.stworzPostac);
+        stworzPostac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(stronaglowna.this, danePostaci.class);
 
                 startActivity(intent);
             }

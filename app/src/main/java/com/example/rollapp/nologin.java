@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 public class nologin extends AppCompatActivity {
 
     ImageButton losowanie;
-
+    ImageButton stworzPostac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,17 @@ public class nologin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(nologin.this, Liczba_losowa.class);
+
+                startActivity(intent);
+            }
+
+        });
+
+        stworzPostac = findViewById(R.id.stworzPostac);
+        stworzPostac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(nologin.this, danePostaci.class);
 
                 startActivity(intent);
             }
