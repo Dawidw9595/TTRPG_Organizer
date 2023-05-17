@@ -17,6 +17,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".bronPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umGracjaPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umFachPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umEmocjePostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umReakcjaPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umWolaPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umRozumPostaci"
+            android:exported="false" />
+        <activity
+            android:name=".umCialoPostaci"
+            android:exported="false" />
+        <activity
             android:name=".cechyPostaci"
             android:exported="false" />
         <activity
