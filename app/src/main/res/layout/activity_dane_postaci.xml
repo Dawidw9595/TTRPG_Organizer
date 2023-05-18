@@ -29,7 +29,7 @@
                 android:layout_marginBottom="92dp"
                 android:fontFamily="sans-serif"
                 android:text="Witaj. Zastanawiasz się zapewne po co cię tutaj sprowadziłem.Pierwsze zadanie do wykonania? Spokojnie, nikogo nie musisz zabijać, a ja nie jestem twoim szefem, co najwyżej pośrednikiem. Zanim przejdziemy do szczegółów, może opowiedz mi najpierw coś o sobie. Co? Nie pisze żadnej książki! Ja nawet pisać nie umiem! Musze się upewnić że się nadasz. No więc, jak cię zwą?"
-                android:textSize="34sp" />
+                android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
 
