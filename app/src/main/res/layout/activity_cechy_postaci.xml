@@ -1,10 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".cechyPostaci">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <ImageView
+      android:id="@+id/imageView5"
+      android:layout_width="222dp"
+      android:layout_height="190dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.029"
+      app:srcCompat="@drawable/cechy" />
+
+  <TextView
+      android:id="@+id/textView4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Cechy Postaci"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView5"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <ImageView
+      android:id="@+id/imageView8"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.048"
+      app:layout_constraintStart_toEndOf="@+id/textfach"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.39"
+      app:srcCompat="@drawable/trade" />
+
+  <TextView
+      android:id="@+id/textwola"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Wola"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.733"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editTextNumber6"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/textreakcja"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Reakcja"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.259"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fart"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/texttempo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:text="Tempo"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/editTextNumber7"
+      app:layout_constraintHorizontal_bias="0.452"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/reakcja"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <EditText
+      android:id="@+id/reakcja"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.238"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textreakcja"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/textgracja"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Gracja"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.534"
+      app:layout_constraintStart_toEndOf="@+id/textfart"
+      app:layout_constraintTop_toBottomOf="@+id/fach"
+      app:layout_constraintVertical_bias="0.085" />
+
+  <ImageView
+      android:id="@+id/imageView9"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/textfart"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView6"
+      app:layout_constraintVertical_bias="0.147"
+      app:srcCompat="@drawable/maskausmiech" />
+
+  <ImageView
+      android:id="@+id/imageView13"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toEndOf="@+id/textwola"
+      app:layout_constraintTop_toBottomOf="@+id/imageView12"
+      app:layout_constraintVertical_bias="0.304"
+      app:srcCompat="@drawable/will" />
+
+  <EditText
+      android:id="@+id/cialo"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.238"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView4"
+      app:layout_constraintVertical_bias="0.128" />
+
+  <ImageView
+      android:id="@+id/imageView11"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/textreakcja"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView9"
+      app:layout_constraintVertical_bias="0.145"
+      app:srcCompat="@drawable/reaction" />
+
+  <ImageView
+      android:id="@+id/imageView14"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/texttempo"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView11"
+      app:layout_constraintVertical_bias="0.349"
+      app:srcCompat="@drawable/tempo" />
+
+  <ImageView
+      android:id="@+id/imageView6"
+      android:layout_width="54dp"
+      android:layout_height="55dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.086"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView4"
+      app:layout_constraintVertical_bias="0.102"
+      app:srcCompat="@drawable/body" />
+
+  <EditText
+      android:id="@+id/gracja"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.564"
+      app:layout_constraintStart_toEndOf="@+id/fart"
+      app:layout_constraintTop_toBottomOf="@+id/textgracja"
+      app:layout_constraintVertical_bias="0.003" />
+
+  <EditText
+      android:id="@+id/editTextNumber7"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.733"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textwola"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <ImageView
+      android:id="@+id/imageView10"
+      android:layout_width="34dp"
+      android:layout_height="74dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.032"
+      app:layout_constraintStart_toEndOf="@+id/textgracja"
+      app:layout_constraintTop_toBottomOf="@+id/imageView8"
+      app:layout_constraintVertical_bias="0.076"
+      app:srcCompat="@drawable/grace" />
+
+  <TextView
+      android:id="@+id/textcialo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Ciało"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.238"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView4"
+      app:layout_constraintVertical_bias="0.056" />
+
+  <EditText
+      android:id="@+id/fart"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toEndOf="@+id/imageView9"
+      app:layout_constraintTop_toBottomOf="@+id/textfart"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/textfach"
+      android:layout_width="52dp"
+      android:layout_height="32dp"
+      android:text="Fach"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.568"
+      app:layout_constraintStart_toEndOf="@+id/textcialo"
+      app:layout_constraintTop_toBottomOf="@+id/textView4"
+      app:layout_constraintVertical_bias="0.056" />
+
+  <TextView
+      android:id="@+id/textrozum"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Rozum"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.621"
+      app:layout_constraintStart_toEndOf="@+id/imageView11"
+      app:layout_constraintTop_toBottomOf="@+id/gracja"
+      app:layout_constraintVertical_bias="0.125" />
+
+  <EditText
+      android:id="@+id/fach"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.564"
+      app:layout_constraintStart_toEndOf="@+id/cialo"
+      app:layout_constraintTop_toBottomOf="@+id/textfach"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <ImageView
+      android:id="@+id/imageView12"
+      android:layout_width="55dp"
+      android:layout_height="49dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toEndOf="@+id/textrozum"
+      app:layout_constraintTop_toBottomOf="@+id/imageView10"
+      app:layout_constraintVertical_bias="0.219"
+      app:srcCompat="@drawable/mind" />
+
+  <EditText
+      android:id="@+id/editTextNumber6"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.564"
+      app:layout_constraintStart_toEndOf="@+id/reakcja"
+      app:layout_constraintTop_toBottomOf="@+id/textrozum"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <EditText
+      android:id="@+id/editTextNumber8"
+      android:layout_width="54dp"
+      android:layout_height="42dp"
+      android:ems="10"
+      android:inputType="number"
+      android:textAlignment="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/editTextNumber7"
+      app:layout_constraintHorizontal_bias="0.408"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/texttempo"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <TextView
+      android:id="@+id/textfart"
+      android:layout_width="54dp"
+      android:layout_height="31dp"
+      android:layout_marginTop="32dp"
+      android:text="Fart"
+      android:textAlignment="center"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.238"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cialo"
+      app:layout_constraintVertical_bias="0.0" />
+
+  <Button
+      android:id="@+id/doUmiejetnosci"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Umiejętności"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.939"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editTextNumber7"
+      app:layout_constraintVertical_bias="0.407" />
+
+  <Button
+      android:id="@+id/zapiszCechy"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Zapisz"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/doUmiejetnosci"
+      app:layout_constraintHorizontal_bias="0.099"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editTextNumber8"
+      app:layout_constraintVertical_bias="0.428" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
