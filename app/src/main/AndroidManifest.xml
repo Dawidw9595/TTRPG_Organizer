@@ -71,10 +71,6 @@
             android:name=".zmianadanychuzyt"
             android:exported="false" />
         <activity
-            android:name=".nologin"
-            android:exported="false"
-            android:label="Bez Logowania" />
-        <activity
             android:name=".rejestracja"
             android:exported="false"
             android:label="Rejestracja"
