@@ -17,49 +17,52 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".bronPostaci"
-            android:label="Broń Postaci"
+            android:name=".postac"
             android:exported="false" />
+        <activity
+            android:name=".bronPostaci"
+            android:exported="false"
+            android:label="Broń Postaci" />
         <activity
             android:name=".umGracjaPostaci"
-            android:label="Gracja Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Gracja Postaci" />
         <activity
             android:name=".umFachPostaci"
-            android:label="Fach Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Fach Postaci" />
         <activity
             android:name=".umEmocjePostaci"
-            android:label="Emocje Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Emocje Postaci" />
         <activity
             android:name=".umReakcjaPostaci"
-            android:label="Reakcja Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Reakcja Postaci" />
         <activity
             android:name=".umWolaPostaci"
-            android:label="Wola Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Wola Postaci" />
         <activity
             android:name=".umRozumPostaci"
-            android:label="Rozum Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Rozum Postaci" />
         <activity
             android:name=".umCialoPostaci"
-            android:label="Ciało Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Ciało Postaci" />
         <activity
             android:name=".cechyPostaci"
-            android:label="CechyPostaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="CechyPostaci" />
         <activity
             android:name=".danePostaci"
-            android:label="Dane Postaci"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Dane Postaci" />
         <activity
             android:name=".Liczba_losowa"
-            android:label="Rzuć Kością"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Rzuć Kością" />
         <activity
             android:name=".stronaglowna"
             android:exported="false"
