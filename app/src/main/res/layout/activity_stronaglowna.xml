@@ -14,7 +14,7 @@
         android:layout_marginTop="112dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/stworz_postac117x96"
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stworzPostac"
-        app:layout_constraintVertical_bias="0.92"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/losowanie"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -45,4 +45,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="117dp"
+        android:layout_height="157dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toEndOf="@+id/stworzPostac"
+        app:layout_constraintTop_toBottomOf="@+id/nickclick"
+        app:layout_constraintVertical_bias="0.084"
+        app:srcCompat="@drawable/twoje_postacie117x152" />
 </androidx.constraintlayout.widget.ConstraintLayout>
