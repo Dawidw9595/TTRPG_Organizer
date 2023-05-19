@@ -9,15 +9,15 @@
 
     <ImageButton
         android:id="@+id/stworzPostac"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="117dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="112dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/stworz_postac174x225"
+        app:srcCompat="@drawable/stworz_postac117x96"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stworzPostac"
-        app:layout_constraintVertical_bias="0.126"
+        app:layout_constraintVertical_bias="0.92"
         app:srcCompat="@drawable/losowanie"
         tools:ignore="SpeakableTextPresentCheck" />
 
