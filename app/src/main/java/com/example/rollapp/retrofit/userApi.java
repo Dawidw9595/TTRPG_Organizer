@@ -26,4 +26,13 @@ public interface userApi {
 
     @POST("/user/password")
     Call<ArrayList<String>> haslo(@Body user user);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+    @POST("/user/get-info")
+    Call<ArrayList<user>> allinfo(@Body user user);
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
 }

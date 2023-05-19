@@ -64,6 +64,13 @@
             android:name=".stronaglowna"
             android:exported="false"
             android:noHistory="true" />
+<<<<<<< Updated upstream
+=======
+        <activity
+            android:name=".zmianadanychuzyt"
+            android:exported="false" />
+
+>>>>>>> Stashed changes
         <activity
             android:name=".nologin"
             android:exported="false"
@@ -71,12 +78,14 @@
         <activity
             android:name=".rejestracja"
             android:exported="false"
+            android:noHistory="true"
             android:label="Rejestracja"
             android:noHistory="true"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:noHistory="true"
             android:label="Dice&amp;Role">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
