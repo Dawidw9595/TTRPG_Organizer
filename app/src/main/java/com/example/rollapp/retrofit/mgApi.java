@@ -26,4 +26,13 @@ public interface mgApi {
 
     @POST("/mg/password")
     Call<ArrayList<String>> haslo(@Body mg mg);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+    @POST("/mg/get-info")
+    Call<ArrayList<mg>> allinfo(@Body mg mg);
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
 }

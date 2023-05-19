@@ -51,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
 
     private String haslomgzbazy;
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    private user dane = new user();
+
+    private mg danemg = new mg();
+
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
     private String pobranieNickMG(mg mg)
     {
 
@@ -166,7 +176,70 @@ public class MainActivity extends AppCompatActivity {
         return haslozbazy;
     }
 
+    private user pobierzusera(user user)
+    {
+        retrofitservice rts = new retrofitservice();
+        userApi userApi = rts.getRetrofit().create(userApi.class);
+        userApi.allinfo(user).enqueue(new Callback<ArrayList<user>>() {
+            @Override
+            public void onResponse(Call<ArrayList<user>> call, Response<ArrayList<user>> response) {
+                if(response.body().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this,"błąd",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    dane.setImie(response.body().get(0).getImie());
+                    dane.setNazwisko(response.body().get(0).getNazwisko());
+                    dane.setNick(response.body().get(0).getNick());
+                    dane.setHaslo(response.body().get(0).getHaslo());
+                    dane.setEmail(response.body().get(0).getEmail());
+                }
+            }
 
+<<<<<<< Updated upstream
+=======
+            @Override
+            public void onFailure(Call<ArrayList<user>> call, Throwable t) {
+                Toast.makeText(MainActivity.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+
+        return dane;
+    }
+
+    private mg pobierzmg(mg mg)
+    {
+        retrofitservice rts = new retrofitservice();
+        mgApi mgApi = rts.getRetrofit().create(mgApi.class);
+        mgApi.allinfo(mg).enqueue(new Callback<ArrayList<mg>>() {
+            @Override
+            public void onResponse(Call<ArrayList<mg>> call, Response<ArrayList<mg>> response) {
+                if(response.body().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this,"błąd",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    danemg.setImie(response.body().get(0).getImie());
+                    danemg.setNazwisko(response.body().get(0).getNazwisko());
+                    danemg.setNick(response.body().get(0).getNick());
+                    danemg.setHaslo(response.body().get(0).getHaslo());
+                    danemg.setEmail(response.body().get(0).getEmail());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<mg>> call, Throwable t) {
+                Toast.makeText(MainActivity.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+
+        return danemg;
+    }
+
+
+>>>>>>> Stashed changes
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,6 +287,13 @@ public class MainActivity extends AppCompatActivity {
                     user.setNick(nazwa);
                     pobieraniehasla(user);
                     pobranieNick(user);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                    pobierzusera(user);
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
@@ -229,12 +309,33 @@ public class MainActivity extends AppCompatActivity {
                                                 haslohash2 = BCrypt.withDefaults().hashToString(12, haslohash.trim().toCharArray());
                                                 BCrypt.Result wynik = BCrypt.verifyer().verify(haslohash.toCharArray(), haslozbazy);
                                                 if (wynik.verified) {
+<<<<<<< Updated upstream
 
                                                     Toast.makeText(MainActivity.this, "Witaj " + nazwa, Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
                                                     startActivity(intent);
 
+=======
+<<<<<<< HEAD
+                                                    Toast.makeText(MainActivity.this, "Witaj " + nazwa, Toast.LENGTH_SHORT).show();
+
+                                                    Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+                                                    intent.putExtra("imie" , dane.getImie());
+                                                    intent.putExtra("nazwisko" , dane.getNazwisko());
+                                                    intent.putExtra("nick" , dane.getNick());
+                                                    intent.putExtra("haslo" , dane.getHaslo());
+                                                    intent.putExtra("email" , dane.getEmail());
+                                                    startActivity(intent);
+=======
+
+                                                    Toast.makeText(MainActivity.this, "Witaj " + nazwa, Toast.LENGTH_SHORT).show();
+
+                                                    Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+                                                    startActivity(intent);
+
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
                                                 } else {
                                                     Toast.makeText(MainActivity.this, "Podane hasło jest niepoprawne !!!!", Toast.LENGTH_SHORT).show();
                                                 }
@@ -250,6 +351,13 @@ public class MainActivity extends AppCompatActivity {
                     mg.setNick(nazwa);
                     pobieraniehaslamg(mg);
                     pobranieNickMG(mg);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                    pobierzmg(mg);
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
                     new android.os.Handler().postDelayed(
                             new Runnable() {
                                 public void run() {
@@ -269,6 +377,17 @@ public class MainActivity extends AppCompatActivity {
                                                     Toast.makeText(MainActivity.this, "Witaj " + nazwa + " Mistrzu Gry !!!", Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                                                    intent.putExtra("imie" , danemg.getImie());
+                                                    intent.putExtra("nazwisko" , danemg.getNazwisko());
+                                                    intent.putExtra("nick" , danemg.getNick());
+                                                    intent.putExtra("haslo" , danemg.getHaslo());
+                                                    intent.putExtra("email" , danemg.getEmail());
+=======
+>>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
+>>>>>>> Stashed changes
                                                     startActivity(intent);
 
                                                 } else {
