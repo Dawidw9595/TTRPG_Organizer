@@ -275,15 +275,8 @@ public class rejestracja extends AppCompatActivity {
                                                         {
                                                             if(pobranieEmailMg(mg) != "")
                                                             {
-<<<<<<< Updated upstream
-                                                                Toast.makeText(rejestracja.this, "Użytkownik o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
-=======
-<<<<<<< HEAD
+
                                                                 Toast.makeText(rejestracja.this, "Mistrz gry o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
-=======
-                                                                Toast.makeText(rejestracja.this, "Użytkownik o takim adresie e-mail już istnieje",Toast.LENGTH_SHORT).show();
->>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
->>>>>>> Stashed changes
                                                             }
                                                             else
                                                             {

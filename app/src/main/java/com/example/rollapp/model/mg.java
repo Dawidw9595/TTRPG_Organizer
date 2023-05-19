@@ -62,16 +62,8 @@ public class mg {
         return email;
     }
 
-<<<<<<< Updated upstream
-    public void setEmail(String e_mail) {
-=======
-<<<<<<< HEAD
     public void setEmail(String email) {
-=======
-    public void setEmail(String e_mail) {
->>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
->>>>>>> Stashed changes
-        this.email = email;
+            this.email = email;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.rollapp;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class stronaglowna extends AppCompatActivity {
 
-<<<<<<< HEAD
     private ImageButton losowanie;
 
     private TextView nickuzyt;
@@ -23,13 +23,8 @@ public class stronaglowna extends AppCompatActivity {
     private String email;
 
 
-=======
-    ImageButton losowanie;
     ImageButton stworzPostac;
-<<<<<<< Updated upstream
-=======
->>>>>>> 81568e8100a3d23a5a36b7788c085541bdc1a7df
->>>>>>> Stashed changes
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
