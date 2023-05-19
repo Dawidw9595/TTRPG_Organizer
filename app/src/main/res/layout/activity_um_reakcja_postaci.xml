@@ -44,6 +44,7 @@
                     android:layout_marginTop="32dp"
                     android:text="Zdolności Reakcji"
                     android:textSize="24sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
@@ -52,12 +53,13 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textbojka"
+                    android:id="@+id/textklatwy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Bójka"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
@@ -66,147 +68,158 @@
                     app:layout_constraintVertical_bias="0.001" />
 
                 <EditText
-                    android:id="@+id/bojka"
+                    android:id="@+id/kaltwy"
                     android:layout_width="73dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textbojka"
+                    app:layout_constraintTop_toBottomOf="@+id/textklatwy"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textbronbitewna"
+                    android:id="@+id/textlamaniemagii"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Broń Bitewna"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bojka"
+                    app:layout_constraintTop_toBottomOf="@+id/kaltwy"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/bron_bitewna"
+                    android:id="@+id/lamanie_magii"
                     android:layout_width="73dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textbronbitewna"
+                    app:layout_constraintTop_toBottomOf="@+id/textlamaniemagii"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textbrondrzewcowa"
+                    android:id="@+id/textnieugietosc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text=" Broń Drzewcowa"
                     android:textAlignment="center"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bron_bitewna"
+                    app:layout_constraintTop_toBottomOf="@+id/lamanie_magii"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/bron_drzewcowa"
+                    android:id="@+id/nieugietosc"
                     android:layout_width="74dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textbrondrzewcowa"
+                    app:layout_constraintTop_toBottomOf="@+id/textnieugietosc"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textbronkrotka"
+                    android:id="@+id/textodwaga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Broń Krótka"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bron_drzewcowa"
+                    app:layout_constraintTop_toBottomOf="@+id/nieugietosc"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/bron_krotka"
+                    android:id="@+id/Odawaga"
                     android:layout_width="74dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textbronkrotka"
+                    app:layout_constraintTop_toBottomOf="@+id/textodwaga"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textjezdziectwo"
+                    android:id="@+id/textrytuały"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Jeździectwo"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bron_krotka"
+                    app:layout_constraintTop_toBottomOf="@+id/Odawaga"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/jezdziectwo"
+                    android:id="@+id/rytualy"
                     android:layout_width="74dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textjezdziectwo"
+                    app:layout_constraintTop_toBottomOf="@+id/textrytuały"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
-                    android:id="@+id/textszermierka"
+                    android:id="@+id/textzaklecia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Szermierka"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/jezdziectwo"
+                    app:layout_constraintTop_toBottomOf="@+id/rytualy"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/szermierka"
+                    android:id="@+id/zaklecia"
                     android:layout_width="74dp"
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textszermierka"
+                    app:layout_constraintTop_toBottomOf="@+id/textzaklecia"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
@@ -216,11 +229,12 @@
                     android:layout_marginTop="24dp"
                     android:text="Żeglarstwo"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/szermierka"
+                    app:layout_constraintTop_toBottomOf="@+id/zaklecia"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
@@ -229,6 +243,7 @@
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
@@ -243,6 +258,7 @@
                     android:layout_marginTop="24dp"
                     android:text="Zwinność"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
@@ -256,6 +272,7 @@
                     android:layout_height="43dp"
                     android:ems="10"
                     android:inputType="number"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
