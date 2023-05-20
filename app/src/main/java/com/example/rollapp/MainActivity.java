@@ -249,20 +249,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, umGracjaPostaci.class);
-                startActivity(intent);
-            }
-        });
 
         nologin = findViewById(R.id.nologinbutton);
         nologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, nologin.class);
+                Intent intent = new Intent(MainActivity.this, Liczba_losowa.class);
                 startActivity(intent);
             }
         });

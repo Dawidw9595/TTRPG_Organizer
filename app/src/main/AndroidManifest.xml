@@ -72,10 +72,6 @@
             android:exported="false"
             android:parentActivityName=".stronaglowna"/>
         <activity
-            android:name=".nologin"
-            android:exported="false"
-            android:label="Bez Logowania" />
-        <activity
             android:name=".rejestracja"
             android:exported="false"
             android:label="Rejestracja"
