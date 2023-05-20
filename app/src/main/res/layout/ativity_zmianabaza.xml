@@ -48,7 +48,7 @@
                 android:layout_marginRight="15dp"/>
 
             <EditText
-                android:id="@+id/zmianaimienia"
+                android:id="@+id/p1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -60,7 +60,7 @@
                 android:layout_marginRight="15dp"/>
 
             <Button
-                android:id="@+id/zmainaim"
+                android:id="@+id/b1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zmień Imię"
@@ -92,7 +92,7 @@
                 android:layout_marginRight="15dp" />
 
             <EditText
-                android:id="@+id/zmiananazwiska"
+                android:id="@+id/p2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -104,7 +104,7 @@
                 android:layout_marginRight="15dp"/>
 
             <Button
-                android:id="@+id/zmainanazw"
+                android:id="@+id/b2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zmień Nazwisko"
@@ -136,7 +136,7 @@
                 android:layout_marginRight="15dp" />
 
             <EditText
-                android:id="@+id/zmiananick"
+                android:id="@+id/p3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -148,7 +148,7 @@
                 android:layout_marginRight="15dp"/>
 
             <Button
-                android:id="@+id/zmainanicku"
+                android:id="@+id/b3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zmień Nick"
@@ -180,7 +180,7 @@
                 android:layout_marginRight="15dp" />
 
             <EditText
-                android:id="@+id/zmianamail"
+                android:id="@+id/p4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -192,7 +192,7 @@
                 android:layout_marginRight="15dp"/>
 
             <Button
-                android:id="@+id/zmainamai"
+                android:id="@+id/b4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zmień E-mail"
@@ -213,7 +213,7 @@
                 android:layout_marginRight="15dp" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/p5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -226,7 +226,7 @@
                 android:layout_marginRight="15dp"/>
 
             <Button
-                android:id="@+id/zmaianahaslo"
+                android:id="@+id/b5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Zmień Hało"

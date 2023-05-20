@@ -69,7 +69,8 @@
             android:noHistory="true" />
         <activity
             android:name=".zmianadanychuzyt"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".stronaglowna"/>
         <activity
             android:name=".nologin"
             android:exported="false"

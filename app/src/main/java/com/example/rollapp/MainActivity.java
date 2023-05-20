@@ -182,11 +182,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"błąd",Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    dane.setId(response.body().get(0).getId());
                     dane.setImie(response.body().get(0).getImie());
                     dane.setNazwisko(response.body().get(0).getNazwisko());
                     dane.setNick(response.body().get(0).getNick());
                     dane.setHaslo(response.body().get(0).getHaslo());
                     dane.setEmail(response.body().get(0).getEmail());
+                    dane.setId_mg(response.body().get(0).getId_mg());
                 }
             }
 
@@ -212,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"błąd",Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    danemg.setId(response.body().get(0).getId());
                     danemg.setImie(response.body().get(0).getImie());
                     danemg.setNazwisko(response.body().get(0).getNazwisko());
                     danemg.setNick(response.body().get(0).getNick());
@@ -297,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
                                                 if (wynik.verified) {
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+                                                    intent.putExtra("id" , dane.getId());
                                                     intent.putExtra("imie" , dane.getImie());
                                                     intent.putExtra("nazwisko" , dane.getNazwisko());
                                                     intent.putExtra("nick" , dane.getNick());
@@ -341,6 +345,7 @@ public class MainActivity extends AppCompatActivity {
                                                     Toast.makeText(MainActivity.this, "Witaj " + nazwa + " Mistrzu Gry !!!", Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+                                                    intent.putExtra("id" , danemg.getId());
                                                     intent.putExtra("imie" , danemg.getImie());
                                                     intent.putExtra("nazwisko" , danemg.getNazwisko());
                                                     intent.putExtra("nick" , danemg.getNick());

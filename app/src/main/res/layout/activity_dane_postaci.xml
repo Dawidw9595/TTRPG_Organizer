@@ -9,23 +9,23 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="412dp"
-        android:layout_height="216dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toTopOf="@+id/nazwa_postaci"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635">
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="92dp"
                 android:fontFamily="sans-serif"
                 android:text="Witaj. Zastanawiasz się zapewne po co cię tutaj sprowadziłem.Pierwsze zadanie do wykonania? Spokojnie, nikogo nie musisz zabijać, a ja nie jestem twoim szefem, co najwyżej pośrednikiem. Zanim przejdziemy do szczegółów, może opowiedz mi najpierw coś o sobie. Co? Nie pisze żadnej książki! Ja nawet pisać nie umiem! Musze się upewnić że się nadasz. No więc, jak cię zwą?"
@@ -39,14 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
+        android:hint="Nazwa Postaci"
         android:inputType="textPersonName"
-        android:text="Nazwa Postaci"
         app:layout_constraintBottom_toTopOf="@+id/rasa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/plec"
@@ -55,7 +53,7 @@
         android:layout_marginTop="524dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Płeć"
+        android:hint="Płeć"
         app:layout_constraintBottom_toTopOf="@+id/wiek"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -70,7 +68,7 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Rasa"
+        android:hint="Rasa"
         app:layout_constraintBottom_toTopOf="@+id/plec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -85,7 +83,7 @@
         android:layout_marginBottom="100dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Wiek"
+        android:hint="Wiek"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

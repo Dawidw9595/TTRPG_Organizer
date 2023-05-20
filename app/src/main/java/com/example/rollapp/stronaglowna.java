@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +17,7 @@ public class stronaglowna extends AppCompatActivity {
 
     private TextView nickuzyt;
 
+    private Integer id;
     private String imie;
     private String nazwisko;
     private String nick;
@@ -35,6 +37,7 @@ public class stronaglowna extends AppCompatActivity {
         Intent pop = getIntent();
 
         nickuzyt.setText(getIntent().getExtras().getString("nick"));
+        id = pop.getIntExtra("id",0);
         imie = pop.getStringExtra("imie");
         nazwisko = pop.getStringExtra("nazwisko");
         nick = pop.getStringExtra("nick");
@@ -45,6 +48,7 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(stronaglowna.this, zmianadanychuzyt.class);
+                intent.putExtra("id" , id);
                 intent.putExtra("imie" , imie);
                 intent.putExtra("nazwisko" , nazwisko);
                 intent.putExtra("nick" , nick);

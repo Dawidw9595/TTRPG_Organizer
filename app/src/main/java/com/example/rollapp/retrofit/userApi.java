@@ -30,4 +30,25 @@ public interface userApi {
     @POST("/user/get-info")
     Call<ArrayList<user>> allinfo(@Body user user);
 
+    @POST("/user/zmienimie")
+    Call<Void> changename(@Body user user);
+
+    @POST("/user/zmiennazwisko")
+    Call<Void> changesurname(@Body user user);
+
+    @POST("/user/zmiennick")
+    Call<Void> changenick(@Body user user);
+
+    @POST("/user/zmienhaslo")
+    Call<Void> changepass(@Body user user);
+
+    @POST("/user/zmienemail")
+    Call<Void> changeemail(@Body user user);
+
+    @POST("/user/czynick")
+    Call<ArrayList<String>> czyjest(@Body user user);
+
+    @POST("/user/czynick")
+    Call<ArrayList<String>> czyjestemail(@Body user user);
+
 }
