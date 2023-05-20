@@ -75,7 +75,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-                Toast.makeText(zmianadanychuzyt.this , "Nie udało się sprawdzić czy dany nick znajduje się w bazie spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(zmianadanychuzyt.this , "Nie udało się sprawdzić czy dany nick znajduje się w bazie spróbuj ponownie póżniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -101,7 +101,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-                Toast.makeText(zmianadanychuzyt.this , "Nie udało się sprawdzić czy dany email znajduje się w bazie spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(zmianadanychuzyt.this , "Nie udało się sprawdzić czy dany email znajduje się w bazie spróbuj ponownie póżniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -112,7 +112,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
     {
         if(noweimie.getText().toString().equals(""))
         {
-            Toast.makeText(zmianadanychuzyt.this, "Pole zmiany imienia nie może byc puste !!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(zmianadanychuzyt.this, "Pole zmiany imienia nie może byc puste", Toast.LENGTH_SHORT).show();
         }
         else {
             if(noweimie.getText().toString().contains("0") ||
@@ -126,7 +126,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
                     noweimie.getText().toString().contains("8") ||
                     noweimie.getText().toString().contains("9"))
             {
-                Toast.makeText(zmianadanychuzyt.this, "Imię nie może zawierać cyfr !!!!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(zmianadanychuzyt.this, "Imię nie może zawierać cyfr",Toast.LENGTH_SHORT).show();
             }
             else {
                 retrofitservice rts = new retrofitservice();
@@ -213,13 +213,13 @@ public class zmianadanychuzyt extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
                                     Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                                    Toast.makeText(zmianadanychuzyt.this, "Twoje nick został zmieniony, zostałeś wylogowany !!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(zmianadanychuzyt.this, "Twoje nick został zmieniony, zostałeś wylogowany", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 }
 
                                 @Override
                                 public void onFailure(Call<Void> call, Throwable t) {
-                                    Toast.makeText(zmianadanychuzyt.this , "Nie udało się zmienić nicku w bazie spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                                    Toast.makeText(zmianadanychuzyt.this , "Nie udało się zmienić nicku w bazie spróbuj ponownie póżniej" , Toast.LENGTH_LONG).show();
                                     Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
                                 }
                             });
@@ -238,7 +238,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
             @Override
             public void run() {
                 if(noweemial.getText().toString().equals("")) {
-                    Toast.makeText(zmianadanychuzyt.this, "Pole zmiany email nie może byc puste !!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zmianadanychuzyt.this, "Pole zmiany email nie może byc puste", Toast.LENGTH_SHORT).show();
                 } else {
                     if(!noweemial.getText().toString().contains("@") ||
                             !noweemial.getText().toString().contains("."))
@@ -247,7 +247,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
                     } else {
                         if(emailzbazy != "")
                         {
-                            Toast.makeText(zmianadanychuzyt.this, "Podany email znajduje się już w bazie , proszę o podanie innego emaila !!!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(zmianadanychuzyt.this, "Podany email znajduje się już w bazie , proszę o podanie innego emaila", Toast.LENGTH_LONG).show();
                         } else {
                             retrofitservice rts = new retrofitservice();
                             userApi userApi = rts.getRetrofit().create(com.example.rollapp.retrofit.userApi.class);
@@ -255,13 +255,13 @@ public class zmianadanychuzyt extends AppCompatActivity {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
                                     Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                                    Toast.makeText(zmianadanychuzyt.this, "Twój emial został zmieniony, zostałeś wylogowany !!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(zmianadanychuzyt.this, "Twój emial został zmieniony, zostałeś wylogowany", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 }
 
                                 @Override
                                 public void onFailure(Call<Void> call, Throwable t) {
-                                    Toast.makeText(zmianadanychuzyt.this , "Nie udało się zmienić emiala w bazie spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                                    Toast.makeText(zmianadanychuzyt.this , "Nie udało się zmienić emiala w bazie spróbuj ponownie póżniej" , Toast.LENGTH_LONG).show();
                                     Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
                                 }
                             });
