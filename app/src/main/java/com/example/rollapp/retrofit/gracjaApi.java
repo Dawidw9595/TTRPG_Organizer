@@ -1,6 +1,7 @@
 package com.example.rollapp.retrofit;
 
 import com.example.rollapp.model.wiedzmin_zdolnosc_fachu;
+import com.example.rollapp.model.wiedzmin_zdolnosci_gracji;
 
 import java.util.ArrayList;
 
@@ -11,8 +12,8 @@ import retrofit2.http.POST;
 public interface gracjaApi {
 
     @POST("/gracja/save")
-    Call<Void> save(@Body wiedzmin_zdolnosc_fachu wiedzmin_zdolnosc_fachu);
+    Call<Void> save(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
 
     @POST("/gracja/getall")
-    Call<ArrayList<wiedzmin_zdolnosc_fachu>> getall(@Body wiedzmin_zdolnosc_fachu wiedzmin_zdolnosc_fachu);
+    Call<ArrayList<wiedzmin_zdolnosci_gracji>> getall(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
 }

@@ -52,6 +52,10 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(stronaglowna.this, Liczba_losowa.class);
+                SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                SharedPreferences.Editor editor = sessionstorage.edit();
+                editor.clear();
+                editor.commit();
                 startActivity(intent);
             }
 

@@ -10,9 +10,9 @@ import retrofit2.http.POST;
 
 public interface rozumApi {
 
-    @POST("/reakcja/save")
+    @POST("/rozum/save")
     Call<Void> save(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
 
-    @POST("/reakcja/getall")
+    @POST("/rozum/getall")
     Call<ArrayList<wiedzmin_zdolnosci_rozum>> getall(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
 }

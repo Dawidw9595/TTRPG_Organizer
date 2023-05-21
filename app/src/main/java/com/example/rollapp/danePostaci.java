@@ -343,12 +343,17 @@ public class danePostaci extends AppCompatActivity {
         doCech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(i==1)
+                if (i==0)
+                {
+                    Toast.makeText(danePostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
+                }
+                else if(i<=1)
                 {
                     Toast.makeText(danePostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(danePostaci.this, cechyPostaci.class);
                     wiedzmin_karta karta = new wiedzmin_karta();
+                    Toast.makeText(danePostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
             }

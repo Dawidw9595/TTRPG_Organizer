@@ -40,8 +40,6 @@ public class cechyPostaci extends AppCompatActivity {
 
     private Integer i=0;
 
-    private int karta;
-
     private static final String SHERED_PREFS = "daneuzyt";
 
     private void savecechy(wiedzmin_cechy wiedzmin_cechy)
@@ -83,7 +81,7 @@ public class cechyPostaci extends AppCompatActivity {
                 cechaApi.save(wiedzmin_cechy).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Toast.makeText(cechyPostaci.this, "Success", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
@@ -113,8 +111,6 @@ public class cechyPostaci extends AppCompatActivity {
                     SharedPreferences.Editor editor = sessionstorage.edit();
                     editor.putInt("idcechy",response.body().get(0).getId());
                     editor.commit();
-
-                    Toast.makeText(cechyPostaci.this, "Teraz działa", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -162,7 +158,6 @@ public class cechyPostaci extends AppCompatActivity {
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
         SharedPreferences.Editor editor = sessionstorage.edit();
-        Toast.makeText(this, String.valueOf(sessionstorage.getInt("idcechy",0)), Toast.LENGTH_SHORT).show();
 
         zapisz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,22 +173,25 @@ public class cechyPostaci extends AppCompatActivity {
                         karta.setId_cechy(sessionstorage.getInt("idcechy",0));
                         updatekarta(karta);
                     }
-                },600);
+                },300);
                 i++;
             }
         });
         doZdolnosciCiala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (i==1)
+                if (i==0)
+                {
+                    Toast.makeText(cechyPostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
+                }
+                else if (i<=1)
                 {
                     Toast.makeText(cechyPostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(cechyPostaci.this, umCialoPostaci.class);
                     wiedzmin_cechy cechy =new wiedzmin_cechy();
                     getall(cechy);
-                    editor.clear();
-                    editor.commit();
+                    Toast.makeText(cechyPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
             }
