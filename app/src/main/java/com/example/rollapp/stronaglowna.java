@@ -3,6 +3,7 @@ package com.example.rollapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,6 +25,8 @@ public class stronaglowna extends AppCompatActivity {
     private String haslo;
     private String email;
 
+    private static final String SHERED_PREFS = "daneuzyt";
+
 
     ImageButton stworzPostac;
 
@@ -34,26 +37,13 @@ public class stronaglowna extends AppCompatActivity {
         losowanie = findViewById(R.id.imageButton6);
         nickuzyt = findViewById(R.id.nickclick);
 
-        Intent pop = getIntent();
-
-        nickuzyt.setText(getIntent().getExtras().getString("nick"));
-        id = pop.getIntExtra("id",0);
-        imie = pop.getStringExtra("imie");
-        nazwisko = pop.getStringExtra("nazwisko");
-        nick = pop.getStringExtra("nick");
-        haslo = pop.getStringExtra("haslo");
-        email = pop.getStringExtra("email");
+        SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+        nickuzyt.setText(sessionstorage.getString("nick","Błąd"));
 
         nickuzyt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(stronaglowna.this, zmianadanychuzyt.class);
-                intent.putExtra("id" , id);
-                intent.putExtra("imie" , imie);
-                intent.putExtra("nazwisko" , nazwisko);
-                intent.putExtra("nick" , nick);
-                intent.putExtra("haslo" , haslo);
-                intent.putExtra("email" , email);
                 startActivity(intent);
             }
         });

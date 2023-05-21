@@ -1,6 +1,7 @@
 package com.example.rollapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
 
     private String tmphaslo;
 
+    private static final String SHERED_PREFS = "daneuzyt";
 
     Button bimie;
     Button bnazwisko;
@@ -134,8 +136,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 userApi.changename(user).enqueue(new Callback() {
                     @Override
                     public void onResponse(Call call, Response response) {
-                        Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                        Toast.makeText(zmianadanychuzyt.this, "Twoje imię zostało zmienione, zostałeś wylogowany !!!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(zmianadanychuzyt.this,zmianadanychuzyt.class);
+                        Toast.makeText(zmianadanychuzyt.this, "Twoje imię zostało zmienione", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
 
@@ -175,8 +177,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 userApi.changesurname(user).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                        Toast.makeText(zmianadanychuzyt.this, "Twoje nazwisko zostało zmienione, zostałeś wylogowany !!!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(zmianadanychuzyt.this,zmianadanychuzyt.class);
+                        Toast.makeText(zmianadanychuzyt.this, "Twoje nazwisko zostało zmienione", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
 
@@ -212,8 +214,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                             userApi.changenick(user).enqueue(new Callback<Void>() {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
-                                    Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                                    Toast.makeText(zmianadanychuzyt.this, "Twoje nick został zmieniony, zostałeś wylogowany", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(zmianadanychuzyt.this,zmianadanychuzyt.class);
+                                    Toast.makeText(zmianadanychuzyt.this, "Twoje nick został zmieniony", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 }
 
@@ -254,8 +256,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                             userApi.changeemail(user).enqueue(new Callback<Void>() {
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
-                                    Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                                    Toast.makeText(zmianadanychuzyt.this, "Twój emial został zmieniony, zostałeś wylogowany", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(zmianadanychuzyt.this,zmianadanychuzyt.class);
+                                    Toast.makeText(zmianadanychuzyt.this, "Twój emial został zmieniony !!!!", Toast.LENGTH_SHORT).show();
                                     startActivity(intent);
                                 }
 
@@ -284,7 +286,7 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     Intent intent = new Intent(zmianadanychuzyt.this,MainActivity.class);
-                    Toast.makeText(zmianadanychuzyt.this, "Twoje hasło zostało zmienione, zostałeś wylogowany !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(zmianadanychuzyt.this, "Twoje hasło zostało zmienione, zostałeś wylogowany ! ", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
 
@@ -320,11 +322,14 @@ public class zmianadanychuzyt extends AppCompatActivity {
         bemail = findViewById(R.id.b4);
         bhaslo = findViewById(R.id.b5);
 
-        id = getIntent().getIntExtra("id",0);
-        imie.setText(getIntent().getExtras().getString("imie"));
-        nazwisko.setText(getIntent().getExtras().getString("nazwisko"));
-        nick.setText(getIntent().getExtras().getString("nick"));
-        email.setText(getIntent().getExtras().getString("email"));
+        SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+        SharedPreferences.Editor editor = sessionstorage.edit();
+
+        id = sessionstorage.getInt("id",0);
+        imie.setText(sessionstorage.getString("imie","Błąd"));
+        nazwisko.setText(sessionstorage.getString("nazwisko","Błąd"));
+        nick.setText(sessionstorage.getString("nick","Błąd"));
+        email.setText(sessionstorage.getString("email","Błąd"));
 
         bimie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -332,6 +337,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 user user = new user();
                 user.setId(id);
                 user.setImie(noweimie.getText().toString());
+                editor.putString("imie",noweimie.getText().toString());
+                editor.commit();
                 zmianaimienia(user);
             }
         });
@@ -342,6 +349,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 user user = new user();
                 user.setId(id);
                 user.setNazwisko(nowenazwisko.getText().toString());
+                editor.putString("nazwisko",nowenazwisko.getText().toString());
+                editor.commit();
                 zmiananazwiska(user);
             }
         });
@@ -352,6 +361,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 user user = new user();
                 user.setId(id);
                 user.setNick(nowenick.getText().toString());
+                editor.putString("nick",nowenick.getText().toString());
+                editor.commit();
                 zmiananicku(user);
             }
         });
@@ -362,6 +373,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 user user = new user();
                 user.setId(id);
                 user.setEmail(noweemial.getText().toString());
+                editor.putString("email",noweemial.getText().toString());
+                editor.commit();
                 zmianamaila(user);
             }
         });
@@ -374,6 +387,8 @@ public class zmianadanychuzyt extends AppCompatActivity {
                 user user = new user();
                 user.setId(id);
                 user.setHaslo(tmphaslo);
+                editor.putString("haslo",tmphaslo);
+                editor.commit();
                 zmianahasla(user);
                 tmphaslo = "";
             }

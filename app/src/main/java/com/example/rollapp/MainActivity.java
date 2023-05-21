@@ -2,6 +2,7 @@ package com.example.rollapp;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     private user dane = new user();
 
     private mg danemg = new mg();
+
+    private static final String SHERED_PREFS = "daneuzyt";
+
 
     private String pobranieNickMG(mg mg)
     {
@@ -234,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,7 +278,6 @@ public class MainActivity extends AppCompatActivity {
                     user.setNick(nazwa);
                     pobieraniehasla(user);
                     pobranieNick(user);
-
                     pobierzusera(user);
                     new android.os.Handler().postDelayed(
                             new Runnable() {
@@ -292,14 +296,18 @@ public class MainActivity extends AppCompatActivity {
                                                 if (wynik.verified) {
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
-                                                    intent.putExtra("id" , dane.getId());
-                                                    intent.putExtra("imie" , dane.getImie());
-                                                    intent.putExtra("nazwisko" , dane.getNazwisko());
-                                                    intent.putExtra("nick" , dane.getNick());
-                                                    intent.putExtra("haslo" , dane.getHaslo());
-                                                    intent.putExtra("email" , dane.getEmail());
-                                                    startActivity(intent);
-                                                    Toast.makeText(MainActivity.this, "Witaj " + nazwa, Toast.LENGTH_SHORT).show();
+
+                                                    SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                                                    SharedPreferences.Editor editor = sessionstorage.edit();
+                                                    editor.putInt("id",dane.getId());
+                                                    editor.putString("imie",dane.getImie());
+                                                    editor.putString("nazwisko",dane.getNazwisko());
+                                                    editor.putString("nick",dane.getNick());
+                                                    editor.putString("email",dane.getEmail());
+                                                    editor.putString("haslo",dane.getHaslo());
+                                                    editor.putInt("idmg",dane.getId_mg());
+                                                    editor.commit();
+                                                    Toast.makeText(MainActivity.this, "Witaj " + sessionstorage.getString("nick","blad"), Toast.LENGTH_SHORT).show();
                                                     startActivity(intent);
 
                                                 } else {
