@@ -1,5 +1,7 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.wiedzmin_zdolnosci_emocji;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;

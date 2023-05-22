@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.rollapp.model.wiedzmin_karta;
+import com.example.rollapp.model.wiedzmin_zdolnosci_emocji;
 import com.example.rollapp.retrofit.emocjaApi;
 import com.example.rollapp.retrofit.kartaApi;
 import com.example.rollapp.retrofit.retrofitservice;
