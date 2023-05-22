@@ -160,7 +160,7 @@ public class rejestracja extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<user>> call, Throwable t) {
-                Toast.makeText(rejestracja.this , "Nie udało się sprawdzić czy dany nick istnieje spróbuj ponownie póżniej !!!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(rejestracja.this , "Nie udało się sprawdzić czy dany nick istnieje spróbuj ponownie póżniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
