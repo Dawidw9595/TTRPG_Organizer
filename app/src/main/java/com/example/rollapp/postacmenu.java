@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class postac extends AppCompatActivity {
+public class postacmenu extends AppCompatActivity {
     ImageButton dozdciala;
     ImageButton dozdrozumu;
     ImageButton dozdreakcji;
@@ -35,7 +35,7 @@ public class postac extends AppCompatActivity {
         dozdciala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umCialoPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umCialoPostaci.class);
 
                 startActivity(intent);
             }
@@ -44,7 +44,7 @@ public class postac extends AppCompatActivity {
         dozdrozumu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umRozumPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umRozumPostaci.class);
 
                 startActivity(intent);
             }
@@ -53,7 +53,7 @@ public class postac extends AppCompatActivity {
         dozdreakcji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umReakcjaPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umReakcjaPostaci.class);
 
                 startActivity(intent);
             }
@@ -62,7 +62,7 @@ public class postac extends AppCompatActivity {
         dozdemocji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umEmocjePostaci.class);
+                Intent intent = new Intent(postacmenu.this, umEmocjePostaci.class);
 
                 startActivity(intent);
             }
@@ -71,7 +71,7 @@ public class postac extends AppCompatActivity {
         dozdgracji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umGracjaPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umGracjaPostaci.class);
 
                 startActivity(intent);
             }
@@ -80,7 +80,7 @@ public class postac extends AppCompatActivity {
         dozdfachu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umFachPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umFachPostaci.class);
 
                 startActivity(intent);
             }
@@ -89,7 +89,7 @@ public class postac extends AppCompatActivity {
         dozdwola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, umWolaPostaci.class);
+                Intent intent = new Intent(postacmenu.this, umWolaPostaci.class);
 
                 startActivity(intent);
             }
@@ -98,7 +98,7 @@ public class postac extends AppCompatActivity {
         docech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(postac.this, cechyPostaci.class);
+                Intent intent = new Intent(postacmenu.this, cechyPostaci.class);
 
                 startActivity(intent);
             }

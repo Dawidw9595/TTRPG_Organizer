@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pancerz">
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="413dp"
+        android:layout_height="669dp"
+        app:layout_constraintBottom_toTopOf="@+id/zapiszbron"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="949dp"
+                android:backgroundTint="#FFFFFF">
+
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzeniaglowa"
+                    app:layout_constraintEnd_toStartOf="@+id/textcelnosc"
+                    app:layout_constraintHorizontal_bias="0.783"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+                <ImageView
+                    android:id="@+id/imageView30"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzeniapreka"
+                    app:layout_constraintEnd_toStartOf="@+id/textrecznosc"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wartoscpnoga"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+                <ImageView
+                    android:id="@+id/imageView31"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartoscpnoga"
+                    app:layout_constraintEnd_toStartOf="@+id/textobrazenia"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialreka"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzenialreka"
+                    app:layout_constraintEnd_toStartOf="@+id/textnazwa"
+                    app:layout_constraintHorizontal_bias="0.945"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialnoga"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzeniakorpus"
+                    app:layout_constraintEnd_toStartOf="@+id/textdyskrecja"
+                    app:layout_constraintHorizontal_bias="0.8"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniaglowa"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="170dp"
+                    android:layout_height="178dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.018"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Statystki Pancerza"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                    app:layout_constraintVertical_bias="0.017" />
+
+                <TextView
+                    android:id="@+id/textcelnosc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Głowa"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="0.038" />
+
+                <EditText
+                    android:id="@+id/uszkodzeniaglowa"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textcelnosc"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartoscglowa"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textcelnosc"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textdyskrecja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Korpus"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniaglowa"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/uszkodzeniakorpus"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textdyskrecja"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartosckorpus"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textdyskrecja"
+                    app:layout_constraintVertical_bias="0.002" />
+
+                <TextView
+                    android:id="@+id/textefekty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Lewa Noga"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniakorpus"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/uszkodzenialnoga"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textefekty"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartoscl_noga"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textefekty"
+                    app:layout_constraintVertical_bias="0.003" />
+
+                <TextView
+                    android:id="@+id/textnazwa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Lewa Ręka"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialnoga"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/uszkodzenialreka"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textnazwa"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartosclreka"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textnazwa"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textobrazenia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Prawa Noga"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialreka"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartoscpnoga"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textobrazenia"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/uszkodzeniapnoga"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textobrazenia"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textrecznosc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Prawa Ręka"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wartoscpnoga"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/uszkodzeniapreka"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.235"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textrecznosc"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wartoscpreka"
+                    android:layout_width="69dp"
+                    android:layout_height="63dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.758"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textrecznosc"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartoscglowa"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.242"
+                    app:layout_constraintStart_toEndOf="@+id/textcelnosc"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartosckorpus"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.213"
+                    app:layout_constraintStart_toEndOf="@+id/textdyskrecja"
+                    app:layout_constraintTop_toBottomOf="@+id/wartoscglowa"
+                    app:layout_constraintVertical_bias="0.916"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartoscl_noga"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.055"
+                    app:layout_constraintStart_toEndOf="@+id/textefekty"
+                    app:layout_constraintTop_toBottomOf="@+id/wartosckorpus"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartosclreka"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.072"
+                    app:layout_constraintStart_toEndOf="@+id/textnazwa"
+                    app:layout_constraintTop_toBottomOf="@+id/wartoscl_noga"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView26"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzeniapnoga"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/textobrazenia"
+                    app:layout_constraintTop_toBottomOf="@+id/wartosclreka"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/wartoscpreka"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.037"
+                    app:layout_constraintStart_toEndOf="@+id/textrecznosc"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniapnoga"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/armotstat" />
+
+                <ImageView
+                    android:id="@+id/imageView28"
+                    android:layout_width="38dp"
+                    android:layout_height="37dp"
+                    app:layout_constraintBottom_toTopOf="@+id/uszkodzenialnoga"
+                    app:layout_constraintEnd_toStartOf="@+id/textefekty"
+                    app:layout_constraintHorizontal_bias="0.972"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniakorpus"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/damagearmor" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/zapiszbron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Zapisz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

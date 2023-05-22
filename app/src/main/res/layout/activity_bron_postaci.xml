@@ -67,7 +67,7 @@
                     app:layout_constraintVertical_bias="0.038" />
 
                 <EditText
-                    android:id="@+id/celnosc"
+                    android:id="@+id/uszkodzeniaglowa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -90,11 +90,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/celnosc"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniaglowa"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/dyskrecja"
+                    android:id="@+id/uszkodzeniakorpus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -119,11 +119,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dyskrecja"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniakorpus"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/efekty"
+                    android:id="@+id/uszkodzenialnoga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -147,11 +147,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/efekty"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialnoga"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/nazwa"
+                    android:id="@+id/uszkodzenialreka"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -176,11 +176,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nazwa"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzenialreka"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/obrazenia"
+                    android:id="@+id/wartoscpnoga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -204,11 +204,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/obrazenia"
+                    app:layout_constraintTop_toBottomOf="@+id/wartoscpnoga"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
-                    android:id="@+id/recznosc"
+                    android:id="@+id/uszkodzeniapreka"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -232,7 +232,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recznosc"
+                    app:layout_constraintTop_toBottomOf="@+id/uszkodzeniapreka"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
