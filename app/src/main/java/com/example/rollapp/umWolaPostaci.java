@@ -38,6 +38,9 @@ public class umWolaPostaci extends AppCompatActivity {
 
     private EditText zaklecia;
 
+    private EditText zastraszanie;
+
+
     private Integer i=0;
 
     private static final String SHERED_PREFS = "daneuzyt";
@@ -53,6 +56,7 @@ public class umWolaPostaci extends AppCompatActivity {
                 nieugietosc.getText().toString().isEmpty() ||
                 Odawaga.getText().toString().isEmpty() ||
                 rytualy.getText().toString().isEmpty() ||
+                zastraszanie.getText().toString().isEmpty() ||
                 zaklecia.getText().toString().isEmpty())
         {
             Toast.makeText(umWolaPostaci.this, "Wszystkie pola muszą być uzupełnione", Toast.LENGTH_SHORT).show();
@@ -62,6 +66,7 @@ public class umWolaPostaci extends AppCompatActivity {
                     2<nieugietosc.getText().toString().length() ||
                     2<Odawaga.getText().toString().length() ||
                     2<rytualy.getText().toString().length() ||
+                    2<zastraszanie.getText().toString().length() ||
                     2<zaklecia.getText().toString().length())
             {
                 Toast.makeText(umWolaPostaci.this, "Wszystkie cechy nie mogą mieć więcej niż 2 cyfry", Toast.LENGTH_SHORT).show();
@@ -69,12 +74,16 @@ public class umWolaPostaci extends AppCompatActivity {
                 retrofitservice rts = new retrofitservice();
                 wolaApi wolaApi = rts.getRetrofit().create(com.example.rollapp.retrofit.wolaApi.class);
 
+                SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+
+                wiedzmin_zdolnosci_woli.setId_karta(Integer.valueOf(sessionstorage.getInt("idkarty",0)));
                 wiedzmin_zdolnosci_woli.setKlatwy(Integer.valueOf(kaltwy.getText().toString()));
                 wiedzmin_zdolnosci_woli.setLamanie_magii(Integer.valueOf(lamanie_magii.getText().toString()));
                 wiedzmin_zdolnosci_woli.setNieugietosc(Integer.valueOf(nieugietosc.getText().toString()));
                 wiedzmin_zdolnosci_woli.setOdwaga(Integer.valueOf(Odawaga.getText().toString()));
                 wiedzmin_zdolnosci_woli.setRytualy(Integer.valueOf(rytualy.getText().toString()));
                 wiedzmin_zdolnosci_woli.setZaklecia(Integer.valueOf(zaklecia.getText().toString()));
+                wiedzmin_zdolnosci_woli.setZastraszanie(Integer.valueOf(zastraszanie.getText().toString()));
 
                 wolaApi.save(wiedzmin_zdolnosci_woli).enqueue(new Callback<Void>() {
                     @Override
@@ -157,6 +166,7 @@ public class umWolaPostaci extends AppCompatActivity {
         Odawaga= findViewById(R.id.Odawaga);
         rytualy= findViewById(R.id.rytualy);
         zaklecia= findViewById(R.id.zaklecia);
+        zastraszanie = findViewById(R.id.zastraszanie);
         zakoncz = findViewById(R.id.zakoncz);
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
@@ -173,6 +183,7 @@ public class umWolaPostaci extends AppCompatActivity {
                         wiedzmin_karta wiedzmin_karta = new wiedzmin_karta();
                         wiedzmin_karta.setId(sessionstorage.getInt("idkarty",0));
                         wiedzmin_karta.setId_woli(sessionstorage.getInt("idwoli",0));
+                        updatekarta(wiedzmin_karta);
                     }
                 },300);
                 i++;

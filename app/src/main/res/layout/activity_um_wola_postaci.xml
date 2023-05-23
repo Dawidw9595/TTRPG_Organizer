@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="983dp">
+                android:layout_height="1100dp">
 
                 <ImageView
                     android:id="@+id/imageView19"
@@ -221,6 +221,34 @@
                     app:layout_constraintTop_toBottomOf="@+id/textzaklecia"
                     app:layout_constraintVertical_bias="0.0" />
 
+                <TextView
+                    android:id="@+id/textzastraszanie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Zastraszanie"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zaklecia"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <EditText
+                    android:id="@+id/zastraszanie"
+                    android:layout_width="74dp"
+                    android:layout_height="43dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textzastraszanie"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <Button
                     android:id="@+id/zapiszreakcje"
                     android:layout_width="wrap_content"
@@ -230,7 +258,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/zaklecia"
+                    app:layout_constraintTop_toBottomOf="@+id/zastraszanie"
                     app:layout_constraintVertical_bias="0.444" />
 
                 <Button
@@ -242,7 +270,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.9"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/zaklecia"
+                    app:layout_constraintTop_toBottomOf="@+id/zastraszanie"
                     app:layout_constraintVertical_bias="0.444" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

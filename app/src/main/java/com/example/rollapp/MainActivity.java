@@ -299,6 +299,8 @@ public class MainActivity extends AppCompatActivity {
 
                                                     SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
                                                     SharedPreferences.Editor editor = sessionstorage.edit();
+                                                    editor.clear();
+                                                    editor.commit();
                                                     editor.putInt("id",dane.getId());
                                                     editor.putString("imie",dane.getImie());
                                                     editor.putString("nazwisko",dane.getNazwisko());
@@ -345,12 +347,19 @@ public class MainActivity extends AppCompatActivity {
                                                     Toast.makeText(MainActivity.this, "Witaj " + nazwa + " Mistrzu Gry !!!", Toast.LENGTH_SHORT).show();
 
                                                     Intent intent = new Intent(MainActivity.this, stronaglowna.class);
-                                                    intent.putExtra("id" , danemg.getId());
-                                                    intent.putExtra("imie" , danemg.getImie());
-                                                    intent.putExtra("nazwisko" , danemg.getNazwisko());
-                                                    intent.putExtra("nick" , danemg.getNick());
-                                                    intent.putExtra("haslo" , danemg.getHaslo());
-                                                    intent.putExtra("email" , danemg.getEmail());
+
+                                                    SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                                                    SharedPreferences.Editor editor = sessionstorage.edit();
+                                                    editor.clear();
+                                                    editor.commit();
+                                                    editor.putInt("id",danemg.getId());
+                                                    editor.putString("imie",danemg.getImie());
+                                                    editor.putString("nazwisko",danemg.getNazwisko());
+                                                    editor.putString("nick",danemg.getNick());
+                                                    editor.putString("email",danemg.getEmail());
+                                                    editor.putString("haslo",danemg.getHaslo());
+                                                    editor.putString("mg","tak");
+                                                    editor.commit();
                                                     startActivity(intent);
 
                                                 } else {

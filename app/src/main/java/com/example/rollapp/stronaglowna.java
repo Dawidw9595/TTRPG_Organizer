@@ -16,19 +16,14 @@ public class stronaglowna extends AppCompatActivity {
 
     private ImageButton losowanie;
 
-    private TextView nickuzyt;
+    private ImageButton twojepostacie;
 
-    private Integer id;
-    private String imie;
-    private String nazwisko;
-    private String nick;
-    private String haslo;
-    private String email;
+    private TextView nickuzyt;
 
     private static final String SHERED_PREFS = "daneuzyt";
 
 
-    ImageButton stworzPostac;
+    private ImageButton stworzPostac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +31,7 @@ public class stronaglowna extends AppCompatActivity {
         setContentView(R.layout.activity_stronaglowna);
         losowanie = findViewById(R.id.imageButton6);
         nickuzyt = findViewById(R.id.nickclick);
+        twojepostacie = findViewById(R.id.imageButton10);
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
         nickuzyt.setText(sessionstorage.getString("nick","Błąd"));
@@ -52,10 +48,6 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(stronaglowna.this, Liczba_losowa.class);
-                SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
-                SharedPreferences.Editor editor = sessionstorage.edit();
-                editor.clear();
-                editor.commit();
                 startActivity(intent);
             }
 
@@ -72,15 +64,12 @@ public class stronaglowna extends AppCompatActivity {
 
         });
 
-        stworzPostac = findViewById(R.id.stworzPostac);
-        stworzPostac.setOnClickListener(new View.OnClickListener() {
+        twojepostacie.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(stronaglowna.this, danePostaci.class);
-
                 startActivity(intent);
             }
-
         });
     }
 }

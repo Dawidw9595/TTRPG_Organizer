@@ -48,7 +48,7 @@ public interface userApi {
     @POST("/user/czynick")
     Call<ArrayList<String>> czyjest(@Body user user);
 
-    @POST("/user/czynick")
+    @POST("/user/czyemail")
     Call<ArrayList<String>> czyjestemail(@Body user user);
 
 }
