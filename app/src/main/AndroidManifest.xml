@@ -17,6 +17,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".gracze"
+            android:exported="false" />
+        <activity
+            android:name=".postacie"
+            android:exported="false" />
+        <activity
+            android:name=".rzemioslo"
+            android:exported="false" />
+        <activity
+            android:name=".alchemia"
+            android:exported="false" />
+        <activity
+            android:name=".czary"
+            android:exported="false" />
+        <activity
+            android:name=".ekwipunek"
+            android:exported="false" />
+        <activity
+            android:name=".statystyki_postaci"
+            android:exported="false" />
+        <activity
             android:name=".pancerz"
             android:exported="false" />
         <activity
