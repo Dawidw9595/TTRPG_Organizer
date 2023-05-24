@@ -67,7 +67,7 @@ public class stronaglowna extends AppCompatActivity {
         twojepostacie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(stronaglowna.this, danePostaci.class);
+                Intent intent = new Intent(stronaglowna.this, lista_postaci.class);
                 startActivity(intent);
             }
         });
