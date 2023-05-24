@@ -10,10 +10,8 @@ import com.example.rollapp.R;
 
 public class postacHolder extends RecyclerView.ViewHolder {
 
-    TextView nazwa;
-    TextView rasa;
-    TextView plec;
-    TextView wiek;
+    TextView nazwa, rasa, plec, wiek;
+
 
 
     public postacHolder(@NonNull View itemView) {

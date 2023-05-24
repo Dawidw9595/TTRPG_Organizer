@@ -15,7 +15,7 @@ import java.util.List;
 
 public class postacAdapter extends RecyclerView.Adapter<postacHolder> {
 
-    private ArrayList<postac> postacList;
+    private List<postac> postacList;
 
     public postacAdapter(ArrayList<postac> postacList)
     {
@@ -28,7 +28,9 @@ public class postacAdapter extends RecyclerView.Adapter<postacHolder> {
     public postacHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.postac_lista_przedmiotow, parent, false);
         return new postacHolder(view);
+
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull postacHolder holder, int position) {

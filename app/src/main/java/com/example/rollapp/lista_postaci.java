@@ -55,8 +55,9 @@ public class lista_postaci extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.listaPostaci);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        postac postac = new postac();
+        zaladujpostacie(postac);
 
-        zaladujpostacie(p);
     }
 
 
