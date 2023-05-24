@@ -38,7 +38,7 @@ public class postacAdapter extends RecyclerView.Adapter<postacHolder> {
         holder.nazwa.setText(postac.getNazwa_postaci());
         holder.rasa.setText(postac.getRasa());
         holder.plec.setText(postac.getPlec());
-        holder.wiek.setText(postac.getWiek());
+        holder.wiek.setText(String.valueOf(postac.getWiek()));
     }
 
     @Override

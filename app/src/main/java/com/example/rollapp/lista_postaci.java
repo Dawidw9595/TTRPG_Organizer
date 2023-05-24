@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ import retrofit2.Retrofit;
 public class lista_postaci extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+
+    private static final String SHERED_PREFS = "daneuzyt";
 
     private void zaladujpostacie(postac postac) {
         retrofitservice rts = new retrofitservice();
@@ -52,10 +55,11 @@ public class lista_postaci extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_postaci);
-
+        SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
         recyclerView = findViewById(R.id.listaPostaci);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         postac postac = new postac();
+        postac.setId_user(sessionstorage.getInt("id",0));
         zaladujpostacie(postac);
 
     }
