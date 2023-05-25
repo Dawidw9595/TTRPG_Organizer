@@ -1,38 +1,25 @@
 package com.example.rollapp.adapter;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rollapp.R;
-import com.example.rollapp.lista_postaci;
 import com.example.rollapp.model.postac;
-import com.example.rollapp.postacmenu;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class postacAdapter extends RecyclerView.Adapter<postacHolder> {
 
-
     private List<postac> postacList;
 
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(postac postac);
-    }
-
-    public postacAdapter(ArrayList<postac> postacList, OnItemClickListener listener)
+    public postacAdapter(ArrayList<postac> postacList)
     {
         this.postacList = postacList;
-        this.listener = listener;
     }
 
 
@@ -52,15 +39,7 @@ public class postacAdapter extends RecyclerView.Adapter<postacHolder> {
         holder.rasa.setText(postac.getRasa());
         holder.plec.setText(postac.getPlec());
         holder.wiek.setText(String.valueOf(postac.getWiek()));
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemClick(postac);
-            }
-        });
     }
-
 
     @Override
     public int getItemCount() {
