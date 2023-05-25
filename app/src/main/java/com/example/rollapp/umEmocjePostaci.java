@@ -164,6 +164,92 @@ public class umEmocjePostaci extends AppCompatActivity {
         });
     }
 
+    private void getemocje(wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji)
+    {
+        retrofitservice rts = new retrofitservice();
+        emocjaApi emocjaApi = rts.getRetrofit().create(com.example.rollapp.retrofit.emocjaApi.class);
+
+        emocjaApi.getall(wiedzmin_zdolnosci_emocji).enqueue(new Callback<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_emocji>>() {
+            @Override
+            public void onResponse(Call<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_emocji>> call, Response<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_emocji>> response) {
+                amory.setText(String.valueOf(response.body().get(0).getAmory()));
+                empatia.setText(String.valueOf(response.body().get(0).getEmpatia()));
+                hazard.setText(String.valueOf(response.body().get(0).getHazard()));
+                oszustwo.setText(String.valueOf(response.body().get(0).getOszustwo()));
+                perswazja.setText(String.valueOf(response.body().get(0).getPerswazja()));
+                przywodztwo.setText(String.valueOf(response.body().get(0).getPrzywodztwo()));
+                styl.setText(String.valueOf(response.body().get(0).getStyl()));
+                sztuka.setText(String.valueOf(response.body().get(0).getSztuka()));
+                urok.setText(String.valueOf(response.body().get(0).getUrok()));
+                wystepy.setText(String.valueOf(response.body().get(0).getWystepy()));
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_emocji>> call, Throwable t) {
+                Toast.makeText(umEmocjePostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private void mody(wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji)
+    {
+        if (amory.getText().toString().isEmpty() ||
+                empatia.getText().toString().isEmpty() ||
+                hazard.getText().toString().isEmpty() ||
+                oszustwo.getText().toString().isEmpty() ||
+                perswazja.getText().toString().isEmpty() ||
+                przywodztwo.getText().toString().isEmpty() ||
+                sztuka.getText().toString().isEmpty() ||
+                urok.getText().toString().isEmpty() ||
+                wystepy.getText().toString().isEmpty() ||
+                styl.getText().toString().isEmpty())
+        {
+            Toast.makeText(umEmocjePostaci.this, "Wszystkie pola muszą być uzupełnione", Toast.LENGTH_SHORT).show();
+        } else {
+            if (2 < amory.getText().toString().length() ||
+                    2 < empatia.getText().toString().length() ||
+                    2 < hazard.getText().toString().length() ||
+                    2 < oszustwo.getText().toString().length() ||
+                    2 < perswazja.getText().toString().length() ||
+                    2 < przywodztwo.getText().toString().length() ||
+                    2 < sztuka.getText().toString().length() ||
+                    2 < urok.getText().toString().length() ||
+                    2 < wystepy.getText().toString().length() ||
+                    2 < styl.getText().toString().length()) {
+                Toast.makeText(umEmocjePostaci.this, "Wszystkie cechy nie mogą mieć więcej niż 2 cyfry", Toast.LENGTH_SHORT).show();
+            } else {
+                retrofitservice rts = new retrofitservice();
+                emocjaApi emocjaApi = rts.getRetrofit().create(com.example.rollapp.retrofit.emocjaApi.class);
+
+                wiedzmin_zdolnosci_emocji.setAmory(Integer.valueOf(amory.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setEmpatia(Integer.valueOf(empatia.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setHazard(Integer.valueOf(hazard.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setOszustwo(Integer.valueOf(oszustwo.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setPerswazja(Integer.valueOf(perswazja.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setPrzywodztwo(Integer.valueOf(przywodztwo.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setUrok(Integer.valueOf(urok.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setWystepy(Integer.valueOf(wystepy.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setStyl(Integer.valueOf(styl.getText().toString()));
+                wiedzmin_zdolnosci_emocji.setSztuka(Integer.valueOf(sztuka.getText().toString()));
+
+                i++;
+                emocjaApi.modyfikuj(wiedzmin_zdolnosci_emocji).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(umEmocjePostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                        Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+                    }
+                });
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,45 +270,74 @@ public class umEmocjePostaci extends AppCompatActivity {
         urok = findViewById(R.id.urok);
         wystepy = findViewById(R.id.wystepy);
 
-        zapisz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji = new wiedzmin_zdolnosci_emocji();
-                wiedzmin_zdolnosci_emocji.setId_karta(sessionstorage.getInt("idkarty",0));
-                getall(wiedzmin_zdolnosci_emocji);
-
-                new android.os.Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        wiedzmin_karta karta = new wiedzmin_karta();
-                        karta.setId(sessionstorage.getInt("idkarty",0));
-                        karta.setId_emocji(sessionstorage.getInt("idemocji",0));
-                        updatekarta(karta);
-                    }
-                },300);
-                i++;
-            }
-        });
-
-        dozdolnoscifachu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (i==0)
-                {
-                    Toast.makeText(umEmocjePostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
-                }
-                else if (i <= 1)
-                {
-                    Toast.makeText(umEmocjePostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(umEmocjePostaci.this, umFachPostaci.class);
+        if (sessionstorage.getString("modyfikajca","")=="")
+        {
+            zapisz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji = new wiedzmin_zdolnosci_emocji();
+                    wiedzmin_zdolnosci_emocji.setId_karta(sessionstorage.getInt("idkarty",0));
                     getall(wiedzmin_zdolnosci_emocji);
-                    Toast.makeText(umEmocjePostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                }
-            }
 
-        });
+                    new android.os.Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            wiedzmin_karta karta = new wiedzmin_karta();
+                            karta.setId(sessionstorage.getInt("idkarty",0));
+                            karta.setId_emocji(sessionstorage.getInt("idemocji",0));
+                            updatekarta(karta);
+                        }
+                    },300);
+                    i++;
+                }
+            });
+
+            dozdolnoscifachu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (i==0)
+                    {
+                        Toast.makeText(umEmocjePostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (i <= 1)
+                    {
+                        Toast.makeText(umEmocjePostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(umEmocjePostaci.this, umFachPostaci.class);
+                        wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji = new wiedzmin_zdolnosci_emocji();
+                        getall(wiedzmin_zdolnosci_emocji);
+                        Toast.makeText(umEmocjePostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    }
+                }
+
+            });
+        }else {
+            wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji = new wiedzmin_zdolnosci_emocji();
+            wiedzmin_zdolnosci_emocji.setId_karta(sessionstorage.getInt("id_karty",1));
+            dozdolnoscifachu.setText("Modyfikuj");
+            getemocje(wiedzmin_zdolnosci_emocji);
+            zapisz.setVisibility(View.GONE);
+
+            dozdolnoscifachu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (i==0)
+                    {
+                        mody(wiedzmin_zdolnosci_emocji);
+                        Toast.makeText(umEmocjePostaci.this, "Proszę naciśnij modyfikuj jeszcze raz", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        new android.os.Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(umEmocjePostaci.this,postacmenu.class);
+                                startActivity(intent);
+                            }
+                        },400);
+                    }
+                }
+            });
+        }
     }
 }

@@ -15,4 +15,7 @@ public interface cialoApi {
 
     @POST("/cialo/getall")
     Call<ArrayList<wiedzmin_zdolnosci_ciala>> getbyid(@Body wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala);
+
+    @POST("/cialo/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala);
 }

@@ -58,7 +58,9 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(stronaglowna.this, danePostaci.class);
-
+                SharedPreferences.Editor editor = sessionstorage.edit();
+                editor.remove("modyfikajca");
+                editor.commit();
                 startActivity(intent);
             }
 
