@@ -108,7 +108,7 @@ public class umWolaPostaci extends AppCompatActivity {
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
 
-        wiedzmin_zdolnosci_woli.setId(sessionstorage.getInt("idkarty",0));
+        wiedzmin_zdolnosci_woli.setId_karta(sessionstorage.getInt("idkarty",0));
         wolaApi.getall(wiedzmin_zdolnosci_woli).enqueue(new Callback<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_woli>>() {
             @Override
             public void onResponse(Call<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_woli>> call, Response<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_woli>> response) {
@@ -181,8 +181,6 @@ public class umWolaPostaci extends AppCompatActivity {
                     @Override
                     public void run() {
                         wiedzmin_karta wiedzmin_karta = new wiedzmin_karta();
-                        wiedzmin_karta.setId(sessionstorage.getInt("idkarty",0));
-                        wiedzmin_karta.setId_woli(sessionstorage.getInt("idwoli",0));
                         updatekarta(wiedzmin_karta);
                     }
                 },300);

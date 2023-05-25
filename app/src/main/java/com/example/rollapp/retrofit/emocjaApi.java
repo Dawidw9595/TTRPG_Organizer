@@ -1,5 +1,6 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.wiedzmin_zdolnosci_ciala;
 import com.example.rollapp.model.wiedzmin_zdolnosci_emocji;
 
 import java.util.ArrayList;
@@ -15,4 +16,7 @@ public interface emocjaApi {
 
     @POST("/emocje/getall")
     Call<ArrayList<wiedzmin_zdolnosci_emocji>> getall(@Body wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji);
+
+    @POST("/emocje/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji);
 }

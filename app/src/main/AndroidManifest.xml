@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".stronaglownamg"
+            android:exported="false" />
+        <activity
             android:name=".lista_graczy"
             android:exported="false" />
         <activity
@@ -86,8 +89,7 @@
             android:label="Rzuć Kością" />
         <activity
             android:name=".stronaglowna"
-            android:exported="false"
-            android:noHistory="true" />
+            android:exported="false" />
         <activity
             android:name=".zmianadanychuzyt"
             android:exported="false"

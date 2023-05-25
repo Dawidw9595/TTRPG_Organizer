@@ -6,4 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".stronaglownamg">
 
+    <ImageButton
+        android:id="@+id/stworzPostac"
+        android:layout_width="117dp"
+        android:layout_height="152dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.193"
+        app:srcCompat="@drawable/stworz_postac117x96"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="204dp"
+        android:layout_height="226dp"
+        android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stworzPostac"
+        app:layout_constraintVertical_bias="0.92"
+        app:srcCompat="@drawable/losowanie"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/nickclick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Błąd"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/stworzPostac"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/twojepostacie"
+        android:layout_width="117dp"
+        android:layout_height="157dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toEndOf="@+id/stworzPostac"
+        app:layout_constraintTop_toBottomOf="@+id/nickclick"
+        app:layout_constraintVertical_bias="0.084"
+        app:srcCompat="@drawable/twoje_postacie117x152" />
+
+    <ImageButton
+        android:id="@+id/twoigracze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickclick"
+        app:layout_constraintVertical_bias="0.781"
+        app:srcCompat="@drawable/gracz105x115" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Twoi Gracze"
+        android:textColor="#7F0000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twoigracze"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

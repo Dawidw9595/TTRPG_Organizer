@@ -15,4 +15,7 @@ public interface rozumApi {
 
     @POST("/rozum/getall")
     Call<ArrayList<wiedzmin_zdolnosci_rozum>> getall(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
+
+    @POST("/rozum/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
 }

@@ -15,4 +15,10 @@ public interface cechaApi {
 
     @POST("/cechy/getall")
     Call<ArrayList<wiedzmin_cechy>> getall(@Body wiedzmin_cechy wiedzmin_cechy);
+
+    @POST("/cechy/getbyid")
+    Call<ArrayList<wiedzmin_cechy>> getallbyid(@Body wiedzmin_cechy wiedzmin_cechy);
+
+    @POST("/cechy/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_cechy wiedzmin_cechy);
 }

@@ -17,6 +17,9 @@ public interface postacApi {
     @POST("/postac/getpostac")
     Call<ArrayList<postac>> getpostac(@Body postac postac);
 
+    @POST("/postac/getallpostac")
+    Call<ArrayList<postac>> getallpostac(@Body postac postac);
+
     @POST("/postac/setall")
     Call<Void> setall(@Body postac postac);
 }

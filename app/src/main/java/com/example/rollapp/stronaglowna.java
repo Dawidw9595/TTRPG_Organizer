@@ -1,14 +1,12 @@
 package com.example.rollapp;
 
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +29,7 @@ public class stronaglowna extends AppCompatActivity {
         setContentView(R.layout.activity_stronaglowna);
         losowanie = findViewById(R.id.imageButton6);
         nickuzyt = findViewById(R.id.nickclick);
-        twojepostacie = findViewById(R.id.imageButton10);
+        twojepostacie = findViewById(R.id.twojepostacie);
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
         nickuzyt.setText(sessionstorage.getString("nick","Błąd"));
@@ -58,7 +56,9 @@ public class stronaglowna extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(stronaglowna.this, danePostaci.class);
-
+                SharedPreferences.Editor editor = sessionstorage.edit();
+                editor.remove("modyfikajca");
+                editor.commit();
                 startActivity(intent);
             }
 

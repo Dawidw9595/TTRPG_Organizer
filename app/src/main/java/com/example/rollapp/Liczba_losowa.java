@@ -7,8 +7,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,19 +33,19 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
         TextView numSidesDisplay = findViewById(R.id.Liczba);
 
         // ustawienie przycisków do zmiany liczby ścianek na kości do gry
-        Button button4 = findViewById(R.id.button4);
+        ImageButton button4 = findViewById(R.id.k4);
         button4.setOnClickListener(view -> changeNumSides(4, numSidesDisplay));
-        Button button6 = findViewById(R.id.button6);
+        ImageButton button6 = findViewById(R.id.k6);
         button6.setOnClickListener(view -> changeNumSides(6, numSidesDisplay));
-        Button button8 = findViewById(R.id.button8);
+        ImageButton button8 = findViewById(R.id.k8);
         button8.setOnClickListener(view -> changeNumSides(8, numSidesDisplay));
-        Button button10 = findViewById(R.id.button10);
+        ImageButton button10 = findViewById(R.id.k10);
         button10.setOnClickListener(view -> changeNumSides(10, numSidesDisplay));
-        Button button12 = findViewById(R.id.button12);
+        ImageButton button12 = findViewById(R.id.k12);
         button12.setOnClickListener(view -> changeNumSides(12, numSidesDisplay));
-        Button button20 = findViewById(R.id.button20);
+        ImageButton button20 = findViewById(R.id.k20);
         button20.setOnClickListener(view -> changeNumSides(20, numSidesDisplay));
-        Button button100 = findViewById(R.id.button100);
+        ImageButton button100 = findViewById(R.id.k100);
         button100.setOnClickListener(view -> changeNumSides(100, numSidesDisplay));
 
     }

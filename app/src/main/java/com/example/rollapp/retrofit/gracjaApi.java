@@ -16,4 +16,7 @@ public interface gracjaApi {
 
     @POST("/gracja/getall")
     Call<ArrayList<wiedzmin_zdolnosci_gracji>> getall(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
+
+    @POST("/gracja/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
 }

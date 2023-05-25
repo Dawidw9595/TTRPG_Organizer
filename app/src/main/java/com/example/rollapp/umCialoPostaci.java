@@ -124,6 +124,60 @@ public class umCialoPostaci extends AppCompatActivity {
             }
         });
     }
+
+    private void getcialo(wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala)
+    {
+        retrofitservice rts = new retrofitservice();
+        cialoApi cialoApi = rts.getRetrofit().create(com.example.rollapp.retrofit.cialoApi.class);
+        cialoApi.getbyid(wiedzmin_zdolnosci_ciala).enqueue(new Callback<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_ciala>>() {
+            @Override
+            public void onResponse(Call<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_ciala>> call, Response<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_ciala>> response) {
+                wytrzymalosc.setText(String.valueOf(response.body().get(0).getWytrzymalosc()));
+                krzepa.setText(String.valueOf(response.body().get(0).getKrzepa()));
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<com.example.rollapp.model.wiedzmin_zdolnosci_ciala>> call, Throwable t) {
+                Toast.makeText(umCialoPostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private void modyfikuj(wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala)
+    {
+        if (krzepa.getText().toString().isEmpty() ||
+                wytrzymalosc.getText().toString().isEmpty())
+        {
+            Toast.makeText(umCialoPostaci.this, "Wszystkie pola muszą być uzupełnione", Toast.LENGTH_SHORT).show();
+        } else {
+            if (2 < krzepa.getText().toString().length() ||
+                    2 < wytrzymalosc.getText().toString().length()) {
+                Toast.makeText(umCialoPostaci.this, "Wszystkie cechy nie mogą mieć więcej niż 2 cyfry", Toast.LENGTH_SHORT).show();
+            } else {
+                retrofitservice rts = new retrofitservice();
+                cialoApi cialoApi = rts.getRetrofit().create(com.example.rollapp.retrofit.cialoApi.class);
+
+                i++;
+
+                wiedzmin_zdolnosci_ciala.setKrzepa(Integer.valueOf(krzepa.getText().toString()));
+                wiedzmin_zdolnosci_ciala.setWytrzymalosc(Integer.valueOf(wytrzymalosc.getText().toString()));
+
+                cialoApi.modyfikuj(wiedzmin_zdolnosci_ciala).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(umCialoPostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                        Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+                    }
+                });
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,45 +191,74 @@ public class umCialoPostaci extends AppCompatActivity {
         wytrzymalosc = findViewById(R.id.wytrzymalosc);
         krzepa = findViewById(R.id.krzepa);
 
-        zapisz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala = new wiedzmin_zdolnosci_ciala();
-                wiedzmin_zdolnosci_ciala.setId_karta(sessionstorage.getInt("idkarty",0));
-                getall(wiedzmin_zdolnosci_ciala);
-
-                new android.os.Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        wiedzmin_karta karta = new wiedzmin_karta();
-                        karta.setId(sessionstorage.getInt("idkarty",0));
-                        karta.setId_ciala(sessionstorage.getInt("idciala",0));
-                        updatekarta(karta);
-                    }
-                },300);
-                i++;
-            }
-        });
-
-        dozdolnosciemocji.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (i==0)
-                {
-                    Toast.makeText(umCialoPostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
-                }
-                else if (i <= 1)
-                {
-                    Toast.makeText(umCialoPostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(umCialoPostaci.this, umEmocjePostaci.class);
+        if (sessionstorage.getString("modyfikajca","")=="")
+        {
+            zapisz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala = new wiedzmin_zdolnosci_ciala();
+                    wiedzmin_zdolnosci_ciala.setId_karta(sessionstorage.getInt("idkarty",0));
                     getall(wiedzmin_zdolnosci_ciala);
-                    Toast.makeText(umCialoPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                }
-            }
 
-        });
+                    new android.os.Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            wiedzmin_karta karta = new wiedzmin_karta();
+                            karta.setId(sessionstorage.getInt("idkarty",0));
+                            karta.setId_ciala(sessionstorage.getInt("idciala",0));
+                            updatekarta(karta);
+                        }
+                    },300);
+                    i++;
+                }
+            });
+
+            dozdolnosciemocji.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (i==0)
+                    {
+                        Toast.makeText(umCialoPostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (i <= 1)
+                    {
+                        Toast.makeText(umCialoPostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(umCialoPostaci.this, umEmocjePostaci.class);
+                        wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala = new wiedzmin_zdolnosci_ciala();
+                        getall(wiedzmin_zdolnosci_ciala);
+                        Toast.makeText(umCialoPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                    }
+                }
+
+            });
+        } else {
+            wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala= new wiedzmin_zdolnosci_ciala();
+            wiedzmin_zdolnosci_ciala.setId_karta(sessionstorage.getInt("id_karty",1));
+            getcialo(wiedzmin_zdolnosci_ciala);
+            dozdolnosciemocji.setText("Modyfikuj");
+            zapisz.setVisibility(View.GONE);
+
+            dozdolnosciemocji.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (i==0)
+                    {
+                        modyfikuj(wiedzmin_zdolnosci_ciala);
+                        Toast.makeText(umCialoPostaci.this, "Proszę naciśnij modyfikuj jeszcze raz", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        new android.os.Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(umCialoPostaci.this,postacmenu.class);
+                                startActivity(intent);
+                            }
+                        },400);
+                    }
+                }
+            });
+        }
     }
 }

@@ -346,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                     Toast.makeText(MainActivity.this, "Witaj " + nazwa + " Mistrzu Gry !!!", Toast.LENGTH_SHORT).show();
 
-                                                    Intent intent = new Intent(MainActivity.this, stronaglowna.class);
+                                                    Intent intent = new Intent(MainActivity.this, stronaglownamg.class);
 
                                                     SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
                                                     SharedPreferences.Editor editor = sessionstorage.edit();

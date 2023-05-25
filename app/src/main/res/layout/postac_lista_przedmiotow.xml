@@ -9,7 +9,7 @@
         android:id="@+id/postaclistaprzedmiotow_nazwa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="24dp"
         android:fontFamily="sans-serif"
         android:text="Nazwa Postaci"
         android:textAlignment="center"
@@ -19,8 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/postaclistaprzedmiotow_rasa"
@@ -28,9 +27,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Rasa Postaci"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postaclistaprzedmiotow_nazwa"
         app:layout_constraintVertical_bias="0.0" />
@@ -41,12 +41,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Plec"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toEndOf="@+id/postaclistaprzedmiotow_nazwa"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/postaclistaprzedmiotow_wiek"
@@ -54,9 +55,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Wiek"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toEndOf="@+id/postaclistaprzedmiotow_rasa"
         app:layout_constraintTop_toBottomOf="@+id/postaclistaprzedmiotow_plec"
         app:layout_constraintVertical_bias="1.0" />
