@@ -15,4 +15,7 @@ public interface reakcjaApi {
 
     @POST("/reakcja/getall")
     Call<ArrayList<wiedzmin_zdolnosci_reakcji>> getall(@Body wiedzmin_zdolnosci_reakcji wiedzmin_zdolnosci_reakcji);
+
+    @POST("/reakcja/mody")
+    Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_reakcji wiedzmin_zdolnosci_reakcji);
 }
