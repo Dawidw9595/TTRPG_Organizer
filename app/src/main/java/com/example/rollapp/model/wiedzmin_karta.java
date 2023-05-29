@@ -4,30 +4,27 @@ public class wiedzmin_karta {
 
     private int id;
 
-
     private int id_postaci;
 
-
     private int id_cechy;
-
 
     private int id_rozum;
 
     private int id_reakcji;
 
-
     private int id_gracji;
-
 
     private int id_ciala;
 
-
     private int id_emocji;
-
 
     private int id_fachu;
 
     private int id_woli;
+
+    private int id_broni;
+
+    private int id_pancerza;
 
     private String zdolnosc_charakterystyczna;
 
@@ -54,9 +51,36 @@ public class wiedzmin_karta {
     private String o_innych;
 
     private String pochodzenie;
+
     private String wydarzenia;
 
+    private int koniec;
+
     public wiedzmin_karta() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
+    }
+
+    public int getId_broni() {
+        return id_broni;
+    }
+
+    public void setId_broni(int id_broni) {
+        this.id_broni = id_broni;
+    }
+
+    public int getId_pancerza() {
+        return id_pancerza;
+    }
+
+    public void setId_pancerza(int id_pancerza) {
+        this.id_pancerza = id_pancerza;
     }
 
     public int getId_postaci() {
@@ -264,6 +288,8 @@ public class wiedzmin_karta {
                 ", id_emocji=" + id_emocji +
                 ", id_fachu=" + id_fachu +
                 ", id_woli=" + id_woli +
+                ", id_broni=" + id_broni +
+                ", id_pancerza=" + id_pancerza +
                 ", zdolnosc_charakterystyczna='" + zdolnosc_charakterystyczna + '\'' +
                 ", zdolnosc_profesji='" + zdolnosc_profesji + '\'' +
                 ", pieniadze=" + pieniadze +
@@ -278,6 +304,7 @@ public class wiedzmin_karta {
                 ", o_innych='" + o_innych + '\'' +
                 ", pochodzenie='" + pochodzenie + '\'' +
                 ", wydarzenia='" + wydarzenia + '\'' +
+                ", koniec=" + koniec +
                 '}';
     }
 }

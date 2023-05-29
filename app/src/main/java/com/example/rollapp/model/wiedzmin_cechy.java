@@ -2,6 +2,7 @@ package com.example.rollapp.model;
 
 public class wiedzmin_cechy {
 
+
     private int id;
 
     private int cialo;
@@ -20,9 +21,20 @@ public class wiedzmin_cechy {
 
     private int fart;
 
+
     private int id_karty;
 
+    private int koniec;
+
     public wiedzmin_cechy() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId() {
@@ -118,6 +130,7 @@ public class wiedzmin_cechy {
                 ", wola=" + wola +
                 ", fart=" + fart +
                 ", id_karty=" + id_karty +
+                ", koniec=" + koniec +
                 '}';
     }
 }

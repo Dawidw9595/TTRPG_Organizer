@@ -1,5 +1,6 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.wiedzmin_zdolnosci_reakcji;
 import com.example.rollapp.model.wiedzmin_zdolnosci_rozum;
 
 import java.util.ArrayList;
@@ -18,4 +19,10 @@ public interface rozumApi {
 
     @POST("/rozum/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
+
+    @POST("/rozum/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/rozum/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum);
 }

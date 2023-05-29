@@ -2,6 +2,7 @@ package com.example.rollapp.retrofit;
 
 import com.example.rollapp.model.mg;
 import com.example.rollapp.model.wiedzmin_karta;
+import com.example.rollapp.model.wiedzmin_zdolnosci_gracji;
 
 import java.util.ArrayList;
 
@@ -40,4 +41,14 @@ public interface kartaApi {
 
     @POST("/karta/updatereakcja")
     Call<Void> updatereakcja(@Body wiedzmin_karta wiedzmin_karta);
+
+    @POST("/karta/updatebron")
+    Call<Void> updatebron(@Body wiedzmin_karta wiedzmin_karta);
+
+
+    @POST("/karta/usunpuste")
+    Call<Void> usunpuste();
+
+    @POST("/karta/koniec")
+    Call<Void>koniec(@Body wiedzmin_karta wiedzmin_karta);
 }

@@ -2,7 +2,9 @@ package com.example.rollapp.model;
 
 public class wiedzmin_zdolnosci_gracji {
 
+
     private int id;
+
 
     private int id_karta;
 
@@ -16,7 +18,19 @@ public class wiedzmin_zdolnosci_gracji {
 
     private int zreczne_palce;
 
+
+    private int koniec;
+
+
     public wiedzmin_zdolnosci_gracji() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -85,6 +99,7 @@ public class wiedzmin_zdolnosci_gracji {
                 ", lucznictwo=" + lucznictwo +
                 ", skrytosc=" + skrytosc +
                 ", zreczne_palce=" + zreczne_palce +
+                ", koniec=" + koniec +
                 '}';
     }
 }

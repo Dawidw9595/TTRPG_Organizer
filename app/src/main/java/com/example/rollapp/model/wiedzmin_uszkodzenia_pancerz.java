@@ -3,13 +3,24 @@ package com.example.rollapp.model;
 public class wiedzmin_uszkodzenia_pancerz {
 
     private int id;
+
     private int id_pancerz;
+
     private int glowa;
+
     private int korpus;
+
     private int p_reka;
+
     private int l_noga;
+
     private int l_reka;
+
     private int p_noga;
+
+    private int koniec;
+
+
     public wiedzmin_uszkodzenia_pancerz() {
     }
 

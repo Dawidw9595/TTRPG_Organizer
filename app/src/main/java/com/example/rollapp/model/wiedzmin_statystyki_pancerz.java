@@ -11,6 +11,8 @@ public class wiedzmin_statystyki_pancerz {
     private int l_reka;
     private int r_noga;
 
+    private int koniec;
+
     public wiedzmin_statystyki_pancerz() {
     }
 

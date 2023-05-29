@@ -4,6 +4,7 @@ public class wiedzmin_zdolnosci_rozum {
 
     private int id;
 
+
     private int id_karta;
 
     private int czujnosc;
@@ -32,7 +33,18 @@ public class wiedzmin_zdolnosci_rozum {
 
     private int wyksztalcenie;
 
+
+    private int koniec;
+
     public wiedzmin_zdolnosci_rozum() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -173,6 +185,7 @@ public class wiedzmin_zdolnosci_rozum {
                 ", sztuka_przetrwania=" + sztuka_przetrwania +
                 ", wiedz_o_potworach=" + wiedz_o_potworach +
                 ", wyksztalcenie=" + wyksztalcenie +
+                ", koniec=" + koniec +
                 '}';
     }
 }

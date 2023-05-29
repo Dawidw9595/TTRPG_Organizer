@@ -20,7 +20,20 @@ public class wiedzmin_zdolnosci_woli {
 
     private int zastraszanie;
 
+
+    private int koniec;
+
+
+
     public wiedzmin_zdolnosci_woli() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -107,6 +120,7 @@ public class wiedzmin_zdolnosci_woli {
                 ", rytualy=" + rytualy +
                 ", zaklecia=" + zaklecia +
                 ", zastraszanie=" + zastraszanie +
+                ", koniec=" + koniec +
                 '}';
     }
 }

@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rollapp.model.postac;
 import com.example.rollapp.model.wiedzmin_cechy;
 import com.example.rollapp.model.wiedzmin_karta;
 import com.example.rollapp.retrofit.cechaApi;
 import com.example.rollapp.retrofit.kartaApi;
+import com.example.rollapp.retrofit.postacApi;
 import com.example.rollapp.retrofit.retrofitservice;
 
 import java.util.ArrayList;
@@ -235,6 +237,7 @@ public class cechyPostaci extends AppCompatActivity {
 
         SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
         SharedPreferences.Editor editor = sessionstorage.edit();
+
 
         if (sessionstorage.getString("modyfikajca","") == "")
         {

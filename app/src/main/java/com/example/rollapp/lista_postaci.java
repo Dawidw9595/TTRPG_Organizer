@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -19,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class lista_postaci extends AppCompatActivity {
+public class lista_postaci extends AppCompatActivity implements postacAdapter.OnItemClickListener{
 
     private RecyclerView recyclerView;
 
@@ -45,7 +46,7 @@ public class lista_postaci extends AppCompatActivity {
     }
 
     private void populateListView(ArrayList<postac> pos) {
-        postacAdapter postacAdapter = new postacAdapter(pos);
+        postacAdapter postacAdapter = new postacAdapter(pos,this);
         recyclerView.setAdapter(postacAdapter);
 
     }
@@ -63,4 +64,14 @@ public class lista_postaci extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(postac postac) {
+        Intent intent = new Intent(this,postacmenu.class);
+        SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+        SharedPreferences.Editor editor = sessionstorage.edit();
+        editor.putInt("id_karty",postac.getId_karty());
+        editor.putString("nazwapostaci",postac.getNazwa_postaci());
+        editor.commit();
+        startActivity(intent);
+    }
 }

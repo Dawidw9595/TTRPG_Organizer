@@ -1,5 +1,6 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.wiedzmin_cechy;
 import com.example.rollapp.model.wiedzmin_zdolnosci_ciala;
 import com.example.rollapp.model.wiedzmin_zdolnosci_emocji;
 
@@ -19,4 +20,10 @@ public interface emocjaApi {
 
     @POST("/emocje/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji);
+
+    @POST("/emocje/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/emocje/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji);
 }

@@ -1,6 +1,7 @@
 package com.example.rollapp.retrofit;
 
 import com.example.rollapp.model.wiedzmin_zdolnosci_ciala;
+import com.example.rollapp.model.wiedzmin_zdolnosci_rozum;
 import com.example.rollapp.model.wiedzmin_zdolnosci_woli;
 
 import java.util.ArrayList;
@@ -19,4 +20,10 @@ public interface wolaApi {
 
     @POST("/wola/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_woli wiedzmin_zdolnosci_woli);
+
+    @POST("/wola/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/wola/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_woli wiedzmin_zdolnosci_woli);
 }

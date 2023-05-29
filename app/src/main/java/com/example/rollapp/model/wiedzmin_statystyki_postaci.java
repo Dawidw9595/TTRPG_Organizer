@@ -16,6 +16,8 @@ public class wiedzmin_statystyki_postaci {
     private int zdrowienie;
     private String piesc;
     private String kop;
+
+    private int koniec;
     public wiedzmin_statystyki_postaci(){
     }
 
