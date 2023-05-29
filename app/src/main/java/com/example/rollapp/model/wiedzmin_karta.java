@@ -5,30 +5,25 @@ public class wiedzmin_karta {
 
     private int id;
 
-
     private int id_postaci;
 
-
     private int id_cechy;
-
 
     private int id_rozum;
 
     private int id_reakcji;
 
-
     private int id_gracji;
-
 
     private int id_ciala;
 
-
     private int id_emocji;
-
 
     private int id_fachu;
 
     private int id_woli;
+
+    private int id_wydarzenia;
 
     private String zdolnosc_charakterystyczna;
 
@@ -55,8 +50,6 @@ public class wiedzmin_karta {
     private String o_innych;
 
     private String pochodzenie;
-
-    private String wydarzenia;
 
     private int koniec;
 
@@ -151,6 +144,8 @@ public class wiedzmin_karta {
         this.id_woli = id_woli;
     }
 
+    public int getId_wdarzenia(){return id_wydarzenia;}
+    public void setId_wydarzenia(int id_wydarzenia){this.id_wydarzenia = id_wydarzenia;}
     public String getZdolnosc_charakterystyczna() {
         return zdolnosc_charakterystyczna;
     }
@@ -255,14 +250,6 @@ public class wiedzmin_karta {
         this.pochodzenie = pochodzenie;
     }
 
-    public String getWydarzenia() {
-        return wydarzenia;
-    }
-
-    public void setWydarzenia(String wydarzenia) {
-        this.wydarzenia = wydarzenia;
-    }
-
     @Override
     public String toString() {
         return "wiedzmin_karta{" +
@@ -276,6 +263,7 @@ public class wiedzmin_karta {
                 ", id_emocji=" + id_emocji +
                 ", id_fachu=" + id_fachu +
                 ", id_woli=" + id_woli +
+                ", id_wydarzenia=" + id_wydarzenia +
                 ", zdolnosc_charakterystyczna='" + zdolnosc_charakterystyczna + '\'' +
                 ", zdolnosc_profesji='" + zdolnosc_profesji + '\'' +
                 ", pieniadze=" + pieniadze +
@@ -289,7 +277,6 @@ public class wiedzmin_karta {
                 ", najbardziej_ceni='" + najbardziej_ceni + '\'' +
                 ", o_innych='" + o_innych + '\'' +
                 ", pochodzenie='" + pochodzenie + '\'' +
-                ", wydarzenia='" + wydarzenia + '\'' +
                 ", koniec=" + koniec +
                 '}';
     }

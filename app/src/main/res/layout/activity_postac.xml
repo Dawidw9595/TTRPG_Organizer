@@ -20,6 +20,18 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <ImageButton
+        android:id="@+id/dozdemocji"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toEndOf="@+id/dozdciala"
+        app:layout_constraintTop_toBottomOf="@+id/docech"
+        app:layout_constraintVertical_bias="0.068"
+        app:srcCompat="@drawable/emotions105x115" />
+
+    <ImageButton
         android:id="@+id/docech"
         android:layout_width="105dp"
         android:layout_height="115dp"
@@ -29,129 +41,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nazwapostaci"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.097"
         app:srcCompat="@drawable/cechy105x115" />
 
-    <ImageButton
-        android:id="@+id/dozdciala"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/docech"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/body105x115" />
-
-    <ImageButton
-        android:id="@+id/dozdemocji"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
-        app:layout_constraintStart_toEndOf="@+id/dozdciala"
-        app:layout_constraintTop_toBottomOf="@+id/docech"
-        app:layout_constraintVertical_bias="0.057"
-        app:srcCompat="@drawable/emotions105x115" />
-
-    <ImageButton
-        android:id="@+id/dozdfachu"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/dozdemocji"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363"
-        app:srcCompat="@drawable/trade105x115" />
-
-    <ImageButton
-        android:id="@+id/dozdgracji"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dozdciala"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/grace105x115" />
-
-    <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
-        app:layout_constraintStart_toEndOf="@+id/dozdgracji"
-        app:layout_constraintTop_toBottomOf="@+id/dozdemocji"
-        app:layout_constraintVertical_bias="0.086"
-        app:srcCompat="@drawable/reaction105x115" />
-
-    <ImageButton
-        android:id="@+id/dozdrozumu"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/dozdfachu"
-        app:layout_constraintVertical_bias="0.086"
-        app:srcCompat="@drawable/mind105x115" />
-
-    <ImageButton
-        android:id="@+id/dozdwoli"
-        android:layout_width="105dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/will105x115" />
-
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cechy"
-        app:layout_constraintBottom_toTopOf="@+id/dozdemocji"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:text="Statystyki Postaci"
+        app:layout_constraintBottom_toTopOf="@+id/dozdciala"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/docech"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ciało"
-        app:layout_constraintBottom_toTopOf="@+id/dozdgracji"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dozdciala"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Emocje"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.348"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/dozdemocji"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -164,42 +66,6 @@
         app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/dozdfachu"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gracja"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dozdgracji"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/dozdreakcji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reakcja"
-        app:layout_constraintBottom_toTopOf="@+id/dozdwoli"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rozum"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toEndOf="@+id/dozdreakcji"
-        app:layout_constraintTop_toBottomOf="@+id/dozdrozumu"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -223,32 +89,45 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779"
+        app:layout_constraintVertical_bias="0.85"
         app:srcCompat="@drawable/potion105x115" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Statystyki Postaci"
-        app:layout_constraintBottom_toTopOf="@+id/dozdciala"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/dozdgracji"
         android:layout_width="105dp"
         android:layout_height="115dp"
-        app:layout_constraintBottom_toTopOf="@+id/dozdfachu"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/docech"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779"
-        app:srcCompat="@drawable/ekwipunek105x115" />
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dozdciala"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/grace105x115" />
+
+    <ImageButton
+        android:id="@+id/dozdwoli"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/will105x115" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emocje"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/dozdemocji"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView16"
@@ -261,4 +140,151 @@
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/dozdreakcji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reakcja"
+        app:layout_constraintBottom_toTopOf="@+id/dozdwoli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/dozdrozumu"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintTop_toBottomOf="@+id/dozdfachu"
+        app:layout_constraintVertical_bias="0.106"
+        app:srcCompat="@drawable/mind105x115" />
+
+    <ImageButton
+        android:id="@+id/dozdciala"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/docech"
+        app:layout_constraintVertical_bias="0.002"
+        app:srcCompat="@drawable/body105x115" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toTopOf="@+id/dozdfachu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/docech"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:srcCompat="@drawable/ekwipunek105x115" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciało"
+        app:layout_constraintBottom_toTopOf="@+id/dozdgracji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dozdciala"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gracja"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dozdgracji"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toEndOf="@+id/dozdgracji"
+        app:layout_constraintTop_toBottomOf="@+id/dozdemocji"
+        app:layout_constraintVertical_bias="0.106"
+        app:srcCompat="@drawable/reaction105x115" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rozum"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.654"
+        app:layout_constraintStart_toEndOf="@+id/dozdreakcji"
+        app:layout_constraintTop_toBottomOf="@+id/dozdrozumu"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cechy"
+        app:layout_constraintBottom_toTopOf="@+id/dozdemocji"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/docech"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <ImageButton
+        android:id="@+id/dozdfachu"
+        android:layout_width="105dp"
+        android:layout_height="115dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toEndOf="@+id/dozdemocji"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448"
+        app:srcCompat="@drawable/trade105x115" />
+
+    <TextView
+        android:id="@+id/textkorony"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Korony"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/pieniadze"
+        android:layout_width="82dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

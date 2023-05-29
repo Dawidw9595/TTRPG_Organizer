@@ -56,7 +56,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej " , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -75,7 +75,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -94,7 +94,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -113,7 +113,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -132,7 +132,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -151,7 +151,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -170,7 +170,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -189,7 +189,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -208,7 +208,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });
@@ -227,7 +227,7 @@ public class stronaglowna extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
                 Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
             }
         });

@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".wydarzenia"
+            android:exported="false" />
+        <activity
             android:name=".stronaglownamg"
             android:exported="false" />
         <activity
@@ -51,37 +54,37 @@
             android:name=".umGracjaPostaci"
             android:exported="false"
             android:label="Gracja Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umFachPostaci"
             android:exported="false"
             android:label="Fach Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umEmocjePostaci"
             android:exported="false"
             android:label="Emocje Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umReakcjaPostaci"
             android:exported="false"
             android:label="Reakcja Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umWolaPostaci"
             android:exported="false"
             android:label="Wola Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umRozumPostaci"
             android:exported="false"
             android:label="Rozum Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".umCialoPostaci"
             android:exported="false"
             android:label="Ciało Postaci"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".cechyPostaci"
             android:exported="false"
