@@ -2,6 +2,7 @@ package com.example.rollapp.model;
 
 public class wiedzmin_karta {
 
+
     private int id;
 
 
@@ -54,9 +55,20 @@ public class wiedzmin_karta {
     private String o_innych;
 
     private String pochodzenie;
+
     private String wydarzenia;
 
+    private int koniec;
+
     public wiedzmin_karta() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_postaci() {
@@ -278,6 +290,7 @@ public class wiedzmin_karta {
                 ", o_innych='" + o_innych + '\'' +
                 ", pochodzenie='" + pochodzenie + '\'' +
                 ", wydarzenia='" + wydarzenia + '\'' +
+                ", koniec=" + koniec +
                 '}';
     }
 }

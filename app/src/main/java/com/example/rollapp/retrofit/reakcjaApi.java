@@ -1,5 +1,6 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.postac;
 import com.example.rollapp.model.wiedzmin_zdolnosci_reakcji;
 
 import java.util.ArrayList;
@@ -18,4 +19,10 @@ public interface reakcjaApi {
 
     @POST("/reakcja/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_reakcji wiedzmin_zdolnosci_reakcji);
+
+    @POST("/reakcja/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/reakcja/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_reakcji wiedzmin_zdolnosci_reakcji);
 }

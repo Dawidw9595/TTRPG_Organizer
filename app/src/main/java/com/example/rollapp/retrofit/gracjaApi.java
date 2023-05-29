@@ -19,4 +19,10 @@ public interface gracjaApi {
 
     @POST("/gracja/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
+
+    @POST("/gracja/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/gracja/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji);
 }

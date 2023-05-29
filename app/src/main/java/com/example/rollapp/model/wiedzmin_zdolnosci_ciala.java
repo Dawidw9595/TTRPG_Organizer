@@ -12,7 +12,18 @@ public class wiedzmin_zdolnosci_ciala {
 
     private int wytrzymalosc;
 
+
+    private int koniec;
+
     public wiedzmin_zdolnosci_ciala() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -54,6 +65,7 @@ public class wiedzmin_zdolnosci_ciala {
                 ", id_karta=" + id_karta +
                 ", krzepa=" + krzepa +
                 ", wytrzymalosc=" + wytrzymalosc +
+                ", koniec=" + koniec +
                 '}';
     }
 }

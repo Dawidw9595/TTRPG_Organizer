@@ -2,7 +2,9 @@ package com.example.rollapp.model;
 
 public class wiedzmin_zdolnosci_reakcji {
 
+
     private int id;
+
 
     private int id_karta;
 
@@ -22,7 +24,19 @@ public class wiedzmin_zdolnosci_reakcji {
 
     private int zeglarstwo;
 
+
+    private int koniec;
+
+
     public wiedzmin_zdolnosci_reakcji() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -118,6 +132,7 @@ public class wiedzmin_zdolnosci_reakcji {
                 ", szermierka=" + szermierka +
                 ", zwinnosc=" + zwinnosc +
                 ", zeglarstwo=" + zeglarstwo +
+                ", koniec=" + koniec +
                 '}';
     }
 }

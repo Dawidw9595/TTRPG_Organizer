@@ -7,6 +7,8 @@ public class wiedzmin_pancerz {
     private int id_pancerza;
     private int id_uszkodzeniapancerza;
 
+    private int koniec;
+
     public wiedzmin_pancerz() {
     }
 

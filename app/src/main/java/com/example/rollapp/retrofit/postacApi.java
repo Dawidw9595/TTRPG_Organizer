@@ -2,6 +2,7 @@ package com.example.rollapp.retrofit;
 
 import com.example.rollapp.model.gra;
 import com.example.rollapp.model.postac;
+import com.example.rollapp.model.wiedzmin_karta;
 
 import java.util.ArrayList;
 
@@ -22,4 +23,10 @@ public interface postacApi {
 
     @POST("/postac/setall")
     Call<Void> setall(@Body postac postac);
+
+    @POST("/postac/usunpostac")
+    Call<Void> usunpostac();
+
+    @POST("/postac/koniec")
+    Call<Void>koniec(@Body postac postac);
 }

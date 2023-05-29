@@ -1,7 +1,9 @@
 package com.example.rollapp.model;
 
 public class wiedzmin_zdolnosc_fachu {
+
     private int id;
+
 
     private int id_karta;
 
@@ -19,7 +21,18 @@ public class wiedzmin_zdolnosc_fachu {
 
     private int wlamania;
 
+
+    private int koniec;
+
     public wiedzmin_zdolnosc_fachu() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -106,6 +119,7 @@ public class wiedzmin_zdolnosc_fachu {
                 ", pulapki=" + pulapki +
                 ", rzemioslo=" + rzemioslo +
                 ", wlamania=" + wlamania +
+                ", koniec=" + koniec +
                 '}';
     }
 }

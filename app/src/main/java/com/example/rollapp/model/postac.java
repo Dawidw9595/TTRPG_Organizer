@@ -3,16 +3,34 @@ package com.example.rollapp.model;
 public class postac {
 
     private int id;
+
     private String nazwa_postaci;
+
     private int id_user;
+
     private int id_gry;
+
     private int id_karty;
+
     private String rasa;
+
     private String plec;
+
     private int wiek;
+
+    private int koniec;
 
     public postac() {
     }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
+    }
+
 
     public int getId() {
         return id;
@@ -89,6 +107,7 @@ public class postac {
                 ", rasa='" + rasa + '\'' +
                 ", plec='" + plec + '\'' +
                 ", wiek=" + wiek +
+                ", koniec=" + koniec +
                 '}';
     }
 }

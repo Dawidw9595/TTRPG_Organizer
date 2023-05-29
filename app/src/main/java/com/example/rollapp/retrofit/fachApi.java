@@ -2,6 +2,7 @@ package com.example.rollapp.retrofit;
 
 import com.example.rollapp.model.wiedzmin_zdolnosc_fachu;
 import com.example.rollapp.model.wiedzmin_zdolnosci_ciala;
+import com.example.rollapp.model.wiedzmin_zdolnosci_emocji;
 
 import java.util.ArrayList;
 
@@ -19,4 +20,10 @@ public interface fachApi {
 
     @POST("/fach/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosc_fachu wiedzmin_zdolnosc_fachu);
+
+    @POST("/fach/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/fach/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosc_fachu wiedzmin_zdolnosc_fachu);
 }

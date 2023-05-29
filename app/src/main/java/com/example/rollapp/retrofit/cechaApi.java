@@ -21,4 +21,10 @@ public interface cechaApi {
 
     @POST("/cechy/mody")
     Call<Void> modyfikuj(@Body wiedzmin_cechy wiedzmin_cechy);
+
+    @POST("/cechy/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/cechy/koniec")
+    Call<Void>koniec(@Body wiedzmin_cechy wiedzmin_cechy);
 }

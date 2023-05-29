@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     haslozbazy = response.body().get(0);
-                    Log.d("haslo", haslozbazy);
                 }
             }
 

@@ -83,6 +83,38 @@ public class postacmenu extends AppCompatActivity {
             }
         });
 
+        dozdgracji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(postacmenu.this,umGracjaPostaci.class);
+                startActivity(intent);
+            }
+        });
+
+        dozdreakcji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(postacmenu.this,umReakcjaPostaci.class);
+                startActivity(intent);
+            }
+        });
+
+        dozdrozumu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(postacmenu.this,umRozumPostaci.class);
+                startActivity(intent);
+            }
+        });
+
+        dozdwola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(postacmenu.this,umWolaPostaci.class);
+                startActivity(intent);
+            }
+        });
+
         nazwa = findViewById(R.id.nazwapostaci);
         nazwa.setText(sessionstorage.getString("nazwapostaci","Dziala"));
     }

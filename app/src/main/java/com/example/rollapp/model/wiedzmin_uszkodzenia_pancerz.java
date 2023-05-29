@@ -10,6 +10,8 @@ public class wiedzmin_uszkodzenia_pancerz {
     private int l_noga;
     private int l_reka;
     private int p_noga;
+
+    private int koniec;
     public wiedzmin_uszkodzenia_pancerz() {
     }
 

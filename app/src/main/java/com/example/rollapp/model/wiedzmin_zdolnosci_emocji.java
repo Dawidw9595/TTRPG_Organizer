@@ -2,8 +2,8 @@ package com.example.rollapp.model;
 
 public class wiedzmin_zdolnosci_emocji {
 
-    private int id;
 
+    private int id;
 
     private int id_karta;
 
@@ -27,7 +27,18 @@ public class wiedzmin_zdolnosci_emocji {
 
     private int wystepy;
 
+
+    private int koniec;
+
     public wiedzmin_zdolnosci_emocji() {
+    }
+
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
     }
 
     public int getId_karta() {
@@ -141,6 +152,7 @@ public class wiedzmin_zdolnosci_emocji {
                 ", sztuka=" + sztuka +
                 ", urok=" + urok +
                 ", wystepy=" + wystepy +
+                ", koniec=" + koniec +
                 '}';
     }
 }

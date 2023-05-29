@@ -35,7 +35,16 @@ public class stronaglownamg extends AppCompatActivity {
             twoigracze = findViewById(R.id.twoigracze);
 
             SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+            nickuzyt.setText(sessionstorage.getString("nick","Błąd"));
 
+
+            nickuzyt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(stronaglownamg.this, zmianadanychuzyt.class);
+                    startActivity(intent);
+                }
+            });
 
             losowanie.setOnClickListener(new View.OnClickListener() {
                 @Override

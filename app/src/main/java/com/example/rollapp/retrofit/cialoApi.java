@@ -1,5 +1,6 @@
 package com.example.rollapp.retrofit;
 
+import com.example.rollapp.model.wiedzmin_cechy;
 import com.example.rollapp.model.wiedzmin_zdolnosci_ciala;
 
 import java.util.ArrayList;
@@ -18,4 +19,10 @@ public interface cialoApi {
 
     @POST("/cialo/mody")
     Call<Void> modyfikuj(@Body wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala);
+
+    @POST("/cialo/usunpostac")
+    Call<Void> usunpuste();
+
+    @POST("/cialo/koniec")
+    Call<Void>koniec(@Body wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala);
 }
