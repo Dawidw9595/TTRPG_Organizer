@@ -515,7 +515,7 @@ public class umWolaPostaci extends AppCompatActivity {
                     } else if (i <= 1) {
                         Toast.makeText(umWolaPostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
                     } else {
-                        Intent intent = new Intent(umWolaPostaci.this, bronPostaci.class);
+                        Intent intent = new Intent(umWolaPostaci.this, stronaglowna.class);
                         wiedzmin_zdolnosci_woli wiedzmin_zdolnosci_woli = new wiedzmin_zdolnosci_woli();
                         getall(wiedzmin_zdolnosci_woli);
                         Toast.makeText(umWolaPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
