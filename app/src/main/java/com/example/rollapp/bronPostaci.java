@@ -180,7 +180,7 @@ public class bronPostaci extends AppCompatActivity {
                 wiedzmin_bron.setRecznosc(Integer.valueOf(recznosc.getText().toString()));
                 wiedzmin_bron.setTrwalosc(Integer.valueOf(trwalosc.getText().toString()));
                 wiedzmin_bron.setWzmocnienia(Integer.valueOf(wzmocnienia.getText().toString()));
-                wiedzmin_bron.setZasieg(zapiszbron.getText().toString());
+                wiedzmin_bron.setZasieg(zasieg.getText().toString());
                 wiedzmin_bron.setId_karty(Integer.valueOf(sessionstorage.getInt("idkarty",0)));
 
                 bronApi.mody(wiedzmin_bron).enqueue(new Callback<Void>() {
@@ -216,6 +216,7 @@ public class bronPostaci extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -228,7 +229,7 @@ public class bronPostaci extends AppCompatActivity {
         obrazenia = findViewById(R.id.wartoscpnoga);
         recznosc = findViewById(R.id.uszkodzeniapreka);
         trwalosc = findViewById(R.id.trwalosc);
-        zasieg = findViewById(R.id.zasieg);
+        zasieg = findViewById(R.id.zasiegwartosc);
         wzmocnienia = findViewById(R.id.wzmocnienia);
         zapiszbron = findViewById(R.id.zapis_statystyki_bron);
         przejdzpancerz = findViewById(R.id.zapiszbron);
@@ -267,9 +268,7 @@ public class bronPostaci extends AppCompatActivity {
                 {
                     Toast.makeText(bronPostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(bronPostaci.this, stronaglowna.class);
-                    wiedzmin_bron cechy =new wiedzmin_bron();
-                    getall(cechy);
+                    Intent intent = new Intent(bronPostaci.this, pancerz.class);
                     startActivity(intent);
                 }
             }

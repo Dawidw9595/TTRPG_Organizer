@@ -306,7 +306,6 @@ public class umEmocjePostaci extends AppCompatActivity {
                         Intent intent = new Intent(umEmocjePostaci.this, umFachPostaci.class);
                         wiedzmin_zdolnosci_emocji wiedzmin_zdolnosci_emocji = new wiedzmin_zdolnosci_emocji();
                         getall(wiedzmin_zdolnosci_emocji);
-                        Toast.makeText(umEmocjePostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

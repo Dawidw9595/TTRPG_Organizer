@@ -2,6 +2,7 @@ package com.example.rollapp.retrofit;
 
 
 import com.example.rollapp.model.wiedzmin_bron;
+import com.example.rollapp.model.wiedzmin_cechy;
 
 import java.util.ArrayList;
 
@@ -19,4 +20,11 @@ public interface bronApi {
 
     @POST("/bron/czyjest")
     Call<ArrayList<wiedzmin_bron>> czyjest(@Body wiedzmin_bron wiedzmin_bron);
+
+    @POST("/bron/koniec")
+    Call<Void>koniec(@Body wiedzmin_bron wiedzmin_bron);
+
+    @POST("/bron/usunpuste")
+    Call<Void> usunpuste();
+
 }
