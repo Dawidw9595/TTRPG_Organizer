@@ -291,7 +291,6 @@ public class umReakcjaPostaci extends AppCompatActivity {
                         Intent intent = new Intent(umReakcjaPostaci.this, umRozumPostaci.class);
                         wiedzmin_zdolnosci_reakcji wiedzmin_zdolnosci_reakcji = new wiedzmin_zdolnosci_reakcji();
                         getall(wiedzmin_zdolnosci_reakcji);
-                        Toast.makeText(umReakcjaPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

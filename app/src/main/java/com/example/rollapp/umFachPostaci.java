@@ -274,7 +274,6 @@ public class umFachPostaci extends AppCompatActivity {
                         Intent intent = new Intent(umFachPostaci.this, umGracjaPostaci.class);
                         wiedzmin_zdolnosc_fachu wiedzmin_zdolnosc_fachu = new wiedzmin_zdolnosc_fachu();
                         getall(wiedzmin_zdolnosc_fachu);
-                        Toast.makeText(umFachPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

@@ -273,7 +273,6 @@ public class cechyPostaci extends AppCompatActivity {
                         Intent intent = new Intent(cechyPostaci.this, umCialoPostaci.class);
                         wiedzmin_cechy cechy =new wiedzmin_cechy();
                         getall(cechy);
-                        Toast.makeText(cechyPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

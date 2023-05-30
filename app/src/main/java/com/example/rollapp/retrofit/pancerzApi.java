@@ -16,4 +16,16 @@ public interface pancerzApi {
     @POST("/pancerz/czyjest")
     Call<ArrayList<wiedzmin_pancerz>> czyjest(@Body wiedzmin_pancerz wiedzmin_pancerz);
 
+    @POST("/pancerz/mody")
+    Call<Void> mody(@Body wiedzmin_pancerz wiedzmin_pancerz);
+
+    @POST("/pancerz/koniec")
+    Call<Void> koniec(@Body wiedzmin_pancerz wiedzmin_pancerz);
+
+    @POST("/pancerz/usunpuste")
+    Call<Void> usunpuste();
+
+    @POST("/pancerz/updateusz")
+    Call<Void> updateusz(@Body wiedzmin_pancerz wiedzmin_pancerz);
+
 }

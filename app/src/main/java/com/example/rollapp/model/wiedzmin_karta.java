@@ -2,7 +2,6 @@ package com.example.rollapp.model;
 
 public class wiedzmin_karta {
 
-
     private int id;
 
     private int id_postaci;
@@ -23,7 +22,9 @@ public class wiedzmin_karta {
 
     private int id_woli;
 
-    private int id_wydarzenia;
+    private int id_broni;
+
+    private int id_pancerza;
 
     private String zdolnosc_charakterystyczna;
 
@@ -51,6 +52,8 @@ public class wiedzmin_karta {
 
     private String pochodzenie;
 
+    private String wydarzenia;
+
     private int koniec;
 
     public wiedzmin_karta() {
@@ -62,6 +65,22 @@ public class wiedzmin_karta {
 
     public void setKoniec(int koniec) {
         this.koniec = koniec;
+    }
+
+    public int getId_broni() {
+        return id_broni;
+    }
+
+    public void setId_broni(int id_broni) {
+        this.id_broni = id_broni;
+    }
+
+    public int getId_pancerza() {
+        return id_pancerza;
+    }
+
+    public void setId_pancerza(int id_pancerza) {
+        this.id_pancerza = id_pancerza;
     }
 
     public int getId_postaci() {
@@ -144,8 +163,6 @@ public class wiedzmin_karta {
         this.id_woli = id_woli;
     }
 
-    public int getId_wdarzenia(){return id_wydarzenia;}
-    public void setId_wydarzenia(int id_wydarzenia){this.id_wydarzenia = id_wydarzenia;}
     public String getZdolnosc_charakterystyczna() {
         return zdolnosc_charakterystyczna;
     }
@@ -250,6 +267,14 @@ public class wiedzmin_karta {
         this.pochodzenie = pochodzenie;
     }
 
+    public String getWydarzenia() {
+        return wydarzenia;
+    }
+
+    public void setWydarzenia(String wydarzenia) {
+        this.wydarzenia = wydarzenia;
+    }
+
     @Override
     public String toString() {
         return "wiedzmin_karta{" +
@@ -263,7 +288,8 @@ public class wiedzmin_karta {
                 ", id_emocji=" + id_emocji +
                 ", id_fachu=" + id_fachu +
                 ", id_woli=" + id_woli +
-                ", id_wydarzenia=" + id_wydarzenia +
+                ", id_broni=" + id_broni +
+                ", id_pancerza=" + id_pancerza +
                 ", zdolnosc_charakterystyczna='" + zdolnosc_charakterystyczna + '\'' +
                 ", zdolnosc_profesji='" + zdolnosc_profesji + '\'' +
                 ", pieniadze=" + pieniadze +
@@ -277,6 +303,7 @@ public class wiedzmin_karta {
                 ", najbardziej_ceni='" + najbardziej_ceni + '\'' +
                 ", o_innych='" + o_innych + '\'' +
                 ", pochodzenie='" + pochodzenie + '\'' +
+                ", wydarzenia='" + wydarzenia + '\'' +
                 ", koniec=" + koniec +
                 '}';
     }

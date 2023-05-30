@@ -339,7 +339,6 @@ public class umRozumPostaci extends AppCompatActivity {
                         Intent intent = new Intent(umRozumPostaci.this, umWolaPostaci.class);
                         wiedzmin_zdolnosci_rozum wiedzmin_zdolnosci_rozum = new wiedzmin_zdolnosci_rozum();
                         getall(wiedzmin_zdolnosci_rozum);
-                        Toast.makeText(umRozumPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

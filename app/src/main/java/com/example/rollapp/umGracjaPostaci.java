@@ -257,7 +257,6 @@ public class umGracjaPostaci extends AppCompatActivity {
                         Intent intent = new Intent(umGracjaPostaci.this, umReakcjaPostaci.class);
                         wiedzmin_zdolnosci_gracji wiedzmin_zdolnosci_gracji = new wiedzmin_zdolnosci_gracji();
                         getall(wiedzmin_zdolnosci_gracji);
-                        Toast.makeText(umGracjaPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }

@@ -14,4 +14,13 @@ public interface uszkodzeniapancerzApi {
     @POST("/uszkodzeniapancerz/getall")
     Call<ArrayList<wiedzmin_uszkodzenia_pancerz>> getall(@Body wiedzmin_uszkodzenia_pancerz wiedzmin_uszkodzenia_pancerz);
 
+    @POST("/uszkodzeniapancerz/mody")
+    Call<Void> mody(@Body wiedzmin_uszkodzenia_pancerz wiedzmin_uszkodzenia_pancerz);
+
+    @POST("/uszkodzeniapancerz/koniec")
+    Call<Void> koniec(@Body wiedzmin_uszkodzenia_pancerz wiedzmin_uszkodzenia_pancerz);
+
+    @POST("/uszkodzeniapancerz/usunpuste")
+    Call<Void> usunpuste();
+
 }

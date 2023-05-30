@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="949dp"
+                android:layout_height="1000dp"
                 android:backgroundTint="#FFFFFF">
 
                 <ImageView
@@ -345,6 +345,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:textSize="24sp"
+                    android:layout_marginBottom="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.235"
@@ -450,6 +451,17 @@
                     app:layout_constraintVertical_bias="1.0"
                     app:srcCompat="@drawable/damagearmor" />
 
+                <Button
+                    android:id="@+id/zapiszpancerz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:text="Zapisz pancerz"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -460,7 +472,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:text="Zapisz"
+        android:text="Koniec tworzenia postaci"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

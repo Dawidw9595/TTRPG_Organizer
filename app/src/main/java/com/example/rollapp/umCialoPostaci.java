@@ -227,7 +227,6 @@ public class umCialoPostaci extends AppCompatActivity {
                         Intent intent = new Intent(umCialoPostaci.this, umEmocjePostaci.class);
                         wiedzmin_zdolnosci_ciala wiedzmin_zdolnosci_ciala = new wiedzmin_zdolnosci_ciala();
                         getall(wiedzmin_zdolnosci_ciala);
-                        Toast.makeText(umCialoPostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
                 }
