@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface userApi {
 
@@ -23,6 +24,12 @@ public interface userApi {
 
     @POST("/user/save")
     Call<user> save(@Body user user);
+
+    @GET("users/{userId}")
+    Call<user> getuserInfo(@Path("userId") int userId);
+
+    @GET("users/{userId}/characters")
+    Call<List<String>> getuserCharacters(@Path("userId") int userId);
 
     @POST("/user/password")
     Call<ArrayList<String>> haslo(@Body user user);
