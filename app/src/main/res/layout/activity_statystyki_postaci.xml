@@ -6,9 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".statystyki_postaci">
 
+    <Button
+        android:id="@+id/zapiszstatystyki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zapisz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView6"
+        app:layout_constraintVertical_bias="0.5" />
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/scrollView6"
+        android:layout_width="406dp"
+        android:layout_height="679dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +36,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1139dp">
+                android:layout_height="1379dp">
 
                 <ImageView
                     android:id="@+id/imageView25"
@@ -272,10 +285,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.622"
+                    app:layout_constraintHorizontal_bias="0.633"
                     app:layout_constraintStart_toEndOf="@+id/textskok"
                     app:layout_constraintTop_toBottomOf="@+id/textpunktywytrwalosci"
-                    app:layout_constraintVertical_bias="0.156" />
+                    app:layout_constraintVertical_bias="0.108" />
 
                 <TextView
                     android:id="@+id/textudzwig"
@@ -312,10 +325,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.54"
+                    app:layout_constraintHorizontal_bias="0.546"
                     app:layout_constraintStart_toEndOf="@+id/textudzwig"
                     app:layout_constraintTop_toBottomOf="@+id/slawa"
-                    app:layout_constraintVertical_bias="0.125" />
+                    app:layout_constraintVertical_bias="0.047" />
 
                 <EditText
                     android:id="@+id/wprawa"
@@ -357,18 +370,82 @@
                     app:layout_constraintTop_toBottomOf="@+id/textzdrowienie"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <Button
-                    android:id="@+id/zapiszstatystyki"
+                <TextView
+                    android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Zapisz"
+                    android:text="Wigor"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/zdrowieinie"
-                    app:layout_constraintVertical_bias="0.033" />
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/wigor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Zdolność Profesji"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wigor"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/zdolnosc_profesji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView23"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Zdolność Charakterystyczna"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/zdolnosc_profesji"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <EditText
+                    android:id="@+id/zdolnosc_charakterystyczna"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView24"
+                    app:layout_constraintVertical_bias="0.0" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
