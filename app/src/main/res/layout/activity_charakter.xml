@@ -129,4 +129,27 @@
         app:layout_constraintTop_toBottomOf="@+id/textView41"
         app:layout_constraintVertical_bias="0.0" />
 
+    <Button
+        android:id="@+id/zapiszcharakter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zapisz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/osobowosc"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <Button
+        android:id="@+id/dociala"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do pochodzenia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/zapiszcharakter"
+        app:layout_constraintTop_toBottomOf="@+id/osobowosc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

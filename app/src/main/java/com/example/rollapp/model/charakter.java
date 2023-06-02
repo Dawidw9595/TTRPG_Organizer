@@ -11,6 +11,14 @@ public class charakter {
     private String o_innych;
     private String pochodzenie;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getOsobowosc() {
         return osobowosc;
     }
@@ -60,16 +68,16 @@ public class charakter {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "charakter{" +
                 "id=" + id +
-                ", id_karty=" + id_karty +
-                ", osobowosc=" + osobowosc + '\'' +
-                ", najwazniesza_osoba=" + najwazniejsza_osoba + '\'' +
-                ", najbardziej_ceni=" + najbardziej_ceni + '\'' +
-                ", o_innych=" + o_innych + '\'' +
-                ", pochodzenie=" + pochodzenie + '\'' +
                 ", koniec=" + koniec +
+                ", id_karty=" + id_karty +
+                ", osobowosc='" + osobowosc + '\'' +
+                ", najwazniejsza_osoba='" + najwazniejsza_osoba + '\'' +
+                ", najbardziej_ceni='" + najbardziej_ceni + '\'' +
+                ", o_innych='" + o_innych + '\'' +
+                ", pochodzenie='" + pochodzenie + '\'' +
                 '}';
     }
 }

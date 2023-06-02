@@ -4,25 +4,43 @@ public class wiedzmin_karta {
 
     private int id;
 
+
     private int id_postaci;
 
+
     private int id_cechy;
+
 
     private int id_rozum;
 
     private int id_reakcji;
 
+
     private int id_gracji;
+
 
     private int id_ciala;
 
+
     private int id_emocji;
+
 
     private int id_fachu;
 
     private int id_woli;
 
+
+    private int id_wydarzenia;
+
+
+    private int id_charakter;
+
+
+    private int id_wyglad;
+
+
     private int id_broni;
+
 
     private int id_pancerza;
 
@@ -35,24 +53,6 @@ public class wiedzmin_karta {
     private String ekwipunek;
 
     private int wigor;
-
-    private String ubranie;
-
-    private String osobowosc;
-
-    private String wlosy;
-
-    private String ozdoby;
-
-    private String nawazniejsza_osoba;
-
-    private String najbardziej_ceni;
-
-    private String o_innych;
-
-    private String pochodzenie;
-
-    private String wydarzenia;
 
     private int koniec;
 
@@ -163,6 +163,14 @@ public class wiedzmin_karta {
         this.id_woli = id_woli;
     }
 
+    public int getId_wydarzenia(){return id_wydarzenia;}
+    public void setId_wydarzenia(int id_wydarzenia){this.id_wydarzenia = id_wydarzenia;}
+    public int getId_charakter(){return id_charakter;}
+    public void setId_charakter(int id_charakter){this.id_charakter = id_charakter;}
+
+    public int getId_wyglad(){return id_wyglad;}
+    public void setId_wyglad(int id_wyglad){this.id_wyglad = id_wyglad;}
+
     public String getZdolnosc_charakterystyczna() {
         return zdolnosc_charakterystyczna;
     }
@@ -203,77 +211,6 @@ public class wiedzmin_karta {
         this.wigor = wigor;
     }
 
-    public String getUbranie() {
-        return ubranie;
-    }
-
-    public void setUbranie(String ubranie) {
-        this.ubranie = ubranie;
-    }
-
-    public String getOsobowosc() {
-        return osobowosc;
-    }
-
-    public void setOsobowosc(String osobowosc) {
-        this.osobowosc = osobowosc;
-    }
-
-    public String getWlosy() {
-        return wlosy;
-    }
-
-    public void setWlosy(String wlosy) {
-        this.wlosy = wlosy;
-    }
-
-    public String getOzdoby() {
-        return ozdoby;
-    }
-
-    public void setOzdoby(String ozdoby) {
-        this.ozdoby = ozdoby;
-    }
-
-    public String getNawazniejsza_osoba() {
-        return nawazniejsza_osoba;
-    }
-
-    public void setNawazniejsza_osoba(String nawazniejsza_osoba) {
-        this.nawazniejsza_osoba = nawazniejsza_osoba;
-    }
-
-    public String getNajbardziej_ceni() {
-        return najbardziej_ceni;
-    }
-
-    public void setNajbardziej_ceni(String najbardziej_ceni) {
-        this.najbardziej_ceni = najbardziej_ceni;
-    }
-
-    public String getO_innych() {
-        return o_innych;
-    }
-
-    public void setO_innych(String o_innych) {
-        this.o_innych = o_innych;
-    }
-
-    public String getPochodzenie() {
-        return pochodzenie;
-    }
-
-    public void setPochodzenie(String pochodzenie) {
-        this.pochodzenie = pochodzenie;
-    }
-
-    public String getWydarzenia() {
-        return wydarzenia;
-    }
-
-    public void setWydarzenia(String wydarzenia) {
-        this.wydarzenia = wydarzenia;
-    }
 
     @Override
     public String toString() {
@@ -290,20 +227,14 @@ public class wiedzmin_karta {
                 ", id_woli=" + id_woli +
                 ", id_broni=" + id_broni +
                 ", id_pancerza=" + id_pancerza +
+                ", id_wydarzenia=" + id_wydarzenia +
+                ", id_charakter=" + id_charakter +
+                ", id_wyglad=" + id_wyglad +
                 ", zdolnosc_charakterystyczna='" + zdolnosc_charakterystyczna + '\'' +
                 ", zdolnosc_profesji='" + zdolnosc_profesji + '\'' +
                 ", pieniadze=" + pieniadze +
                 ", ekwipunek='" + ekwipunek + '\'' +
                 ", wigor=" + wigor +
-                ", ubranie='" + ubranie + '\'' +
-                ", osobowosc='" + osobowosc + '\'' +
-                ", wlosy='" + wlosy + '\'' +
-                ", ozdoby='" + ozdoby + '\'' +
-                ", nawazniejsza_osoba='" + nawazniejsza_osoba + '\'' +
-                ", najbardziej_ceni='" + najbardziej_ceni + '\'' +
-                ", o_innych='" + o_innych + '\'' +
-                ", pochodzenie='" + pochodzenie + '\'' +
-                ", wydarzenia='" + wydarzenia + '\'' +
                 ", koniec=" + koniec +
                 '}';
     }

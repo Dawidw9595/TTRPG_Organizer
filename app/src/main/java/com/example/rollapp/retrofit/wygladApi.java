@@ -2,7 +2,10 @@ package com.example.rollapp.retrofit;
 
 
 
+import com.example.rollapp.model.charakter;
 import com.example.rollapp.model.wyglad;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -17,8 +20,11 @@ public interface wygladApi {
     Call<Void> update(@Body wyglad wyglad);
 
     @POST("/wyglad/usunpuste")
-    Call<Void> usunpuste(@Body wyglad wyglad);
+    Call<Void> usunpuste();
 
     @POST("/wyglad/koniec")
     Call<Void> koniec(@Body wyglad wyglad);
+
+    @POST("/wyglad/czyjest")
+    Call<ArrayList<charakter>> czyjest(@Body wyglad wyglad);
 }

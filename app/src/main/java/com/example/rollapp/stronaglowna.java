@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rollapp.retrofit.bronApi;
 import com.example.rollapp.retrofit.cechaApi;
+import com.example.rollapp.retrofit.charakterApi;
 import com.example.rollapp.retrofit.cialoApi;
 import com.example.rollapp.retrofit.emocjaApi;
 import com.example.rollapp.retrofit.fachApi;
@@ -25,6 +26,8 @@ import com.example.rollapp.retrofit.retrofitservice;
 import com.example.rollapp.retrofit.rozumApi;
 import com.example.rollapp.retrofit.uszkodzeniapancerzApi;
 import com.example.rollapp.retrofit.wolaApi;
+import com.example.rollapp.retrofit.wydarzeniaApi;
+import com.example.rollapp.retrofit.wygladApi;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -280,6 +283,63 @@ public class stronaglowna extends AppCompatActivity {
         uszkodzeniapancerzApi uszkodzeniapancerzApi=rts.getRetrofit().create(com.example.rollapp.retrofit.uszkodzeniapancerzApi.class);
 
         uszkodzeniapancerzApi.usunpuste().enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                usuncharakter();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private void usuncharakter()
+    {
+        retrofitservice rts = new retrofitservice();
+        charakterApi charakterApi=rts.getRetrofit().create(com.example.rollapp.retrofit.charakterApi.class);
+
+        charakterApi.usunpuste().enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                usunwyglad();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private void usunwyglad()
+    {
+        retrofitservice rts = new retrofitservice();
+        wygladApi wygladApi=rts.getRetrofit().create(com.example.rollapp.retrofit.wygladApi.class);
+
+        wygladApi.usunpuste().enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                usunwydarzenie();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(stronaglowna.this , "Problem połączenia z serwerem spróbuj ponownie pózniej" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    private void usunwydarzenie()
+    {
+        retrofitservice rts = new retrofitservice();
+        wydarzeniaApi wydarzeniaApi=rts.getRetrofit().create(com.example.rollapp.retrofit.wydarzeniaApi.class);
+
+        wydarzeniaApi.usunpuste().enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
             }

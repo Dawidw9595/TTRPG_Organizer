@@ -20,6 +20,22 @@ public class wydarzenia {
 
     public wydarzenia(){}
 
+    public int getKoniec() {
+        return koniec;
+    }
+
+    public void setKoniec(int koniec) {
+        this.koniec = koniec;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getLata_10() {return lata_10;}
     public void setLata_10(String lata_10){
         this.lata_10 = lata_10;

@@ -51,6 +51,12 @@ public interface kartaApi {
     @POST ("/karta/updatebron")
     Call<Void> updatebron(@Body wiedzmin_karta wiedzmin_karta);
 
+    @POST("/karta/updatewyglad")
+    Call<Void> updatewyglad(@Body wiedzmin_karta wiedzmin_karta);
+
+    @POST ("/karta/updatecharakter")
+    Call<Void> updatecharakter(@Body wiedzmin_karta wiedzmin_karta);
+
 
     @POST("/karta/usunpuste")
     Call<Void> usunpuste();

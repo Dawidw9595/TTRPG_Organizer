@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rollapp.model.wiedzmin_karta;
+import com.example.rollapp.retrofit.charakterApi;
 import com.example.rollapp.retrofit.graApi;
 import com.example.rollapp.retrofit.kartaApi;
 import com.example.rollapp.retrofit.postacApi;
@@ -20,6 +21,7 @@ import com.example.rollapp.retrofit.retrofitservice;
 
 import com.example.rollapp.model.gra;
 import com.example.rollapp.model.postac;
+import com.example.rollapp.model.charakter;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -33,6 +35,8 @@ import retrofit2.Response;
 public class danePostaci extends AppCompatActivity {
 
     private EditText nazwa;
+
+    private EditText pochodzenie;
 
     private EditText plec;
 
@@ -146,6 +150,73 @@ public class danePostaci extends AppCompatActivity {
         });
     }
 
+    public void sprawdzczyjestcharakter(charakter charakter)
+    {
+        retrofitservice rts = new retrofitservice();
+        charakterApi charakterApi = rts.getRetrofit().create(com.example.rollapp.retrofit.charakterApi.class);
+        SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+        charakter.setId_karty(sessionstorage.getInt("idkarty",0));
+        charakterApi.czyjest(charakter).enqueue(new Callback<ArrayList<com.example.rollapp.model.charakter>>() {
+            @Override
+            public void onResponse(Call<ArrayList<com.example.rollapp.model.charakter>> call, Response<ArrayList<com.example.rollapp.model.charakter>> response) {
+                if (response.body().isEmpty())
+                {
+                    SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                    charakter.setId_karty(sessionstorage.getInt("idkarty",0));
+                    charakter.setPochodzenie(pochodzenie.getText().toString());
+                    savecharakter(charakter);
+                }
+                else {
+                    SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                    SharedPreferences.Editor editor = sessionstorage.edit();
+                    editor.putInt("idcharakter",response.body().get(0).getId());
+                    editor.commit();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<com.example.rollapp.model.charakter>> call, Throwable t) {
+                Toast.makeText(danePostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
+
+    public void savecharakter(charakter charakter)
+    {
+        if(pochodzenie.getText().toString().isEmpty())
+        {
+            Toast.makeText(danePostaci.this, "Pochodzenie nie może być puste", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if(pochodzenie.getText().toString().length()>30)
+            {
+                Toast.makeText(danePostaci.this, "Pochodzenie nie może przekraczać 30 znaków", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                retrofitservice rts = new retrofitservice();
+                charakterApi charakterApi = rts.getRetrofit().create(com.example.rollapp.retrofit.charakterApi.class);
+
+                SharedPreferences sessionstorage = getApplicationContext().getSharedPreferences(SHERED_PREFS,0);
+                charakter.setId_karty(sessionstorage.getInt("idkarty",0));
+                charakter.setPochodzenie(pochodzenie.getText().toString());
+
+                charakterApi.save(charakter).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(danePostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                        Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+                    }
+                });
+            }
+        }
+    }
+
     public void modyfikuj(postac postac)
     {
         if (nazwa.getText().toString().isEmpty() ||
@@ -241,6 +312,23 @@ public class danePostaci extends AppCompatActivity {
             }
         }
 
+    private void updatekarte(wiedzmin_karta wiedzmin_karta)
+    {
+        retrofitservice rts = new retrofitservice();
+        kartaApi kartaApi = rts.getRetrofit().create(com.example.rollapp.retrofit.kartaApi.class);
+
+        kartaApi.updatecharakter(wiedzmin_karta).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(danePostaci.this , "Problem połączenia z serwerem spróbuj ponownie pózniej !!!" , Toast.LENGTH_LONG).show();
+                Logger.getLogger(rejestracja.class.getName()).log(Level.SEVERE,"Wystapil blad",t);
+            }
+        });
+    }
 
     public void createcard(wiedzmin_karta wiedzmin_karta)
     {
@@ -303,6 +391,7 @@ public class danePostaci extends AppCompatActivity {
         plec = findViewById(R.id.plec);
         rasa = findViewById(R.id.rasa);
         wiek = findViewById(R.id.wiek);
+        pochodzenie = findViewById(R.id.pochodzenie);
 
         zapisz = findViewById(R.id.zapisdane);
 
@@ -337,6 +426,15 @@ public class danePostaci extends AppCompatActivity {
                     modyfikuj(postac);
                     i++;
                 }
+
+                charakter charakter = new charakter();
+                charakter.setId_karty(sessionstorage.getInt("idkarty",0));
+                sprawdzczyjestcharakter(charakter);
+
+                wiedzmin_karta wiedzmin_karta = new wiedzmin_karta();
+                wiedzmin_karta.setId_charakter(sessionstorage.getInt("idcharakter",1));
+                wiedzmin_karta.setId(sessionstorage.getInt("idkarty",1));
+                updatekarte(wiedzmin_karta);
             }
         });
 
@@ -346,14 +444,13 @@ public class danePostaci extends AppCompatActivity {
                 if (i==0)
                 {
                     Toast.makeText(danePostaci.this, "Proszę naciśnij przycisk zapisz", Toast.LENGTH_SHORT).show();
+
                 }
-                else if(i<=1)
+                else if(i<=4)
                 {
                     Toast.makeText(danePostaci.this, "Proszę naciśnij przycisk ZAPISZ jeszcze raz", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(danePostaci.this, cechyPostaci.class);
-                    wiedzmin_karta karta = new wiedzmin_karta();
-                    Toast.makeText(danePostaci.this, String.valueOf(sessionstorage.getInt("idkarty",0)), Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
             }
