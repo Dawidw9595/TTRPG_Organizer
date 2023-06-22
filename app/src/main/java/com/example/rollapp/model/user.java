@@ -1,5 +1,7 @@
 package com.example.rollapp.model;
 
+import java.util.List;
+
 public class user {
 
 
@@ -23,6 +25,15 @@ public class user {
 
     }
 
+    private List<postac> listaPostaci;
+
+    public List<postac> getListaPostaci() {
+        return listaPostaci;
+    }
+
+    public void setListaPostaci(List<postac> listaPostaci) {
+        this.listaPostaci = listaPostaci;
+    }
 
     public String getEmail() {
         return email;

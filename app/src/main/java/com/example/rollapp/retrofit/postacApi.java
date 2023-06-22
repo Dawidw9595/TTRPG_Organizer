@@ -5,10 +5,13 @@ import com.example.rollapp.model.postac;
 import com.example.rollapp.model.wiedzmin_karta;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface postacApi {
 
@@ -29,4 +32,7 @@ public interface postacApi {
 
     @POST("/postac/koniec")
     Call<Void>koniec(@Body postac postac);
+    @GET("postacie/{userId}")
+    Call<List<postac>> getPostacieForUser(@Path("userId") int userId);
+
 }

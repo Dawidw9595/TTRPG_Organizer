@@ -18,6 +18,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".IGracza"
+            android:label="Informacja Gracza">
+        </activity>
+        <activity
             android:name=".charakter2"
             android:exported="false" />
         <activity
@@ -34,6 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".lista_graczy"
+            android:label="Lista Graczy"
             android:exported="false" />
         <activity
             android:name=".lista_postaci"
@@ -105,10 +110,6 @@
             android:label="Dane Postaci" />
         <activity
             android:name=".Liczba_losowa"
-            android:exported="false"
-            android:label="Rzuć Kością" />
-        <activity
-            android:name=".informacjegracza"
             android:exported="false"
             android:label="Rzuć Kością" />
         <activity

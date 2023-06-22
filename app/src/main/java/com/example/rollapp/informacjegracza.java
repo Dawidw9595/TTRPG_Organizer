@@ -1,97 +1,100 @@
 package com.example.rollapp;
 
-import android.os.Bundle;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.rollapp.R;
-import com.example.rollapp.retrofit.userApi;
-import com.example.rollapp.model.user;
-import com.example.rollapp.retrofit.retrofitservice;
-
+import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+public class informacjegracza extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME = "ttrpg.db";
+    private static final String TABLE_NAME = "users";
+    private static final String COL_IMIE = "imie";
+    private static final String COL_NICK = "nick";
+    private static final String COL_NAZWA_POSTACI = "nazwa_postaci";
 
-public class informacjegracza extends AppCompatActivity {
+    private Context context;
 
-
-    private TextView imieTextView;
-    private TextView nickTextView;
-    private TextView postacieTextView;
+    public informacjegracza(Context context) {
+        super(context, DATABASE_NAME, null, 1);
+        this.context = context;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_informacjegracza);
+    public void onCreate(SQLiteDatabase db) {
+        // Tworzenie tabeli users (jeśli jeszcze nie istnieje)
+        String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                COL_IMIE + " TEXT, " +
+                COL_NICK + " TEXT, " +
+                COL_NAZWA_POSTACI + " TEXT)";
+        db.execSQL(createTable);
+    }
 
-        imieTextView = findViewById(R.id.imieTextView);
-        nickTextView = findViewById(R.id.nickTextView);
-        postacieTextView = findViewById(R.id.postacieTextView);
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
 
-        int userId = getIntent().getIntExtra("userId", 0);
-        if (userId != 0) {
-            getUserInfoFromApi(userId);
+    public List<String> getInformacjeGracza() {
+        List<String> informacjeGracza = new ArrayList<>();
+
+        // Pobranie nazwy zalogowanego użytkownika
+        SharedPreferences sharedPreferences = context.getSharedPreferences("daneuzyt", Context.MODE_PRIVATE);
+        String nick = sharedPreferences.getString("nick", "");
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Zapytanie do pobrania informacji o użytkowniku z tabeli "users" dla zalogowanego nicku
+        String query = "SELECT " + COL_IMIE + ", " + COL_NICK +
+                " FROM " + TABLE_NAME +
+                " WHERE " + COL_NICK + " = '" + nick + "'";
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            @SuppressLint("Range") String imie = cursor.getString(cursor.getColumnIndex(COL_IMIE));
+
+            informacjeGracza.add("Imię: " + imie);
+            informacjeGracza.add("Nick: " + nick);
         }
+
+        cursor.close();
+        db.close();
+
+        return informacjeGracza;
     }
 
-    private void getUserInfoFromApi(int userId) {
-        userApi userApi = retrofitservice.getRetrofit().create(userApi.class);
+    public List<String> getPostacieGracza() {
+        List<String> postacieGracza = new ArrayList<>();
 
-        Call<user> userCall = userApi.getuserInfo(userId);
-        userCall.enqueue(new Callback<user>() {
-            @Override
-            public void onResponse(Call<user> call, Response<user> response) {
-                if (response.isSuccessful()) {
-                    user user = response.body();
-                    if (user != null) {
-                        getUserCharactersFromApi(user);
-                    }
-                } else {
-                    // Handle error
-                }
-            }
+        // Pobranie nazwy zalogowanego użytkownika
+        SharedPreferences sharedPreferences = context.getSharedPreferences("daneuzyt", Context.MODE_PRIVATE);
+        String nick = sharedPreferences.getString("nick", "");
 
-            @Override
-            public void onFailure(Call<user> call, Throwable t) {
-                // Handle failure
-            }
-        });
-    }
+        SQLiteDatabase db = this.getReadableDatabase();
 
-    private void getUserCharactersFromApi(user user) {
-        userApi userApi = retrofitservice.getRetrofit().create(userApi.class);
+        // Zapytanie do pobrania postaci użytkownika z tabeli "users" dla zalogowanego nicku
+        String query = "SELECT " + COL_NAZWA_POSTACI +
+                " FROM " + TABLE_NAME +
+                " WHERE " + COL_NICK + " = '" + nick + "'";
 
-        Call<List<String>> charactersCall = userApi.getuserCharacters(user.getId());
-        charactersCall.enqueue(new Callback<List<String>>() {
-            @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                if (response.isSuccessful()) {
-                    List<String> characters = response.body();
-                    if (characters != null) {
-                        displayUserInfo(user.getImie(), user.getNick(), characters);
-                    }
-                }  // Handle error
+        Cursor cursor = db.rawQuery(query, null);
 
-            }
-
-            @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
-                // Handle failure
-            }
-        });
-    }
-
-    private void displayUserInfo(String imie, String nick, List<String> postacie) {
-        imieTextView.setText(imie);
-        nickTextView.setText(nick);
-
-        StringBuilder postacieBuilder = new StringBuilder();
-        for (String postac : postacie) {
-            postacieBuilder.append(postac).append("\n");
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") String nazwaPostaci = cursor.getString(cursor.getColumnIndex(COL_NAZWA_POSTACI));
+                postacieGracza.add(nazwaPostaci);
+            } while (cursor.moveToNext());
         }
-        postacieTextView.setText(postacieBuilder.toString());
+
+        cursor.close();
+        db.close();
+
+        return postacieGracza;
     }
 }

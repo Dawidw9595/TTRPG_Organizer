@@ -1,4 +1,7 @@
 package com.example.rollapp.model;
+import com.example.rollapp.model.postac;
+
+import java.util.List;
 
 public class postac {
 
@@ -110,4 +113,5 @@ public class postac {
                 ", koniec=" + koniec +
                 '}';
     }
+
 }
