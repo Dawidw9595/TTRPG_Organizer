@@ -2,29 +2,45 @@ package com.example.rollapp;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class Liczba_losowa extends AppCompatActivity implements SensorEventListener {
 
+    Button wyniki;
     private long lastUpdate = 0;
     private float lastX = 0;
     private float lastY = 0;
     private float lastZ = 0;
     private int numSides = 6; // początkowa liczba ścianek na kości do gry
+    private DatabaseHelper databaseHelper;
+    private boolean isUserLoggedIn;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_losowanie);
+
+        // Inicjalizacja helpera bazy danych
+        databaseHelper = new DatabaseHelper(this);
+
+        // Sprawdzenie, czy użytkownik jest zalogowany
+        SharedPreferences sharedPreferences = getSharedPreferences("daneuzyt", 0);
+        isUserLoggedIn = sharedPreferences.contains("nick"); // Sprawdzenie, czy klucz "nick" istnieje w SharedPreferences
 
         SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -48,7 +64,28 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
         ImageButton button100 = findViewById(R.id.k100);
         button100.setOnClickListener(view -> changeNumSides(100, numSidesDisplay));
 
+        wyniki = findViewById(R.id.wyniki);
+        wyniki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Liczba_losowa.this, WynikiLosActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Sprawdzenie, czy użytkownik jest zalogowany
+        sharedPreferences = getSharedPreferences("daneuzyt", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("nick", "");
+        isUserLoggedIn = !username.isEmpty(); // Sprawdzenie, czy nazwa użytkownika jest pusta
+
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -66,13 +103,26 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
 
                 float speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000;
 
+                // Sprawdzenie, czy użytkownik jest zalogowany
+                String username = sharedPreferences.getString("nick", "");
+                isUserLoggedIn = !username.isEmpty(); // Sprawdzenie, czy nazwa użytkownika jest pusta
+
                 // jeśli prędkość przekracza próg potrząsania, generuj losową liczbę
                 if (speed > SHAKE_THRESHOLD) {
                     int randomNum;
+                    String person;
 
+                    if (isUserLoggedIn) {
+                        person = username; // Użyj nazwy użytkownika z SharedPreferences
+                        randomNum = (int) (Math.random() * numSides) + 1;  // generowanie losowej liczby
+                    } else {
+                        person = "gość";
+                        randomNum = (int) (Math.random() * numSides) + 1;  // generowanie losowej liczby
+                    }
 
-                            randomNum = (int) (Math.random() * numSides) + 1;  // generowanie losowej liczby z zakresu 10-100
-
+                    // Zapisz informacje do bazy danych
+                    String dateTime = getCurrentDateTime();  // pobranie aktualnej daty i godziny
+                    databaseHelper.saveRollData(person, randomNum, dateTime);
 
                     TextView textView = findViewById(R.id.Losuj);
                     textView.setText(Integer.toString(randomNum)); // ustawienie wylosowanej liczby w widoku
@@ -96,4 +146,9 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
     }
 
     private static final int SHAKE_THRESHOLD = 100; // ustalenie prógu potrząsania
+
+    private String getCurrentDateTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        return sdf.format(new Date());
+    }
 }
