@@ -45,7 +45,7 @@ public class lista_graczy extends AppCompatActivity implements graczAdapter.OnIt
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listaGraczy = new ArrayList<>(); // Inicjalizacja listy graczy
-        adapter = new graczAdapter(listaGraczy, new ArrayList<>()); // Tworzenie adaptera z listą graczy i pustą listą postaci
+        adapter = new graczAdapter(listaGraczy); // Tworzenie adaptera z listą graczy
         adapter.setOnItemClickListener(this);
         recyclerView.setAdapter(adapter);
 

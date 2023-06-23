@@ -145,7 +145,7 @@ public class Liczba_losowa extends AppCompatActivity implements SensorEventListe
         numSidesDisplay.setText(Integer.toString(numSides));
     }
 
-    private static final int SHAKE_THRESHOLD = 100; // ustalenie prógu potrząsania
+    private static final int SHAKE_THRESHOLD = 1000; // ustalenie prógu potrząsania
 
     private String getCurrentDateTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
